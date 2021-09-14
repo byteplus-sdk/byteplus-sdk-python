@@ -53,5 +53,5 @@ Create new token or click to view key detail.
 - Default ap-singapore-1, Specify region as param in init function if needed：
   
   ```
-  iam_service = IamService('us-east-1')
+  iam_service = IamService('ap-singapore-1')
   ```
