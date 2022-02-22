@@ -3,3 +3,6 @@
 2021-07-13 Bumped to version v1.0.0
 - Add iam sdk.
 - Add version in header.
+
+2022-02-22 Bumped to version v1.0.2
+- Support sms
