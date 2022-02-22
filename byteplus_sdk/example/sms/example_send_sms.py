@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
     body = {
         "SmsAccount": "smsAccount",
-        "Sign": "senderid",
+        "From": "BytePlus",
         "TemplateID": "ST_xxx",
         "TemplateParam": "{\"code\": \"111\"}",
         "PhoneNumbers": "+65xxxxxxxx",
@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
     body = {
         "SmsAccount" : "smsAccount",
-        "Sign" : "senderid",
+        "From" : "BytePlus",
         "TemplateID": "ST_xxx",
         "PhoneNumber": "+65xxxxxxxx",
         "CodeType": 6,
