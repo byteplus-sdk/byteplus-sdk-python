@@ -41,12 +41,22 @@ class SmsService(Service):
             "SendSms": ApiInfo("POST", "/", {"Action": "SendSms", "Version": "2020-01-01"}, {}, {}),
             "SendSmsVerifyCode": ApiInfo("POST", "/", {"Action": "SendSmsVerifyCode", "Version": "2020-01-01"}, {}, {}),
             "CheckSmsVerifyCode": ApiInfo("POST", "/", {"Action": "CheckSmsVerifyCode", "Version": "2020-01-01"}, {}, {}),
+            "Conversion": ApiInfo("POST", "/", {"Action": "Conversion", "Version": "2020-01-01"}, {}, {}),
+
         }
         return api_info
 
     @retry(tries=2, delay=0)
     def send_sms(self, body):
         res = self.json('SendSms', {}, body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+
+        return res_json
+
+    def conversion(self, body):
+        res = self.json('Conversion', {}, body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)

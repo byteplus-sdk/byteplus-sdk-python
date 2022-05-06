@@ -54,3 +54,9 @@ if __name__ == '__main__':
     
     resp = sms_service.check_sms_verify_code(body)
     print(resp)
+
+    body = {
+        "MessageIDs":["test_msg_id"]
+    }
+    resp = sms_service.conversion(body)
+    print(resp)
