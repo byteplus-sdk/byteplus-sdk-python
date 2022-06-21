@@ -56,7 +56,7 @@ class SmsService(Service):
 
         return res_json
 
-    # @retry(tries=2, delay=0)
+    @retry(tries=2, delay=0)
     def send_batch_sms(self, body):
         res = self.json('SendBatchSms', {}, body)
         if res == '':
