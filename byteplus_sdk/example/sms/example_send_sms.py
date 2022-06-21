@@ -19,56 +19,56 @@ if __name__ == '__main__':
     # sms_service.set_scheme("https")
     # sms_service.set_host('host')
 
-    body = {
-        "SmsAccount": "smsAccount",
-        "From": "BytePlus",
-        "TemplateID": "ST_xxx",
-        "TemplateParam": "{\"code\": \"111\"}",
-        "PhoneNumbers": "+65xxxxxxxx",
-        "Tag": "tag",
-    }
-
-    resp = sms_service.send_sms(body)
-    print(resp)
+    # body = {
+    #     "SmsAccount": "smsAccount",
+    #     "From": "BytePlus",
+    #     "TemplateID": "ST_xxx",
+    #     "TemplateParam": "{\"code\": \"111\"}",
+    #     "PhoneNumbers": "+65xxxxxxxx",
+    #     "Tag": "tag",
+    # }
+    #
+    # resp = sms_service.send_sms(body)
+    # print(resp)
 
     body = {
         "SmsAccount": "smsAccount",
         "Sign": "signature",
         "From": "BytePlus",
         "TemplateID": "ST_xxx",
-        "Messages": [{"TemplateParam": "{\"code\": \"1234\"}", "PhoneNumber": "65xxxxxxxx"}],
+        "Messages": [{"TemplateParam": "{\"code\": \"1234\"}", "PhoneNumber": "+65xxxxxxxx"}],
         "Tag": "tag",
     }
 
     resp = sms_service.send_batch_sms(body)
     print(resp)
 
-    body = {
-        "SmsAccount": "smsAccount",
-        "From": "BytePlus",
-        "TemplateID": "ST_xxx",
-        "PhoneNumber": "+65xxxxxxxx",
-        "CodeType": 6,
-        "TryCount": 3,
-        "ExpireTime": 240,
-        "Scene": "Test"
-    }
-
-    resp = sms_service.send_sms_verify_code(body)
-    print(resp)
-
-    body = {
-        "SmsAccount": "smsAccount",
-        "PhoneNumber": "+65xxxxxxxx",
-        "Scene": "Test",
-        "Code": "123456"
-    }
-
-    resp = sms_service.check_sms_verify_code(body)
-    print(resp)
-
-    body = {
-        "MessageIDs": ["test_msg_id"]
-    }
-    resp = sms_service.conversion(body)
-    print(resp)
+    # body = {
+    #     "SmsAccount": "smsAccount",
+    #     "From": "BytePlus",
+    #     "TemplateID": "ST_xxx",
+    #     "PhoneNumber": "+65xxxxxxxx",
+    #     "CodeType": 6,
+    #     "TryCount": 3,
+    #     "ExpireTime": 240,
+    #     "Scene": "Test"
+    # }
+    #
+    # resp = sms_service.send_sms_verify_code(body)
+    # print(resp)
+    #
+    # body = {
+    #     "SmsAccount": "smsAccount",
+    #     "PhoneNumber": "+65xxxxxxxx",
+    #     "Scene": "Test",
+    #     "Code": "123456"
+    # }
+    #
+    # resp = sms_service.check_sms_verify_code(body)
+    # print(resp)
+    #
+    # body = {
+    #     "MessageIDs": ["test_msg_id"]
+    # }
+    # resp = sms_service.conversion(body)
+    # print(resp)
