@@ -41,6 +41,7 @@ class SmsService(Service):
             "SendSms": ApiInfo("POST", "/", {"Action": "SendSms", "Version": "2020-01-01"}, {}, {}),
             "SendSmsVerifyCode": ApiInfo("POST", "/", {"Action": "SendSmsVerifyCode", "Version": "2020-01-01"}, {}, {}),
             "CheckSmsVerifyCode": ApiInfo("POST", "/", {"Action": "CheckSmsVerifyCode", "Version": "2020-01-01"}, {}, {}),
+            "SendBatchSms": ApiInfo("POST", "/", {"Action": "SendBatchSms", "Version": "2021-01-01"}, {}, {}),
             "Conversion": ApiInfo("POST", "/", {"Action": "Conversion", "Version": "2020-01-01"}, {}, {}),
 
         }
@@ -49,6 +50,15 @@ class SmsService(Service):
     @retry(tries=2, delay=0)
     def send_sms(self, body):
         res = self.json('SendSms', {}, body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+
+        return res_json
+
+    # @retry(tries=2, delay=0)
+    def send_batch_sms(self, body):
+        res = self.json('SendBatchSms', {}, body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
