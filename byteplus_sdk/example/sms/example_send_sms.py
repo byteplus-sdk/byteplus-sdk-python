@@ -32,8 +32,20 @@ if __name__ == '__main__':
     print(resp)
 
     body = {
-        "SmsAccount" : "smsAccount",
-        "From" : "BytePlus",
+        "SmsAccount": "smsAccount",
+        "Sign": "signature",
+        "From": "BytePlus",
+        "TemplateID": "ST_xxx",
+        "Messages": [{"TemplateParam": "{\"code\": \"1234\"}", "PhoneNumber": "+65xxxxxxxx"}],
+        "Tag": "tag",
+    }
+
+    resp = sms_service.send_batch_sms(body)
+    print(resp)
+
+    body = {
+        "SmsAccount": "smsAccount",
+        "From": "BytePlus",
         "TemplateID": "ST_xxx",
         "PhoneNumber": "+65xxxxxxxx",
         "CodeType": 6,
@@ -49,8 +61,14 @@ if __name__ == '__main__':
         "SmsAccount": "smsAccount",
         "PhoneNumber": "+65xxxxxxxx",
         "Scene": "Test",
-        "Code" : "123456"
+        "Code": "123456"
     }
-    
+
     resp = sms_service.check_sms_verify_code(body)
+    print(resp)
+
+    body = {
+        "MessageIDs": ["test_msg_id"]
+    }
+    resp = sms_service.conversion(body)
     print(resp)
