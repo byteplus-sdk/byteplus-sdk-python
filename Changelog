@@ -13,3 +13,6 @@
 2022-06-21 Bumped to version v1.0.4
 - Update sms demo
 - add send_batch_sms sdk
+
+2022-08-03 Bumped to version v1.0.5
+- Support cdn
