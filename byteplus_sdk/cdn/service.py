@@ -10,11 +10,12 @@ from byteplus_sdk.ServiceInfo import ServiceInfo
 SERVICE_VERSION = "2021-03-01"
 
 service_info_map = {
-    "ap-singapore-1": ServiceInfo("open.byteplusapi.com", {'accept': 'application/json', },
-                              Credentials('', '', "CDN", "ap-singapore-1"), 60 * 1, 60 * 5, "https"),
+    "ap-singapore-1": ServiceInfo("open.byteplusapi.com", {'Accept': 'application/json', },
+                                  Credentials('', '', "CDN", "ap-singapore-1"), 60 * 1, 60 * 5, 'https'),
 }
 
 api_info = {
+
     "AddCdnDomain": ApiInfo("POST", "/", {
         "Action": "AddCdnDomain", "Version": SERVICE_VERSION}, {}, {}),
 
