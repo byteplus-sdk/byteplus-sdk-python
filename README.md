@@ -1,15 +1,15 @@
 # Byteplus Python SDK
 
 ## Installation
-require python version >= 2.7
+require python version >= 3.0
 
 ```
-    pip install --user byteplus-sdk
+    pip3 install --user byteplus-sdk
 ```
 
 Upgrade sdk version from old one
 ```
-    pip install --upgrade byteplus-sdk
+    pip3 install --upgrade byteplus-sdk
 ```
 
 ## About AK/SK
