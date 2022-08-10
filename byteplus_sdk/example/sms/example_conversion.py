@@ -20,13 +20,7 @@ if __name__ == '__main__':
     # sms_service.set_host('host')
 
     body = {
-        "SmsAccount": "smsAccount",
-        "From": "BytePlus",
-        "TemplateID": "ST_xxx",
-        "TemplateParam": "{\"code\": \"111\"}",
-        "PhoneNumbers": "+65xxxxxxxx",
-        "Tag": "tag",
+        "MessageIDs": ["test_msg_id"]
     }
-
-    resp = sms_service.send_sms(body)
+    resp = sms_service.conversion(body)
     print(resp)
