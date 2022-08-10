@@ -16,3 +16,6 @@
 
 2022-08-03 Bumped to version v1.0.5
 - Support cdn
+
+2022-08-10 Bumped to version v1.0.6
+- split sms examples into different files
