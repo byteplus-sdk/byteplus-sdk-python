@@ -23,10 +23,12 @@ if __name__ == '__main__':
         "SmsAccount": "smsAccount",
         "From": "BytePlus",
         "TemplateID": "ST_xxx",
-        "TemplateParam": "{\"code\": \"111\"}",
-        "PhoneNumbers": "+65xxxxxxxx",
-        "Tag": "tag",
+        "PhoneNumber": "+65xxxxxxxx",
+        "CodeType": 6,
+        "TryCount": 3,
+        "ExpireTime": 240,
+        "Scene": "Test"
     }
 
-    resp = sms_service.send_sms(body)
+    resp = sms_service.send_sms_verify_code(body)
     print(resp)
