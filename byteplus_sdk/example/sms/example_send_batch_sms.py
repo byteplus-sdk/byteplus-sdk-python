@@ -21,12 +21,12 @@ if __name__ == '__main__':
 
     body = {
         "SmsAccount": "smsAccount",
+        "Sign": "signature",
         "From": "BytePlus",
         "TemplateID": "ST_xxx",
-        "TemplateParam": "{\"code\": \"111\"}",
-        "PhoneNumbers": "+65xxxxxxxx",
+        "Messages": [{"TemplateParam": "{\"code\": \"1234\"}", "PhoneNumber": "+65xxxxxxxx"}],
         "Tag": "tag",
     }
 
-    resp = sms_service.send_sms(body)
+    resp = sms_service.send_batch_sms(body)
     print(resp)
