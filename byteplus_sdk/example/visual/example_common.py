@@ -14,7 +14,7 @@ if __name__ == '__main__':
     # if you cannot find the needed one, please check other example files in the same dir
     # or contact us for further help
     form = dict()
-    with open("image.jpg", "rb") as f:
+    with open("image.jpeg", "rb") as f:
         import base64
         image = f.read()
         form["image_base64"] = base64.b64encode(image)
