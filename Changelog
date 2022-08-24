@@ -19,3 +19,6 @@
 
 2022-08-10 Bumped to version v1.0.6
 - split sms examples into different files
+
+2022-08-24 Bumped to version v1.0.7
+- add visual service
