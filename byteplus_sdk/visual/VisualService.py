@@ -32,8 +32,8 @@ class VisualService(Service):
     @staticmethod
     def get_api_info():
         api_info = {
-            "JPCartoon": ApiInfo("POST", "/", {"Action": "JPCartoon", "Version": "2020-08-26"}, {}, {}),
-            "FaceSwap": ApiInfo("POST", "/", {"Action": "FaceSwap", "Version": "2020-08-26"}, {}, {}),
+            "ComicPortrait": ApiInfo("POST", "/", {"Action": "ComicPortrait", "Version": "2022-08-24"}, {}, {}),
+            "PortraitFusion": ApiInfo("POST", "/", {"Action": "PortraitFusion", "Version": "2022-08-24"}, {}, {}),
         }
         return api_info
 
@@ -64,16 +64,16 @@ class VisualService(Service):
             except:
                 raise Exception(str(e))
 
-    def jpcartoon(self, form):
+    def comic_portrait(self, form):
         try:
-            res_json = self.common_handler("JPCartoon", form)
+            res_json = self.common_handler("ComicPortrait", form)
             return res_json
         except Exception as e:
             raise Exception(str(e))
 
-    def face_swap(self, form):
+    def portrait_fusion(self, form):
         try:
-            res_json = self.common_handler("FaceSwap", form)
+            res_json = self.common_handler("PortraitFusion", form)
             return res_json
         except Exception as e:
             raise Exception(str(e))

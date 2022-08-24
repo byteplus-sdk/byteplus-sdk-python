@@ -19,14 +19,14 @@ if __name__ == '__main__':
         image = f.read()
         form["image_base64"] = base64.b64encode(image)
 
-    # 人像漫画风
+    # comic portrait
     # form["cartoon_type"] = "jpcartoon_head"
     # form["rotation"] = 0 # this param is valid only when cartoon_type == jpcartoon_head
-    # resp = visual_service.jpcartoon(form)
+    # resp = visual_service.comic_portrait(form)
 
-    # 人脸融合
+    # portrait fusion
     # form["template_base64"] = "template_base64_str"
     # form["action_id"] = "faceswap"
-    # resp = visual_service.face_swap(form)
+    # resp = visual_service.portrait_fusion(form)
 
     print(resp)
