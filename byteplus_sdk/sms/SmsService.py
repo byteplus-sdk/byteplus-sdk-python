@@ -40,9 +40,18 @@ class SmsService(Service):
         api_info = {
             "SendSms": ApiInfo("POST", "/", {"Action": "SendSms", "Version": "2020-01-01"}, {}, {}),
             "SendSmsVerifyCode": ApiInfo("POST", "/", {"Action": "SendSmsVerifyCode", "Version": "2020-01-01"}, {}, {}),
-            "CheckSmsVerifyCode": ApiInfo("POST", "/", {"Action": "CheckSmsVerifyCode", "Version": "2020-01-01"}, {}, {}),
+            "CheckSmsVerifyCode": ApiInfo("POST", "/", {"Action": "CheckSmsVerifyCode", "Version": "2020-01-01"}, {},
+                                          {}),
             "SendBatchSms": ApiInfo("POST", "/", {"Action": "SendBatchSms", "Version": "2021-01-01"}, {}, {}),
             "Conversion": ApiInfo("POST", "/", {"Action": "Conversion", "Version": "2020-01-01"}, {}, {}),
+            "GetSmsTemplateAndOrderList": ApiInfo("GET", "/",
+                                                  {"Action": "GetSmsTemplateAndOrderList", "Version": "2021-01-11"}, {},
+                                                  {}),
+            "ApplySmsTemplate": ApiInfo("POST", "/", {"Action": "ApplySmsTemplate", "Version": "2021-01-11"}, {}, {}),
+            "DeleteSmsTemplate": ApiInfo("POST", "/", {"Action": "DeleteSmsTemplate", "Version": "2021-01-11"}, {}, {}),
+            "GetSubAccountList": ApiInfo("GET", "/", {"Action": "GetSubAccountList", "Version": "2021-01-11"}, {}, {}),
+            "GetSubAccountDetail": ApiInfo("GET", "/", {"Action": "GetSubAccountDetail", "Version": "2021-01-11"}, {},
+                                           {}),
 
         }
         return api_info
@@ -65,6 +74,7 @@ class SmsService(Service):
 
         return res_json
 
+    @retry(tries=2, delay=0)
     def conversion(self, body):
         res = self.json('Conversion', {}, body)
         if res == '':
@@ -73,6 +83,7 @@ class SmsService(Service):
 
         return res_json
 
+    @retry(tries=2, delay=0)
     def send_sms_verify_code(self, body):
         res = self.json('SendSmsVerifyCode', {}, body)
         if res == '':
@@ -81,8 +92,54 @@ class SmsService(Service):
 
         return res_json
 
+    @retry(tries=2, delay=0)
     def check_sms_verify_code(self, body):
         res = self.json('CheckSmsVerifyCode', {}, body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+
+        return res_json
+
+    @retry(tries=2, delay=0)
+    def get_sms_template_and_order_list(self, body):
+        res = self.json('GetSmsTemplateAndOrderList', {}, body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+
+        return res_json
+
+    @retry(tries=2, delay=0)
+    def apply_sms_template(self, body):
+        res = self.json('ApplySmsTemplate', {}, body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+
+        return res_json
+
+    @retry(tries=2, delay=0)
+    def delete_sms_template(self, body):
+        res = self.json('DeleteSmsTemplate', {}, body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+
+        return res_json
+
+    @retry(tries=2, delay=0)
+    def get_sub_account_list(self, param):
+        res = self.json('GetSubAccountList', param, {})
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+
+        return res_json
+
+    @retry(tries=2, delay=0)
+    def get_sub_account_detail(self, param):
+        res = self.json('GetSubAccountDetail', param, {})
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
