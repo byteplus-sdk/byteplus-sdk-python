@@ -3,11 +3,11 @@ import json
 import os
 import time
 from collections import OrderedDict
+
 try:
     from urllib.parse import urlencode
 except ImportError:
     from urllib import urlencode
-
 
 import requests
 
@@ -116,8 +116,12 @@ class Service(object):
 
         url = r.build()
         # 发送content-type为json的http body
-        resp = self.session.post(url, headers=r.headers, json=r.body,
-                                 timeout=(self.service_info.connection_timeout, self.service_info.socket_timeout))
+        if api_info.method == "GET":
+            resp = self.session.get(url, headers=r.headers, json=r.body,
+                                    timeout=(self.service_info.connection_timeout, self.service_info.socket_timeout))
+        else:
+            resp = self.session.post(url, headers=r.headers, json=r.body,
+                                     timeout=(self.service_info.connection_timeout, self.service_info.socket_timeout))
         if resp.status_code == 200:
             return json.dumps(resp.json())
         else:
