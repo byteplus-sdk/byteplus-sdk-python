@@ -17,16 +17,12 @@ if __name__ == '__main__':
     sms_service.set_sk('sk')
     # sms_service.set_scheme("http")
     # sms_service.set_scheme("https")
-    # sms_service.set_host('host')
+    # sms_service.set_host('host')¬
 
-    body = {
-        "SmsAccount": "smsAccount",
-        "From": "BytePlus",
-        "TemplateID": "ST_xxx",
-        "TemplateParam": "{\"code\": \"111\"}",
-        "PhoneNumbers": "+65xxxxxxxx",
-        "Tag": "tag",
+    param = {
+        "pageIndex": 1,
+        "pageSize": 1
     }
 
-    resp = sms_service.send_sms(body)
+    resp = sms_service.get_sub_account_list(param)
     print(resp)

@@ -17,16 +17,13 @@ if __name__ == '__main__':
     sms_service.set_sk('sk')
     # sms_service.set_scheme("http")
     # sms_service.set_scheme("https")
-    # sms_service.set_host('host')
+    # sms_service.set_host('host')¬
 
     body = {
-        "SmsAccount": "smsAccount",
-        "From": "BytePlus",
-        "TemplateID": "ST_xxx",
-        "TemplateParam": "{\"code\": \"111\"}",
-        "PhoneNumbers": "+65xxxxxxxx",
-        "Tag": "tag",
+        "SubAccount": "subAccount",
+        "Id": "templateId",
+        "IsOrder": True
     }
 
-    resp = sms_service.send_sms(body)
+    resp = sms_service.delete_sms_template(body)
     print(resp)

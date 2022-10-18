@@ -22,3 +22,10 @@
 
 2022-08-24 Bumped to version v1.0.7
 - add visual service
+
+2022-10-17 Bumped to version v1.0.8
+- add get_sms_template_and_order_list sdk/demo
+- add apply_sms_template sdk/demo
+- add delete_sms_template sdk/demo
+- add get_sub_account_list sdk/demo
+- get_sub_account_detail sdk/demo
