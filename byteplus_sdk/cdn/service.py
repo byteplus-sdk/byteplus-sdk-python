@@ -1,6 +1,7 @@
-# coding=utf-8
+#  -*- coding: utf-8 -*-
 import json
 import threading
+
 from byteplus_sdk.ApiInfo import ApiInfo
 from byteplus_sdk.Credentials import Credentials
 from byteplus_sdk.base.Service import Service
@@ -9,12 +10,11 @@ from byteplus_sdk.ServiceInfo import ServiceInfo
 SERVICE_VERSION = "2021-03-01"
 
 service_info_map = {
-    "ap-singapore-1": ServiceInfo("open.byteplusapi.com", {'Accept': 'application/json', },
-                                  Credentials('', '', "CDN", "ap-singapore-1"), 60 * 1, 60 * 5, 'https'),
+    "ap-singapore-1": ServiceInfo("open.byteplusapi.com", {'accept': 'application/json', },
+                              Credentials('', '', "CDN", "ap-singapore-1"), 60 * 1, 60 * 5, "https"),
 }
 
 api_info = {
-
     "AddCdnDomain": ApiInfo("POST", "/", {
         "Action": "AddCdnDomain", "Version": SERVICE_VERSION}, {}, {}),
 
@@ -113,6 +113,35 @@ api_info = {
 
     "DescribeCdnUpperIp": ApiInfo("POST", "/", {
         "Action": "DescribeCdnUpperIp", "Version": SERVICE_VERSION}, {}, {}),
+
+    "AddResourceTags": ApiInfo("POST", "/", {
+        "Action": "AddResourceTags", "Version": SERVICE_VERSION}, {}, {}),
+
+    "UpdateResourceTags": ApiInfo("POST", "/", {
+        "Action": "UpdateResourceTags", "Version": SERVICE_VERSION}, {}, {}),
+
+    "ListResourceTags": ApiInfo("POST", "/", {
+        "Action": "ListResourceTags", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DeleteResourceTags": ApiInfo("POST", "/", {
+        "Action": "DeleteResourceTags", "Version": SERVICE_VERSION}, {}, {}),
+
+    "AddCdnCertificate": ApiInfo("POST", "/", {
+        "Action": "AddCdnCertificate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "ListCertInfo": ApiInfo("POST", "/", {
+        "Action": "ListCertInfo", "Version": SERVICE_VERSION}, {}, {}),
+
+    "ListCdnCertInfo": ApiInfo("POST", "/", {
+        "Action": "ListCdnCertInfo", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeCertConfig": ApiInfo("POST", "/", {
+        "Action": "DescribeCertConfig", "Version": SERVICE_VERSION}, {}, {}),
+
+    "BatchDeployCert": ApiInfo("POST", "/", {
+        "Action": "BatchDeployCert", "Version": SERVICE_VERSION}, {}, {}),
+
+
 }
 
 
@@ -146,7 +175,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "AddCdnDomain"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -156,7 +185,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "StartCdnDomain"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -166,7 +195,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "StopCdnDomain"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -176,7 +205,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DeleteCdnDomain"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -186,7 +215,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "ListCdnDomains"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -196,7 +225,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeCdnConfig"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -206,7 +235,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "UpdateCdnConfig"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -216,7 +245,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeCdnData"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -226,7 +255,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeEdgeNrtDataSummary"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -236,7 +265,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeCdnOriginData"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -246,7 +275,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeOriginNrtDataSummary"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -256,7 +285,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeCdnDataDetail"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -266,7 +295,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeEdgeStatisticalData"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -276,7 +305,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeEdgeTopNrtData"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -286,7 +315,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeOriginTopNrtData"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -296,7 +325,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeEdgeTopStatusCode"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -306,7 +335,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeOriginTopStatusCode"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -316,7 +345,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeEdgeTopStatisticalData"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -326,7 +355,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeCdnRegionAndIsp"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -336,7 +365,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeCdnDomainTopData"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -346,7 +375,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeCdnService"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -356,7 +385,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeAccountingData"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -366,7 +395,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "SubmitRefreshTask"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -376,7 +405,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "SubmitPreloadTask"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -386,7 +415,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeContentTasks"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -396,7 +425,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeContentQuota"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -406,7 +435,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "SubmitBlockTask"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -416,7 +445,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "SubmitUnblockTask"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -426,7 +455,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeContentBlockTasks"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -436,7 +465,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeCdnAccessLog"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -446,7 +475,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeIPInfo"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -456,7 +485,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeIPListInfo"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -470,7 +499,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeCdnUpperIp"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -480,7 +509,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "AddResourceTags"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -490,7 +519,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "UpdateResourceTags"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -500,7 +529,7 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "ListResourceTags"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
@@ -510,7 +539,57 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DeleteResourceTags"
-        res = self.json(action, [], params)
+        res = self.json(action, [], json.dumps(params))
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def add_cdn_certificate(self, params=None):
+        if params is None:
+            params = {}
+        action = "AddCdnCertificate"
+        res = self.json(action, [], json.dumps(params))
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def list_cert_info(self, params=None):
+        if params is None:
+            params = {}
+        action = "ListCertInfo"
+        res = self.json(action, [], json.dumps(params))
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def list_cdn_cert_info(self, params=None):
+        if params is None:
+            params = {}
+        action = "ListCdnCertInfo"
+        res = self.json(action, [], json.dumps(params))
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_cert_config(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeCertConfig"
+        res = self.json(action, [], json.dumps(params))
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def batch_deploy_cert(self, params=None):
+        if params is None:
+            params = {}
+        action = "BatchDeployCert"
+        res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
