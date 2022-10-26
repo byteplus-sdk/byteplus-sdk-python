@@ -114,18 +114,6 @@ api_info = {
     "DescribeCdnUpperIp": ApiInfo("POST", "/", {
         "Action": "DescribeCdnUpperIp", "Version": SERVICE_VERSION}, {}, {}),
 
-    "AddResourceTags": ApiInfo("POST", "/", {
-        "Action": "AddResourceTags", "Version": SERVICE_VERSION}, {}, {}),
-
-    "UpdateResourceTags": ApiInfo("POST", "/", {
-        "Action": "UpdateResourceTags", "Version": SERVICE_VERSION}, {}, {}),
-
-    "ListResourceTags": ApiInfo("POST", "/", {
-        "Action": "ListResourceTags", "Version": SERVICE_VERSION}, {}, {}),
-
-    "DeleteResourceTags": ApiInfo("POST", "/", {
-        "Action": "DeleteResourceTags", "Version": SERVICE_VERSION}, {}, {}),
-
     "AddCdnCertificate": ApiInfo("POST", "/", {
         "Action": "AddCdnCertificate", "Version": SERVICE_VERSION}, {}, {}),
 
@@ -499,46 +487,6 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeCdnUpperIp"
-        res = self.json(action, [], json.dumps(params))
-        if res == '':
-            raise Exception("%s: empty response" % action)
-        res_json = json.loads(res)
-        return res_json
-
-    def add_resource_tags(self, params=None):
-        if params is None:
-            params = {}
-        action = "AddResourceTags"
-        res = self.json(action, [], json.dumps(params))
-        if res == '':
-            raise Exception("%s: empty response" % action)
-        res_json = json.loads(res)
-        return res_json
-
-    def update_resource_tags(self, params=None):
-        if params is None:
-            params = {}
-        action = "UpdateResourceTags"
-        res = self.json(action, [], json.dumps(params))
-        if res == '':
-            raise Exception("%s: empty response" % action)
-        res_json = json.loads(res)
-        return res_json
-
-    def list_resource_tags(self, params=None):
-        if params is None:
-            params = {}
-        action = "ListResourceTags"
-        res = self.json(action, [], json.dumps(params))
-        if res == '':
-            raise Exception("%s: empty response" % action)
-        res_json = json.loads(res)
-        return res_json
-
-    def delete_resource_tags(self, params=None):
-        if params is None:
-            params = {}
-        action = "DeleteResourceTags"
         res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
