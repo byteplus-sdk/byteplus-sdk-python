@@ -72,9 +72,6 @@ api_info = {
     "DescribeCdnRegionAndIsp": ApiInfo("POST", "/", {
         "Action": "DescribeCdnRegionAndIsp", "Version": SERVICE_VERSION}, {}, {}),
 
-    "DescribeCdnDomainTopData": ApiInfo("POST", "/", {
-        "Action": "DescribeCdnDomainTopData", "Version": SERVICE_VERSION}, {}, {}),
-
     "DescribeCdnService": ApiInfo("POST", "/", {
         "Action": "DescribeCdnService", "Version": SERVICE_VERSION}, {}, {}),
 
@@ -343,16 +340,6 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeCdnRegionAndIsp"
-        res = self.json(action, [], json.dumps(params))
-        if res == '':
-            raise Exception("%s: empty response" % action)
-        res_json = json.loads(res)
-        return res_json
-
-    def describe_cdn_domain_top_data(self, params=None):
-        if params is None:
-            params = {}
-        action = "DescribeCdnDomainTopData"
         res = self.json(action, [], json.dumps(params))
         if res == '':
             raise Exception("%s: empty response" % action)
