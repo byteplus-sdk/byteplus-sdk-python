@@ -1,7 +1,8 @@
 #  -*- coding: utf-8 -*-
-import sys
 import os
-sys.path.append(os.path.dirname(os.path.realpath(__file__))+"/../../../")
+import sys
+
+sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../../")
 
 from byteplus_sdk.example.cdn import ak, sk
 from byteplus_sdk.cdn.service import CDNService
@@ -15,5 +16,5 @@ if __name__ == '__main__':
         'IpList': "1.1.1.1,2.2.2.2"
     }
 
-    resp = svc.describe_iplist_info(body)
+    resp = svc.describe_ip_list_info(body)
     print(resp)

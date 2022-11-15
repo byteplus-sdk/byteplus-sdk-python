@@ -1,6 +1,7 @@
-# coding=utf-8
+#  -*- coding: utf-8 -*-
 import json
 import threading
+
 from byteplus_sdk.ApiInfo import ApiInfo
 from byteplus_sdk.Credentials import Credentials
 from byteplus_sdk.base.Service import Service
@@ -9,12 +10,11 @@ from byteplus_sdk.ServiceInfo import ServiceInfo
 SERVICE_VERSION = "2021-03-01"
 
 service_info_map = {
-    "ap-singapore-1": ServiceInfo("open.byteplusapi.com", {'Accept': 'application/json', },
-                                  Credentials('', '', "CDN", "ap-singapore-1"), 60 * 1, 60 * 5, 'https'),
+    "ap-singapore-1": ServiceInfo("open.byteplusapi.com", {'accept': 'application/json', },
+                              Credentials('', '', "CDN", "ap-singapore-1"), 60 * 1, 60 * 5, "https"),
 }
 
 api_info = {
-
     "AddCdnDomain": ApiInfo("POST", "/", {
         "Action": "AddCdnDomain", "Version": SERVICE_VERSION}, {}, {}),
 
@@ -72,9 +72,6 @@ api_info = {
     "DescribeCdnRegionAndIsp": ApiInfo("POST", "/", {
         "Action": "DescribeCdnRegionAndIsp", "Version": SERVICE_VERSION}, {}, {}),
 
-    "DescribeCdnDomainTopData": ApiInfo("POST", "/", {
-        "Action": "DescribeCdnDomainTopData", "Version": SERVICE_VERSION}, {}, {}),
-
     "DescribeCdnService": ApiInfo("POST", "/", {
         "Action": "DescribeCdnService", "Version": SERVICE_VERSION}, {}, {}),
 
@@ -113,6 +110,23 @@ api_info = {
 
     "DescribeCdnUpperIp": ApiInfo("POST", "/", {
         "Action": "DescribeCdnUpperIp", "Version": SERVICE_VERSION}, {}, {}),
+
+    "AddCdnCertificate": ApiInfo("POST", "/", {
+        "Action": "AddCdnCertificate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "ListCertInfo": ApiInfo("POST", "/", {
+        "Action": "ListCertInfo", "Version": SERVICE_VERSION}, {}, {}),
+
+    "ListCdnCertInfo": ApiInfo("POST", "/", {
+        "Action": "ListCdnCertInfo", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeCertConfig": ApiInfo("POST", "/", {
+        "Action": "DescribeCertConfig", "Version": SERVICE_VERSION}, {}, {}),
+
+    "BatchDeployCert": ApiInfo("POST", "/", {
+        "Action": "BatchDeployCert", "Version": SERVICE_VERSION}, {}, {}),
+
+
 }
 
 
@@ -332,16 +346,6 @@ class CDNService(Service):
         res_json = json.loads(res)
         return res_json
 
-    def describe_cdn_domain_top_data(self, params=None):
-        if params is None:
-            params = {}
-        action = "DescribeCdnDomainTopData"
-        res = self.json(action, [], params)
-        if res == '':
-            raise Exception("%s: empty response" % action)
-        res_json = json.loads(res)
-        return res_json
-
     def describe_cdn_service(self, params=None):
         if params is None:
             params = {}
@@ -470,6 +474,56 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeCdnUpperIp"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def add_cdn_certificate(self, params=None):
+        if params is None:
+            params = {}
+        action = "AddCdnCertificate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def list_cert_info(self, params=None):
+        if params is None:
+            params = {}
+        action = "ListCertInfo"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def list_cdn_cert_info(self, params=None):
+        if params is None:
+            params = {}
+        action = "ListCdnCertInfo"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_cert_config(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeCertConfig"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def batch_deploy_cert(self, params=None):
+        if params is None:
+            params = {}
+        action = "BatchDeployCert"
         res = self.json(action, [], params)
         if res == '':
             raise Exception("%s: empty response" % action)
