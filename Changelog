@@ -29,3 +29,6 @@
 - add delete_sms_template sdk/demo
 - add get_sub_account_list sdk/demo
 - get_sub_account_detail sdk/demo
+
+2022-11-15 Bumped to version v1.0.9
+- update cdn apis
