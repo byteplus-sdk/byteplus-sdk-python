@@ -10,7 +10,7 @@ from byteplus_sdk.const.Const import REGION_AP_SINGAPORE1
 
 LIVE_SERVICE_VERSION = "2020-08-01"
 service_info_map = {
-    REGION_AP_SINGAPORE1: ServiceInfo("byteplusapi.byted.org", {'Accept': 'application/json', },
+    REGION_AP_SINGAPORE1: ServiceInfo("open.byteplusapi.com", {'Accept': 'application/json', },
                                   Credentials('', '', "live", REGION_AP_SINGAPORE1), 5, 5, "https"),
 }
 
