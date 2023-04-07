@@ -20,9 +20,8 @@ if __name__ == '__main__':
     # sms_service.set_host('host')
 
     param = {
-        "subAccountName": "",
-        "pageIndex": 1,
-        "pageSize": 10
+        "subAccountName": "subAccount name",
+        "desc": "desc"
     }
 
     resp = sms_service.get_sub_account_list(param)
