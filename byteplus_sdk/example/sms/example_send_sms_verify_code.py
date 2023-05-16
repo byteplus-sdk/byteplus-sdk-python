@@ -21,7 +21,7 @@ if __name__ == '__main__':
         "SmsAccount": "smsAccount",
         "From": "BytePlus",
         "TemplateID": "ST_xxx",
-        "PhoneNumber": "+65xxxxxxxx",
+        "PhoneNumber": "+65xxxxxxxxx",
         "CodeType": 6,
         "TryCount": 3,
         "ExpireTime": 240,
