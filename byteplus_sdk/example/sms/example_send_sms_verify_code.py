@@ -15,15 +15,13 @@ if __name__ == '__main__':
     # call below method if you dont set ak and sk in $HOME/.volc/config
     sms_service.set_ak('ak')
     sms_service.set_sk('sk')
-    # sms_service.set_scheme("http")
-    # sms_service.set_scheme("https")
     # sms_service.set_host('host')
 
     body = {
         "SmsAccount": "smsAccount",
         "From": "BytePlus",
         "TemplateID": "ST_xxx",
-        "PhoneNumber": "+65xxxxxxxx",
+        "PhoneNumber": "+65xxxxxxxxx",
         "CodeType": 6,
         "TryCount": 3,
         "ExpireTime": 240,

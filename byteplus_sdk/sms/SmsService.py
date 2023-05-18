@@ -5,7 +5,7 @@ import threading
 from byteplus_sdk.ApiInfo import ApiInfo
 from byteplus_sdk.Credentials import Credentials
 from byteplus_sdk.base.Service import Service
-from byteplus_sdk.ServiceInfo import ServiceInfo
+from byteplus_sdk.ServiceInfoHttps import ServiceInfoHttps
 from byteplus_sdk.const.Const import *
 from retry import retry
 
@@ -28,11 +28,11 @@ class SmsService(Service):
     @staticmethod
     def get_service_info(self, region):
         if region == REGION_AP_SINGAPORE1:
-            service_info = ServiceInfo("sms.byteplusapi.com", {'Accept': 'application/json'},
-                                       Credentials('', '', 'volcSMS', region), 5, 5)
+            service_info = ServiceInfoHttps("sms.byteplusapi.com", {'Accept': 'application/json'},
+                                            Credentials('', '', 'volcSMS', region), 5, 5)
         else:
-            service_info = ServiceInfo("sms.volcengineapi.com", {'Accept': 'application/json'},
-                                       Credentials('', '', 'volcSMS', region), 5, 5)
+            service_info = ServiceInfoHttps("sms.volcengineapi.com", {'Accept': 'application/json'},
+                                            Credentials('', '', 'volcSMS', region), 5, 5)
         return service_info
 
     @staticmethod
@@ -150,10 +150,9 @@ class SmsService(Service):
 
     @retry(tries=2, delay=0)
     def insert_sms_sub_account(self, body):
-        res = self.json('InsertSubAccount', {}, json.dumps(body))
+        res = self.json('InsertSubAccount', {}, body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
 
         return res_json
-
