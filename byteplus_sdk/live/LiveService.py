@@ -128,13 +128,6 @@ api_info = {
     "DescribePushStreamMetrics": ApiInfo("POST", "/",
                                          {"Action": "DescribePushStreamMetrics", "Version": LIVE_SERVICE_VERSION}, {},
                                          {}),
-    "DescribeLiveStreamSessions": ApiInfo("POST", "/",
-                                          {"Action": "DescribeLiveStreamSessions", "Version": LIVE_SERVICE_VERSION}, {},
-                                          {}),
-    "DescribePlayResponseStatusStat": ApiInfo("POST", "/",
-                                              {"Action": "DescribePlayResponseStatusStat",
-                                               "Version": LIVE_SERVICE_VERSION}, {},
-                                              {}),
     "DescribeLiveMetricTrafficData": ApiInfo("POST", "/",
                                              {"Action": "DescribeLiveMetricTrafficData",
                                               "Version": LIVE_SERVICE_VERSION}, {},
@@ -535,22 +528,6 @@ class LiveService(Service):
 
     def describe_push_stream_metrics(self, params):
         action = "DescribePushStreamMetrics"
-        res = self.json(action, dict(), params)
-        if res == '':
-            raise Exception("%s: empty response" % action)
-        res_json = json.loads(res)
-        return res_json
-
-    def describe_live_stream_sessions(self, params):
-        action = "DescribeLiveStreamSessions"
-        res = self.json(action, dict(), params)
-        if res == '':
-            raise Exception("%s: empty response" % action)
-        res_json = json.loads(res)
-        return res_json
-
-    def describe_play_response_status_stat(self, params):
-        action = "DescribePlayResponseStatusStat"
         res = self.json(action, dict(), params)
         if res == '':
             raise Exception("%s: empty response" % action)
