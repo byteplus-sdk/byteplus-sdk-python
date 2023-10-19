@@ -136,10 +136,6 @@ api_info = {
                                                {"Action": "DescribeLiveMetricBandwidthData",
                                                 "Version": LIVE_SERVICE_VERSION}, {},
                                                {}),
-    "DescribePlayStreamList": ApiInfo("GET", "/",
-                                      {"Action": "DescribePlayStreamList",
-                                       "Version": LIVE_SERVICE_VERSION}, {},
-                                      {}),
     "DescribePullToPushBandwidthData": ApiInfo("POST", "/",
                                                {"Action": "DescribePullToPushBandwidthData",
                                                 "Version": LIVE_SERVICE_VERSION}, {},
@@ -545,14 +541,6 @@ class LiveService(Service):
     def describe_live_metric_bandwidth_data(self, params):
         action = "DescribeLiveMetricBandwidthData"
         res = self.json(action, dict(), params)
-        if res == '':
-            raise Exception("%s: empty response" % action)
-        res_json = json.loads(res)
-        return res_json
-
-    def describe_play_stream_list(self, params):
-        action = "DescribePlayStreamList"
-        res = self.get(action, params)
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
