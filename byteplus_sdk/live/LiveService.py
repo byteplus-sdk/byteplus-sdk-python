@@ -128,13 +128,6 @@ api_info = {
     "DescribePushStreamMetrics": ApiInfo("POST", "/",
                                          {"Action": "DescribePushStreamMetrics", "Version": LIVE_SERVICE_VERSION}, {},
                                          {}),
-    "DescribeLiveStreamSessions": ApiInfo("POST", "/",
-                                          {"Action": "DescribeLiveStreamSessions", "Version": LIVE_SERVICE_VERSION}, {},
-                                          {}),
-    "DescribePlayResponseStatusStat": ApiInfo("POST", "/",
-                                              {"Action": "DescribePlayResponseStatusStat",
-                                               "Version": LIVE_SERVICE_VERSION}, {},
-                                              {}),
     "DescribeLiveMetricTrafficData": ApiInfo("POST", "/",
                                              {"Action": "DescribeLiveMetricTrafficData",
                                               "Version": LIVE_SERVICE_VERSION}, {},
@@ -143,10 +136,6 @@ api_info = {
                                                {"Action": "DescribeLiveMetricBandwidthData",
                                                 "Version": LIVE_SERVICE_VERSION}, {},
                                                {}),
-    "DescribePlayStreamList": ApiInfo("GET", "/",
-                                      {"Action": "DescribePlayStreamList",
-                                       "Version": LIVE_SERVICE_VERSION}, {},
-                                      {}),
     "DescribePullToPushBandwidthData": ApiInfo("POST", "/",
                                                {"Action": "DescribePullToPushBandwidthData",
                                                 "Version": LIVE_SERVICE_VERSION}, {},
@@ -541,22 +530,6 @@ class LiveService(Service):
         res_json = json.loads(res)
         return res_json
 
-    def describe_live_stream_sessions(self, params):
-        action = "DescribeLiveStreamSessions"
-        res = self.json(action, dict(), params)
-        if res == '':
-            raise Exception("%s: empty response" % action)
-        res_json = json.loads(res)
-        return res_json
-
-    def describe_play_response_status_stat(self, params):
-        action = "DescribePlayResponseStatusStat"
-        res = self.json(action, dict(), params)
-        if res == '':
-            raise Exception("%s: empty response" % action)
-        res_json = json.loads(res)
-        return res_json
-
     def describe_live_metric_traffic_data(self, params):
         action = "DescribeLiveMetricTrafficData"
         res = self.json(action, dict(), params)
@@ -568,14 +541,6 @@ class LiveService(Service):
     def describe_live_metric_bandwidth_data(self, params):
         action = "DescribeLiveMetricBandwidthData"
         res = self.json(action, dict(), params)
-        if res == '':
-            raise Exception("%s: empty response" % action)
-        res_json = json.loads(res)
-        return res_json
-
-    def describe_play_stream_list(self, params):
-        action = "DescribePlayStreamList"
-        res = self.get(action, params)
         if res == '':
             raise Exception("%s: empty response" % action)
         res_json = json.loads(res)
