@@ -51,6 +51,9 @@ api_info = {
     "DescribeCdnDataDetail": ApiInfo("POST", "/", {
         "Action": "DescribeCdnDataDetail", "Version": SERVICE_VERSION}, {}, {}),
 
+    "DescribeDistrictIspData": ApiInfo("POST", "/", {
+        "Action": "DescribeDistrictIspData", "Version": SERVICE_VERSION}, {}, {}),
+
     "DescribeEdgeStatisticalData": ApiInfo("POST", "/", {
         "Action": "DescribeEdgeStatisticalData", "Version": SERVICE_VERSION}, {}, {}),
 
@@ -125,6 +128,51 @@ api_info = {
 
     "BatchDeployCert": ApiInfo("POST", "/", {
         "Action": "BatchDeployCert", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DeleteCdnCertificate": ApiInfo("POST", "/", {
+        "Action": "DeleteCdnCertificate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeAccountingSummary": ApiInfo("POST", "/", {
+        "Action": "DescribeAccountingSummary", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeTemplates": ApiInfo("POST", "/", {
+        "Action": "DescribeTemplates", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeServiceTemplate": ApiInfo("POST", "/", {
+        "Action": "DescribeServiceTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeCipherTemplate": ApiInfo("POST", "/", {
+        "Action": "DescribeCipherTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "CreateCipherTemplate": ApiInfo("POST", "/", {
+        "Action": "CreateCipherTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "UpdateServiceTemplate": ApiInfo("POST", "/", {
+        "Action": "UpdateServiceTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "UpdateCipherTemplate": ApiInfo("POST", "/", {
+        "Action": "UpdateCipherTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DuplicateTemplate": ApiInfo("POST", "/", {
+        "Action": "DuplicateTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "LockTemplate": ApiInfo("POST", "/", {
+        "Action": "LockTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DeleteTemplate": ApiInfo("POST", "/", {
+        "Action": "DeleteTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeTemplateDomains": ApiInfo("POST", "/", {
+        "Action": "DescribeTemplateDomains", "Version": SERVICE_VERSION}, {}, {}),
+
+    "AddTemplateDomain": ApiInfo("POST", "/", {
+        "Action": "AddTemplateDomain", "Version": SERVICE_VERSION}, {}, {}),
+
+    "UpdateTemplateDomain": ApiInfo("POST", "/", {
+        "Action": "UpdateTemplateDomain", "Version": SERVICE_VERSION}, {}, {}),
+
+    "CreateServiceTemplate": ApiInfo("POST", "/", {
+        "Action": "CreateServiceTemplate", "Version": SERVICE_VERSION}, {}, {}),
 
 
 }
@@ -270,6 +318,16 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeCdnDataDetail"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_district_isp_data(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeDistrictIspData"
         res = self.json(action, [], params)
         if res == '':
             raise Exception("%s: empty response" % action)
@@ -524,6 +582,156 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "BatchDeployCert"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def delete_cdn_certificate(self, params=None):
+        if params is None:
+            params = {}
+        action = "DeleteCdnCertificate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_accounting_summary(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeAccountingSummary"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_templates(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeTemplates"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_service_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeServiceTemplate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_cipher_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeCipherTemplate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def create_cipher_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "CreateCipherTemplate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def update_service_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "UpdateServiceTemplate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def update_cipher_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "UpdateCipherTemplate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def duplicate_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "DuplicateTemplate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def lock_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "LockTemplate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def delete_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "DeleteTemplate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_template_domains(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeTemplateDomains"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def add_template_domain(self, params=None):
+        if params is None:
+            params = {}
+        action = "AddTemplateDomain"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def update_template_domain(self, params=None):
+        if params is None:
+            params = {}
+        action = "UpdateTemplateDomain"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def create_service_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "CreateServiceTemplate"
         res = self.json(action, [], params)
         if res == '':
             raise Exception("%s: empty response" % action)
