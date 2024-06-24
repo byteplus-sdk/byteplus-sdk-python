@@ -63,6 +63,10 @@ class VodServiceConfig(Service):
             "UpdateSubtitleStatus": ApiInfo("GET", "/", {"Action": "UpdateSubtitleStatus", "Version": "2023-01-01"}, {}, {}),
             "UpdateSubtitleInfo": ApiInfo("GET", "/", {"Action": "UpdateSubtitleInfo", "Version": "2023-01-01"}, {}, {}),
             "ListVideoClassifications": ApiInfo("GET", "/",{"Action": "ListVideoClassifications", "Version": "2023-01-01"}, {},{}),
+            "CreatePlaylist": ApiInfo("GET", "/",{"Action": "CreatePlaylist", "Version": "2023-01-01"}, {},{}),
+            "GetPlaylists": ApiInfo("GET", "/",{"Action": "GetPlaylists", "Version": "2023-01-01"}, {},{}),
+            "UpdatePlaylist": ApiInfo("GET", "/",{"Action": "UpdatePlaylist", "Version": "2023-01-01"}, {},{}),
+            "DeletePlaylist": ApiInfo("GET", "/",{"Action": "DeletePlaylist", "Version": "2023-01-01"}, {},{}),
 
             # 转码
             "StartWorkflow": ApiInfo("GET", "/", {"Action": "StartWorkflow", "Version": "2023-01-01"}, {}, {}),

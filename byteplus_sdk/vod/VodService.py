@@ -4,16 +4,19 @@
 # DO NOT EDIT!
 from __future__ import print_function
 
-from google.protobuf.json_format import *
-from byteplus_sdk.Policy import *
-from byteplus_sdk.vod.VodServiceConfig import VodServiceConfig
-from retry import retry
-from zlib import crc32
-import os
-import time
 import datetime
+import os
+import sys
+import time
+from zlib import crc32
+
+from google.protobuf.json_format import *
+from retry import retry
+
 import byteplus_sdk.vod
+from byteplus_sdk.Policy import *
 from byteplus_sdk.util.Util import Util
+from byteplus_sdk.vod.VodServiceConfig import VodServiceConfig
 from byteplus_sdk.vod.models.request.request_vod_pb2 import *
 from byteplus_sdk.vod.models.response.response_vod_pb2 import *
 
@@ -26,6 +29,67 @@ LargeFileSize = 1024 * 1024 * 1024
 #
 class VodService(VodServiceConfig):
 
+    def get_private_drm_play_auth_token(self, request, expire):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            if expire > 0:
+                params['X-Expires'] = str(expire)
+            data = self.get_sign_url('GetPrivateDrmPlayAuth', params)
+            return data
+        except Exception as Argument:
+            raise Argument
+
+    def create_hls_drm_auth_token(self, auth_algorithm, expire_seconds):
+        try:
+            if expire_seconds == 0:
+                raise Exception("invalid expire")
+            deadline = int(time.mktime(datetime.datetime.now().timetuple())) + expire_seconds
+            deadTime = datetime.datetime.utcfromtimestamp(deadline).strftime("%Y%m%dT%H%M%SZ")
+            if sys.version_info[0] == 3:
+                kDate = Util.hmac_sha256(bytes(self.service_info.credentials.sk, encoding='utf-8'), deadTime)
+            else:
+                kDate = Util.hmac_sha256(bytes(self.service_info.credentials.sk.encode('utf-8')), deadTime)
+            kRegion = Util.hmac_sha256(kDate, self.service_info.credentials.region)
+            kService = Util.hmac_sha256(kRegion, 'vod')
+            kCredentials = Util.hmac_sha256(kService, 'request')
+            key = Util.to_hex(kCredentials)
+            signDataString = '&'.join([auth_algorithm, '2.0', str(deadline)])
+            if auth_algorithm == 'HMAC-SHA1':
+                if sys.version_info[0] == 3:
+                    signBytes = Util.hmac_sha1(bytes(key, encoding='utf-8'), signDataString)
+                else:
+                    signBytes = Util.hmac_sha1(bytes(key.encode('utf-8')), signDataString)
+            else:
+                raise Exception('invalid authAlgorithm')
+            sign = base64.b64encode(signBytes).decode('utf-8')
+            token = ':'.join([auth_algorithm, '2.0', str(deadline), self.service_info.credentials.ak, sign])
+            params = dict()
+            params['DrmAuthToken'] = token
+            params['X-Expires'] = str(expire_seconds)
+            getAuth = self.get_sign_url("GetHlsDecryptionKey", params)
+            return getAuth
+        except Exception as e:
+            raise e
+
+    def get_sha1_hls_drm_auth_token(self, expire_seconds):
+        try:
+            return self.create_hls_drm_auth_token('HMAC-SHA1', expire_seconds)
+        except Exception as Argument:
+            raise Argument
 
     def get_play_auth_token(self, request, expire):
         try:
@@ -48,6 +112,25 @@ class VodService(VodServiceConfig):
                 params['X-Expires'] = str(expire)
             token = self.get_sign_url('GetPlayInfo', params)
             ret = {'TokenVersion': 'V2', 'GetPlayInfoToken': token}
+            data = json.dumps(ret)
+        except Exception as Argument:
+            raise Argument
+        else:
+            if sys.version_info[0] == 3:
+                return base64.b64encode(data.encode('utf-8')).decode('utf-8')
+            else:
+                return base64.b64encode(data.decode('utf-8'))
+
+    def get_subtitle_auth_token(self, request, expire):
+        try:
+            if request.Vid == "":
+                raise Exception("Vid is None")
+            params = {"Vid": request.Vid}
+            params["Status"] = "Published"
+            if expire > 0:
+                params['X-Expires'] = str(expire)
+            token = self.get_sign_url('GetSubtitleInfoList', params)
+            ret = {'GetSubtitleAuthToken': token}
             data = json.dumps(ret)
         except Exception as Argument:
             raise Argument
@@ -132,7 +215,7 @@ class VodService(VodServiceConfig):
                 if is_large_file:
                     part_number = i + 1
                 part, payload = self.upload_part(host, oid, auth, upload_id, part_number, data, is_large_file,
-                                                 storage_class)
+                                                                 storage_class)
                 if part_number == 1:
                     meta = payload['meta']
                 parts.append(part)
@@ -155,6 +238,7 @@ class VodService(VodServiceConfig):
         if storage_class == byteplus_sdk.vod.models.business.vod_upload_pb2.Archive:
             headers['X-Upload-Storage-Class'] = 'archive'
 
+
         upload_status, resp = self.put_data(url, None, headers)
         resp = json.loads(resp)
         if not upload_status:
@@ -166,7 +250,7 @@ class VodService(VodServiceConfig):
     @retry(tries=3, delay=1, backoff=2)
     def upload_part(self, host, oid, auth, upload_id, part_number, data, is_large_file, storage_class):
         url = 'https://{}/{}?partNumber={}&uploadID={}'.format(host, oid,
-                                                               part_number, upload_id)
+                                                              part_number, upload_id)
         check_sum = crc32(data) & 0xFFFFFFFF
         check_sum = "%08x" % check_sum
         headers = {'Content-CRC32': check_sum, 'Authorization': auth}
@@ -241,10 +325,84 @@ class VodService(VodServiceConfig):
             raise Exception(resp.ResponseMetadata.Error)
         return resp
 
+    #
+    # SubmitDirectEditTaskAsync.
+    #
+    # @param request VodSubmitDirectEditTaskAsyncRequest
+    # @return VodSubmitDirectEditTaskAsyncResponse
+    # @raise Exception
+    def submit_direct_edit_task_async(self, request):
+
+        try:
+            params = MessageToDict(request, False, True)
+            params['EditParam'] = json.loads(request.EditParam)
+            res = self.json("SubmitDirectEditTaskAsync", {}, json.dumps(params))
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodSubmitDirectEditTaskAsyncResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return res
+
+    #
+    # GetDirectEditResult.
+    #
+    # @param request VodGetDirectEditResultRequest
+    # @return VodGetDirectEditResultResponse
+    # @raise Exception
+    def get_direct_edit_result(self, request):
+        try:
+            jsonData = MessageToJson(request, False, True)
+            res = self.json("GetDirectEditResult", {}, jsonData)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodGetDirectEditResultResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+
+            return res
+
+    #
+    # GetDirectEditProgress.
+    #
+    # @param request VodGetDirectEditProgressRequest
+    # @return VodGetDirectEditProgressResponse
+    # @raise Exception
+    def get_direct_edit_progress(self, request):
+
+        try:
+            params = MessageToDict(request, False, True)
+            if sys.version_info[0] == 3:
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("GetDirectEditProgress", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodGetDirectEditProgressResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return res
 
 
-
-
+    #
     # GetPlayInfo.
     #
     # @param request VodGetPlayInfoRequest
@@ -278,8 +436,41 @@ class VodService(VodServiceConfig):
         else:
             return Parse(res, VodGetPlayInfoResponse(), True)
 
+    #
+    # GetPlayInfoWithLiveTimeShiftScene.
+    #
+    # @param request VodGetPlayInfoWithLiveTimeShiftSceneRequest
+    # @return VodGetPlayInfoWithLiveTimeShiftSceneResponse
+    # @raise Exception
+    def get_play_info_with_live_time_shift_scene(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("GetPlayInfoWithLiveTimeShiftScene", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodGetPlayInfoWithLiveTimeShiftSceneResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodGetPlayInfoWithLiveTimeShiftSceneResponse(), True)
 
-
+    #
     # UploadMediaByUrl.
     #
     # @param request VodUrlUploadRequest
@@ -484,6 +675,40 @@ class VodService(VodServiceConfig):
             return Parse(res, VodUpdateMediaPublishStatusResponse(), True)
 
     #
+    # UpdateMediaStorageClass.
+    #
+    # @param request VodUpdateMediaStorageClassRequest
+    # @return VodUpdateMediaStorageClassResponse
+    # @raise Exception
+    def update_media_storage_class(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("UpdateMediaStorageClass", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodUpdateMediaStorageClassResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodUpdateMediaStorageClassResponse(), True)
+
+    #
     # GetMediaInfos.
     #
     # @param request VodGetMediaInfosRequest
@@ -517,6 +742,39 @@ class VodService(VodServiceConfig):
         else:
             return Parse(res, VodGetMediaInfosResponse(), True)
 
+    #
+    # GetRecommendedPoster.
+    #
+    # @param request VodGetRecommendedPosterRequest
+    # @return VodGetRecommendedPosterResponse
+    # @raise Exception
+    def get_recommended_poster(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("GetRecommendedPoster", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodGetRecommendedPosterResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodGetRecommendedPosterResponse(), True)
 
     #
     # DeleteMedia.
@@ -722,6 +980,243 @@ class VodService(VodServiceConfig):
         else:
             return Parse(res, VodUpdateSubtitleInfoResponse(), True)
 
+    #
+    # CreatePlaylist.
+    #
+    # @param request VodCreatePlaylistRequest
+    # @return VodCreatePlaylistResponse
+    # @raise Exception
+    def create_playlist(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("CreatePlaylist", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodCreatePlaylistResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodCreatePlaylistResponse(), True)
+
+    #
+    # GetPlaylists.
+    #
+    # @param request VodGetPlaylistsRequest
+    # @return VodGetPlaylistsResponse
+    # @raise Exception
+    def get_playlists(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("GetPlaylists", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodGetPlaylistsResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodGetPlaylistsResponse(), True)
+
+    #
+    # UpdatePlaylist.
+    #
+    # @param request VodUpdatePlaylistRequest
+    # @return VodUpdatePlaylistResponse
+    # @raise Exception
+    def update_playlist(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("UpdatePlaylist", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodUpdatePlaylistResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodUpdatePlaylistResponse(), True)
+
+    #
+    # DeletePlaylist.
+    #
+    # @param request VodDeletePlaylistRequest
+    # @return VodDeletePlaylistResponse
+    # @raise Exception
+    def delete_playlist(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("DeletePlaylist", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodDeletePlaylistResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodDeletePlaylistResponse(), True)
+
+    #
+    # CreateVideoClassification.
+    #
+    # @param request VodCreateVideoClassificationRequest
+    # @return VodCreateVideoClassificationResponse
+    # @raise Exception
+    def create_video_classification(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("CreateVideoClassification", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodCreateVideoClassificationResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodCreateVideoClassificationResponse(), True)
+
+    #
+    # UpdateVideoClassification.
+    #
+    # @param request VodUpdateVideoClassificationRequest
+    # @return VodUpdateVideoClassificationResponse
+    # @raise Exception
+    def update_video_classification(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("UpdateVideoClassification", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodUpdateVideoClassificationResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodUpdateVideoClassificationResponse(), True)
+
+    #
+    # DeleteVideoClassification.
+    #
+    # @param request VodDeleteVideoClassificationRequest
+    # @return VodDeleteVideoClassificationResponse
+    # @raise Exception
+    def delete_video_classification(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("DeleteVideoClassification", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodDeleteVideoClassificationResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodDeleteVideoClassificationResponse(), True)
 
     #
     # ListVideoClassifications.
@@ -757,7 +1252,39 @@ class VodService(VodServiceConfig):
         else:
             return Parse(res, VodListVideoClassificationsResponse(), True)
 
-
+    #
+    # ListSnapshots.
+    #
+    # @param request VodListSnapshotsRequest
+    # @return VodListSnapshotsResponse
+    # @raise Exception
+    def list_snapshots(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("ListSnapshots", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodListSnapshotsResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodListSnapshotsResponse(), True)
 
     #
     # StartWorkflow.
@@ -861,7 +1388,7 @@ class VodService(VodServiceConfig):
         else:
             return Parse(res, VodGetWorkflowExecutionStatusResponse(), True)
 
-
+    #
     # CreateSpace.
     #
     # @param request VodCreateSpaceRequest
@@ -1440,6 +1967,74 @@ class VodService(VodServiceConfig):
             return Parse(res, VodCdnStatisticsCommonResponse(), True)
 
     #
+    # CreateDomain.
+    #
+    # @param request VodCreateDomainV2Request
+    # @return VodCreateDomainV2Response
+    # @raise Exception
+    def create_domain(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("CreateDomain", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodCreateDomainV2Response(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodCreateDomainV2Response(), True)
+
+    #
+    # UpdateDomainExpire.
+    #
+    # @param request VodUpdateDomainExpireV2Request
+    # @return VodUpdateDomainExpireV2Response
+    # @raise Exception
+    def update_domain_expire(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("UpdateDomainExpire", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodUpdateDomainExpireV2Response(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodUpdateDomainExpireV2Response(), True)
+
+    #
     # AddCallbackSubscription.
     #
     # @param request VodAddCallbackSubscriptionRequest
@@ -1574,3 +2169,4 @@ class VodService(VodServiceConfig):
                 raise Exception(resp.ResponseMetadata.Error.Code)
         else:
             return Parse(res, DescribeVodSnapshotDataResponse(), True)
+

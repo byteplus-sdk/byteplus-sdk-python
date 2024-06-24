@@ -6,7 +6,8 @@ from byteplus_sdk.vod.models.request.request_vod_pb2 import VodGetMediaInfosRequ
     VodUpdateMediaPublishStatusRequest, VodUpdateMediaInfoRequest, VodDeleteMediaRequest, VodDeleteTranscodesRequest, \
     VodGetMediaListRequest, VodCreateVideoClassificationRequest, VodUpdateVideoClassificationRequest, \
     VodDeleteVideoClassificationRequest, VodListVideoClassificationsRequest, VodListSnapshotsRequest, \
-    VodUpdateMediaStorageClassRequest, VodExtractMediaMetaTaskRequest
+    VodUpdateMediaStorageClassRequest, VodExtractMediaMetaTaskRequest, VodCreatePlaylistRequest, VodGetPlaylistsRequest, \
+    VodUpdatePlaylistRequest, VodDeletePlaylistRequest
 
 if __name__ == '__main__':
     vod_service = VodService()
@@ -189,5 +190,86 @@ if __name__ == '__main__':
             print(resp14.Result)
         else:
             print(resp14.ResponseMetadata.Error)
+
+    print('*' * 100)
+
+    try:
+        req15 = VodCreatePlaylistRequest()
+        req15.Name = "your Playlist Name"
+        req15.Format = "your format"
+        req15.Codec = "your codec"
+        req15.Definition = "your definition"
+        req15.Vids = "your vids"
+        req15.StartTime = "your startTime"
+        req15.EndTime = "your endTime"
+        req15.Cycles = "your cycles"
+
+        resp15 = vod_service.create_playlist(req15)
+    except Exception:
+        raise
+    else:
+        print(resp15)
+        if resp15.ResponseMetadata.Error.Code == '':
+            print(resp15.Result)
+        else:
+            print(resp15.ResponseMetadata.Error)
+
+    print('*' * 100)
+
+    try:
+        req16 = VodGetPlaylistsRequest()
+        req16.Ids = "your Playlist Ids"
+        req16.Limit = 0
+        req16.Offset = 0
+
+        resp16 = vod_service.get_playlists(req16)
+    except Exception:
+        raise
+    else:
+        print(resp16)
+        if resp16.ResponseMetadata.Error.Code == '':
+            print(resp16.Result)
+        else:
+            print(resp16.ResponseMetadata.Error)
+
+    print('*' * 100)
+
+    try:
+        req17 = VodUpdatePlaylistRequest()
+        req17.Id = "your Playlist Id"
+        req17.Name.value = "your Playlist Name"
+        req17.Format.value = "your format"
+        req17.Codec.value = "your codec"
+        req17.Definition.value = "your definition"
+        req17.Vids.value = "your vids"
+        req17.StartTime.value = "your startTime"
+        req17.EndTime.value = "your endTime"
+        req17.Cycles.value = "your cycles"
+
+        resp17 = vod_service.update_playlist(req17)
+    except Exception:
+        raise
+    else:
+        print(resp17)
+        if resp17.ResponseMetadata.Error.Code == '':
+            print("update playlist success")
+        else:
+            print(resp17.ResponseMetadata.Error)
+
+    print('*' * 100)
+
+    try:
+        req18 = VodDeletePlaylistRequest()
+        req18.Id = "your Playlist Id"
+
+        resp18 = vod_service.delete_playlist(req18)
+    except Exception:
+        raise
+    else:
+        print(resp18)
+        if resp18.ResponseMetadata.Error.Code == '':
+            print("delete playlist success")
+        else:
+            print(resp18.ResponseMetadata.Error)
 
     print('*' * 100)
