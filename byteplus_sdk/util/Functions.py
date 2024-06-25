@@ -29,5 +29,9 @@ class Function:
                           'AutoPublish': auto_publish}}
 
     @staticmethod
+    def get_start_batch_workflow_func(template_ids):
+        return {'Name': 'StartWorkflow', 'Input': {'TemplateIds': template_ids}}
+
+    @staticmethod
     def get_encryption_func(conf, policy):
         return {'Name': 'Encryption', 'Input': {'Config': conf, 'PolicyParams': policy}}
