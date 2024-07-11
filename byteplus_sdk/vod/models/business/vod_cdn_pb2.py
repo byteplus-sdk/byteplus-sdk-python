@@ -16,7 +16,7 @@ _sym_db = _symbol_database.Default()
 from byteplus_sdk.vod.models.business import vod_common_pb2 as byteplus_dot_vod_dot_business_dot_vod__common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#byteplus/vod/business/vod_cdn.proto\x12\x1c\x42yteplus.Vod.Models.Business\x1a&byteplus/vod/business/vod_common.proto\"\xe4\x01\n\x13VodDomainConfigInfo\x12\x11\n\tSpaceName\x18\x01 \x01(\t\x12N\n\x10PlayInstanceInfo\x18\x02 \x01(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodDomainInstanceInfos\x12O\n\x11ImageInstanceInfo\x18\x03 \x01(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodDomainInstanceInfos\x12\x19\n\x11\x44\x65\x66\x61ultPlayDomain\x18\x04 \x01(\t\"\xb1\x01\n\x16VodDomainInstanceInfos\x12J\n\rByteInstances\x18\x01 \x03(\x0b\x32\x33.Byteplus.Vod.Models.Business.VodDomainInstanceInfo\x12K\n\x0eOtherInstances\x18\x02 \x03(\x0b\x32\x33.Byteplus.Vod.Models.Business.VodDomainInstanceInfo\"\x98\x01\n\x15VodDomainInstanceInfo\x12\x12\n\nInstanceId\x18\x01 \x01(\t\x12=\n\x07\x44omains\x18\x02 \x03(\x0b\x32,.Byteplus.Vod.Models.Business.VodDomainoInfo\x12\x16\n\x0e\x43\x61nSelfEditing\x18\x03 \x01(\x08\x12\x14\n\x0c\x43onfigStatus\x18\x04 \x01(\t\"\xc7\x02\n\x0eVodDomainoInfo\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12\r\n\x05\x43name\x18\x02 \x01(\t\x12\x14\n\x0c\x43onfigStatus\x18\x03 \x01(\t\x12\x13\n\x0b\x43nameStatus\x18\x04 \x01(\t\x12\x0e\n\x06Status\x18\x05 \x01(\t\x12K\n\x0b\x43\x65rtificate\x18\x06 \x01(\x0b\x32\x36.Byteplus.Vod.Models.Business.VodDomainCertificateInfo\x12\x12\n\nCreateTime\x18\x07 \x01(\t\x12\x12\n\nUpdateTime\x18\x08 \x01(\t\x12\x0e\n\x06Region\x18\t \x01(\t\x12\x42\n\x07Sources\x18\n \x03(\x0b\x32\x31.Byteplus.Vod.Models.Business.VodDomainSourceInfo\x12\x12\n\nLockStatus\x18\x0b \x01(\t\"\xa2\x01\n\x18VodDomainCertificateInfo\x12\x15\n\rCertificateId\x18\x01 \x01(\t\x12\x17\n\x0f\x43\x65rtificateName\x18\x02 \x01(\t\x12\x16\n\x0e\x43\x65rtificatePub\x18\x03 \x01(\t\x12\x16\n\x0e\x43\x65rtificatePri\x18\x04 \x01(\t\x12\x13\n\x0bHttpsStatus\x18\x05 \x01(\t\x12\x11\n\tExpiredAt\x18\x06 \x01(\t\"(\n\x16VodCreateCdnTaskResult\x12\x0e\n\x06TaskId\x18\x01 \x01(\t\"x\n\x0eVodContentInfo\x12\x0e\n\x06ItemId\x18\x01 \x01(\t\x12\x0b\n\x03Url\x18\x02 \x01(\t\x12\x0e\n\x06Status\x18\x03 \x01(\t\x12\x10\n\x08TaskType\x18\x04 \x01(\t\x12\x17\n\x0f\x43reateTimestamp\x18\x05 \x01(\x05\x12\x0e\n\x06TaskId\x18\x06 \x01(\t\"\x8d\x01\n\x10VodCdnTaskResult\x12\x12\n\nTotalCount\x18\x01 \x01(\x05\x12\x0f\n\x07PageNum\x18\x02 \x01(\x05\x12\x10\n\x08PageSize\x18\x03 \x01(\x05\x12\x42\n\x0c\x43ontentInfos\x18\x04 \x03(\x0b\x32,.Byteplus.Vod.Models.Business.VodContentInfo\"\x7f\n\x16VodCdnAccessLogElement\x12\x13\n\x0b\x44ownloadUrl\x18\x01 \x01(\t\x12\x10\n\x08\x46ileSize\x18\x02 \x01(\x03\x12\x10\n\x08\x46ileName\x18\x03 \x01(\t\x12\x16\n\x0eStartTimestamp\x18\x04 \x01(\x05\x12\x14\n\x0c\x45ndTimestamp\x18\x05 \x01(\x05\"l\n\x13VodCdnAccessLogInfo\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12\x45\n\x07LogList\x18\x02 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodCdnAccessLogElement\"\\\n\x19VodListCdnAccessLogResult\x12?\n\x04Logs\x18\x01 \x03(\x0b\x32\x31.Byteplus.Vod.Models.Business.VodCdnAccessLogInfo\"B\n\x19VodCdnTopAccessUrlElement\x12\x0b\n\x03Url\x18\x01 \x01(\t\x12\n\n\x02Pv\x18\x02 \x01(\x03\x12\x0c\n\x04\x46lux\x18\x03 \x01(\x03\"i\n\x1cVodListCdnTopAccessUrlResult\x12I\n\x08UrlInfos\x18\x01 \x03(\x0b\x32\x37.Byteplus.Vod.Models.Business.VodCdnTopAccessUrlElement\"3\n\x10VodBandwidthData\x12\x0c\n\x04Time\x18\x01 \x01(\t\x12\x11\n\tBandwidth\x18\x02 \x01(\x01\"\x8a\x02\n\'VodDescribeVodDomainBandwidthDataResult\x12\x12\n\nDomainList\x18\x01 \x03(\t\x12\x11\n\tStartTime\x18\x02 \x01(\t\x12\x0f\n\x07\x45ndTime\x18\x03 \x01(\t\x12\x13\n\x0b\x41ggregation\x18\x04 \x01(\x05\x12\x15\n\rBandwidthType\x18\x05 \x01(\t\x12\x15\n\rPeakBandwidth\x18\x06 \x01(\x01\x12\x19\n\x11PeakBandwidthTime\x18\x07 \x01(\t\x12I\n\x11\x42\x61ndwidthDataList\x18\x08 \x03(\x0b\x32..Byteplus.Vod.Models.Business.VodBandwidthData\"~\n\x14VodCdnStatisticsData\x12\x0c\n\x04Name\x18\x01 \x01(\t\x12\x0e\n\x06Metric\x18\x02 \x01(\t\x12\x10\n\x08\x44\x61taType\x18\x03 \x01(\t\x12\x36\n\x06Points\x18\x04 \x03(\x0b\x32&.Byteplus.Vod.Models.Business.VodPoint\"~\n\x1cVodCdnStatisticsCommonResult\x12\x41\n\x05\x44\x61tas\x18\x01 \x03(\x0b\x32\x32.Byteplus.Vod.Models.Business.VodCdnStatisticsData\x12\x1b\n\x13NoPermissionDomains\x18\x02 \x03(\t\"H\n\x0cVodCdnIpInfo\x12\n\n\x02Ip\x18\x01 \x01(\t\x12\r\n\x05\x43\x64nIp\x18\x02 \x01(\x08\x12\x10\n\x08Location\x18\x03 \x01(\t\x12\x0b\n\x03Isp\x18\x04 \x01(\t\"T\n\x17VodDescribeIpInfoResult\x12\x39\n\x05Infos\x18\x01 \x03(\x0b\x32*.Byteplus.Vod.Models.Business.VodCdnIpInfo\"/\n\x0eVodTrafficData\x12\x0c\n\x04Time\x18\x01 \x01(\t\x12\x0f\n\x07Traffic\x18\x02 \x01(\x01\"\xe6\x01\n%VodDescribeVodDomainTrafficDataResult\x12\x12\n\nDomainList\x18\x01 \x03(\t\x12\x11\n\tStartTime\x18\x02 \x01(\t\x12\x0f\n\x07\x45ndTime\x18\x03 \x01(\t\x12\x13\n\x0b\x41ggregation\x18\x04 \x01(\x05\x12\x13\n\x0bTrafficType\x18\x05 \x01(\t\x12\x14\n\x0cTotalTraffic\x18\x06 \x01(\x01\x12\x45\n\x0fTrafficDataList\x18\x07 \x03(\x0b\x32,.Byteplus.Vod.Models.Business.VodTrafficData\"\xa6\x02\n\x13VodDomainSourceInfo\x12S\n\x11SourceStationType\x18\x01 \x01(\x0e\x32\x38.Byteplus.Vod.Models.Business.VodDomainSourceStationType\x12\x61\n\x18SourceStationAddressType\x18\x02 \x01(\x0e\x32?.Byteplus.Vod.Models.Business.VodDomainSourceStationAddressType\x12\x0e\n\x06Origin\x18\x03 \x01(\t\x12G\n\x06\x42ucket\x18\x04 \x01(\x0b\x32\x37.Byteplus.Vod.Models.Business.VodDomainOriginBucketInfo\"_\n\x19VodDomainOriginBucketInfo\x12\x12\n\nBucketName\x18\x01 \x01(\t\x12\x18\n\x10\x42ucketSourceType\x18\x02 \x01(\t\x12\x14\n\x0c\x42ucketRegion\x18\x03 \x01(\t\"+\n\x19VodSubmitBlockTasksResult\x12\x0e\n\x06TaskID\x18\x01 \x01(\t\"\x8a\x01\n\x1dVodGetContentBlockTasksResult\x12\r\n\x05Total\x18\x01 \x01(\x03\x12\x0f\n\x07PageNum\x18\x02 \x01(\x03\x12\x10\n\x08PageSize\x18\x03 \x01(\x03\x12\x37\n\x04\x44\x61ta\x18\x04 \x03(\x0b\x32).Byteplus.Vod.Models.Business.ContentTask\"`\n\x0b\x43ontentTask\x12\x0b\n\x03Url\x18\x01 \x01(\t\x12\x0e\n\x06Status\x18\x02 \x01(\t\x12\x10\n\x08TaskType\x18\x03 \x01(\t\x12\x12\n\nCreateTime\x18\x04 \x01(\x03\x12\x0e\n\x06TaskID\x18\x05 \x01(\t*\x92\x01\n\x1aVodDomainSourceStationType\x12\'\n#UndefinedVodDomainSourceStationType\x10\x00\x12!\n\x1dVodVodDomainSourceStationType\x10\x01\x12(\n$ThirdPartyVodDomainSourceStationType\x10\x02*\xa9\x01\n!VodDomainSourceStationAddressType\x12.\n*UndefinedVodDomainSourceStationAddressType\x10\x00\x12+\n\'DomainVodDomainSourceStationAddressType\x10\x01\x12\'\n#IPVodDomainSourceStationAddressType\x10\x02\x42\xd6\x01\n\'com.byteplus.service.vod.model.businessB\x06VodCdnP\x01ZGgithub.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/business\xa0\x01\x01\xd8\x01\x01\xc2\x02\x00\xca\x02$Byteplus\\Service\\Vod\\Models\\Business\xe2\x02\'Byteplus\\Service\\Vod\\Models\\GPBMetadatab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#byteplus/vod/business/vod_cdn.proto\x12\x1c\x42yteplus.Vod.Models.Business\x1a&byteplus/vod/business/vod_common.proto\"\x83\x02\n\x13VodDomainConfigInfo\x12\x11\n\tSpaceName\x18\x01 \x01(\t\x12N\n\x10PlayInstanceInfo\x18\x02 \x01(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodDomainInstanceInfos\x12O\n\x11ImageInstanceInfo\x18\x03 \x01(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodDomainInstanceInfos\x12\x19\n\x11\x44\x65\x66\x61ultPlayDomain\x18\x04 \x01(\t\x12\r\n\x05Total\x18\x05 \x01(\x03\x12\x0e\n\x06Offset\x18\x06 \x01(\x03\"\xb1\x01\n\x16VodDomainInstanceInfos\x12J\n\rByteInstances\x18\x01 \x03(\x0b\x32\x33.Byteplus.Vod.Models.Business.VodDomainInstanceInfo\x12K\n\x0eOtherInstances\x18\x02 \x03(\x0b\x32\x33.Byteplus.Vod.Models.Business.VodDomainInstanceInfo\"\x98\x01\n\x15VodDomainInstanceInfo\x12\x12\n\nInstanceId\x18\x01 \x01(\t\x12=\n\x07\x44omains\x18\x02 \x03(\x0b\x32,.Byteplus.Vod.Models.Business.VodDomainoInfo\x12\x16\n\x0e\x43\x61nSelfEditing\x18\x03 \x01(\x08\x12\x14\n\x0c\x43onfigStatus\x18\x04 \x01(\t\"\xda\x02\n\x0eVodDomainoInfo\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12\r\n\x05\x43name\x18\x02 \x01(\t\x12\x14\n\x0c\x43onfigStatus\x18\x03 \x01(\t\x12\x13\n\x0b\x43nameStatus\x18\x04 \x01(\t\x12\x0e\n\x06Status\x18\x05 \x01(\t\x12K\n\x0b\x43\x65rtificate\x18\x06 \x01(\x0b\x32\x36.Byteplus.Vod.Models.Business.VodDomainCertificateInfo\x12\x12\n\nCreateTime\x18\x07 \x01(\t\x12\x12\n\nUpdateTime\x18\x08 \x01(\t\x12\x0e\n\x06Region\x18\t \x01(\t\x12\x42\n\x07Sources\x18\n \x03(\x0b\x32\x31.Byteplus.Vod.Models.Business.VodDomainSourceInfo\x12\x12\n\nLockStatus\x18\x0b \x01(\t\x12\x11\n\tCdnStatus\x18\x0c \x01(\t\"\xca\x01\n\x18VodDomainCertificateInfo\x12\x15\n\rCertificateId\x18\x01 \x01(\t\x12\x17\n\x0f\x43\x65rtificateName\x18\x02 \x01(\t\x12\x16\n\x0e\x43\x65rtificatePub\x18\x03 \x01(\t\x12\x16\n\x0e\x43\x65rtificatePri\x18\x04 \x01(\t\x12\x13\n\x0bHttpsStatus\x18\x05 \x01(\t\x12\x11\n\tExpiredAt\x18\x06 \x01(\t\x12&\n\x1e\x43\x65rtificateCenterCertificateId\x18\x07 \x01(\t\"(\n\x16VodCreateCdnTaskResult\x12\x0e\n\x06TaskId\x18\x01 \x01(\t\"x\n\x0eVodContentInfo\x12\x0e\n\x06ItemId\x18\x01 \x01(\t\x12\x0b\n\x03Url\x18\x02 \x01(\t\x12\x0e\n\x06Status\x18\x03 \x01(\t\x12\x10\n\x08TaskType\x18\x04 \x01(\t\x12\x17\n\x0f\x43reateTimestamp\x18\x05 \x01(\x05\x12\x0e\n\x06TaskId\x18\x06 \x01(\t\"\x8d\x01\n\x10VodCdnTaskResult\x12\x12\n\nTotalCount\x18\x01 \x01(\x05\x12\x0f\n\x07PageNum\x18\x02 \x01(\x05\x12\x10\n\x08PageSize\x18\x03 \x01(\x05\x12\x42\n\x0c\x43ontentInfos\x18\x04 \x03(\x0b\x32,.Byteplus.Vod.Models.Business.VodContentInfo\"\x7f\n\x16VodCdnAccessLogElement\x12\x13\n\x0b\x44ownloadUrl\x18\x01 \x01(\t\x12\x10\n\x08\x46ileSize\x18\x02 \x01(\x03\x12\x10\n\x08\x46ileName\x18\x03 \x01(\t\x12\x16\n\x0eStartTimestamp\x18\x04 \x01(\x05\x12\x14\n\x0c\x45ndTimestamp\x18\x05 \x01(\x05\"l\n\x13VodCdnAccessLogInfo\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12\x45\n\x07LogList\x18\x02 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodCdnAccessLogElement\"\\\n\x19VodListCdnAccessLogResult\x12?\n\x04Logs\x18\x01 \x03(\x0b\x32\x31.Byteplus.Vod.Models.Business.VodCdnAccessLogInfo\"B\n\x19VodCdnTopAccessUrlElement\x12\x0b\n\x03Url\x18\x01 \x01(\t\x12\n\n\x02Pv\x18\x02 \x01(\x03\x12\x0c\n\x04\x46lux\x18\x03 \x01(\x03\"i\n\x1cVodListCdnTopAccessUrlResult\x12I\n\x08UrlInfos\x18\x01 \x03(\x0b\x32\x37.Byteplus.Vod.Models.Business.VodCdnTopAccessUrlElement\"3\n\x10VodBandwidthData\x12\x0c\n\x04Time\x18\x01 \x01(\t\x12\x11\n\tBandwidth\x18\x02 \x01(\x01\"\x8a\x02\n\'VodDescribeVodDomainBandwidthDataResult\x12\x12\n\nDomainList\x18\x01 \x03(\t\x12\x11\n\tStartTime\x18\x02 \x01(\t\x12\x0f\n\x07\x45ndTime\x18\x03 \x01(\t\x12\x13\n\x0b\x41ggregation\x18\x04 \x01(\x05\x12\x15\n\rBandwidthType\x18\x05 \x01(\t\x12\x15\n\rPeakBandwidth\x18\x06 \x01(\x01\x12\x19\n\x11PeakBandwidthTime\x18\x07 \x01(\t\x12I\n\x11\x42\x61ndwidthDataList\x18\x08 \x03(\x0b\x32..Byteplus.Vod.Models.Business.VodBandwidthData\"\xb2\x01\n\x14VodCdnStatisticsData\x12\x0c\n\x04Name\x18\x01 \x01(\t\x12\x0e\n\x06Metric\x18\x02 \x01(\t\x12\x10\n\x08\x44\x61taType\x18\x03 \x01(\t\x12\x36\n\x06Points\x18\x04 \x03(\x0b\x32&.Byteplus.Vod.Models.Business.VodPoint\x12\x0e\n\x06Region\x18\x05 \x01(\t\x12\x0b\n\x03Isp\x18\x06 \x01(\t\x12\x15\n\rBillingRegion\x18\x07 \x01(\t\"~\n\x1cVodCdnStatisticsCommonResult\x12\x41\n\x05\x44\x61tas\x18\x01 \x03(\x0b\x32\x32.Byteplus.Vod.Models.Business.VodCdnStatisticsData\x12\x1b\n\x13NoPermissionDomains\x18\x02 \x03(\t\"H\n\x0cVodCdnIpInfo\x12\n\n\x02Ip\x18\x01 \x01(\t\x12\r\n\x05\x43\x64nIp\x18\x02 \x01(\x08\x12\x10\n\x08Location\x18\x03 \x01(\t\x12\x0b\n\x03Isp\x18\x04 \x01(\t\"T\n\x17VodDescribeIpInfoResult\x12\x39\n\x05Infos\x18\x01 \x03(\x0b\x32*.Byteplus.Vod.Models.Business.VodCdnIpInfo\"/\n\x0eVodTrafficData\x12\x0c\n\x04Time\x18\x01 \x01(\t\x12\x0f\n\x07Traffic\x18\x02 \x01(\x01\"\xe6\x01\n%VodDescribeVodDomainTrafficDataResult\x12\x12\n\nDomainList\x18\x01 \x03(\t\x12\x11\n\tStartTime\x18\x02 \x01(\t\x12\x0f\n\x07\x45ndTime\x18\x03 \x01(\t\x12\x13\n\x0b\x41ggregation\x18\x04 \x01(\x05\x12\x13\n\x0bTrafficType\x18\x05 \x01(\t\x12\x14\n\x0cTotalTraffic\x18\x06 \x01(\x01\x12\x45\n\x0fTrafficDataList\x18\x07 \x03(\x0b\x32,.Byteplus.Vod.Models.Business.VodTrafficData\"\xa6\x02\n\x13VodDomainSourceInfo\x12S\n\x11SourceStationType\x18\x01 \x01(\x0e\x32\x38.Byteplus.Vod.Models.Business.VodDomainSourceStationType\x12\x61\n\x18SourceStationAddressType\x18\x02 \x01(\x0e\x32?.Byteplus.Vod.Models.Business.VodDomainSourceStationAddressType\x12\x0e\n\x06Origin\x18\x03 \x01(\t\x12G\n\x06\x42ucket\x18\x04 \x01(\x0b\x32\x37.Byteplus.Vod.Models.Business.VodDomainOriginBucketInfo\"_\n\x19VodDomainOriginBucketInfo\x12\x12\n\nBucketName\x18\x01 \x01(\t\x12\x18\n\x10\x42ucketSourceType\x18\x02 \x01(\t\x12\x14\n\x0c\x42ucketRegion\x18\x03 \x01(\t\"+\n\x19VodSubmitBlockTasksResult\x12\x0e\n\x06TaskID\x18\x01 \x01(\t\"\x8a\x01\n\x1dVodGetContentBlockTasksResult\x12\r\n\x05Total\x18\x01 \x01(\x03\x12\x0f\n\x07PageNum\x18\x02 \x01(\x03\x12\x10\n\x08PageSize\x18\x03 \x01(\x03\x12\x37\n\x04\x44\x61ta\x18\x04 \x03(\x0b\x32).Byteplus.Vod.Models.Business.ContentTask\"`\n\x0b\x43ontentTask\x12\x0b\n\x03Url\x18\x01 \x01(\t\x12\x0e\n\x06Status\x18\x02 \x01(\t\x12\x10\n\x08TaskType\x18\x03 \x01(\t\x12\x12\n\nCreateTime\x18\x04 \x01(\x03\x12\x0e\n\x06TaskID\x18\x05 \x01(\t\"\x94\x01\n\x10\x43\x64nUsageDataItem\x12\x0c\n\x04Time\x18\x01 \x01(\x03\x12\x0c\n\x04\x41rea\x18\x02 \x01(\t\x12\x0c\n\x04\x46low\x18\x03 \x01(\x03\x12\x10\n\x08HttpFlow\x18\x04 \x01(\x03\x12\x11\n\tHttpsFlow\x18\x05 \x01(\x03\x12\x0c\n\x04\x43onn\x18\x06 \x01(\x03\x12\x10\n\x08HttpConn\x18\x07 \x01(\x03\x12\x11\n\tHttpsConn\x18\x08 \x01(\x03\"e\n\x15\x44omainUsageDataDetail\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12<\n\x04\x44\x61ta\x18\x02 \x03(\x0b\x32..Byteplus.Vod.Models.Business.CdnUsageDataItem\"d\n\x1fVodListCdnUsageDataDetailResult\x12\x41\n\x04\x44\x61ta\x18\x01 \x03(\x0b\x32\x33.Byteplus.Vod.Models.Business.DomainUsageDataDetail\"\x1d\n\rCdnStatusData\x12\x0c\n\x04\x43onn\x18\x01 \x01(\x03\"\xea\x01\n\x11\x43\x64nStatusDataItem\x12\x0c\n\x04Time\x18\x01 \x01(\x03\x12\x0c\n\x04\x41rea\x18\x02 \x01(\t\x12W\n\x0cStatusDetail\x18\x03 \x03(\x0b\x32\x41.Byteplus.Vod.Models.Business.CdnStatusDataItem.StatusDetailEntry\x1a`\n\x11StatusDetailEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\x05value\x18\x02 \x01(\x0b\x32+.Byteplus.Vod.Models.Business.CdnStatusData:\x02\x38\x01\"g\n\x16\x44omainStatusDataDetail\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12=\n\x04\x44\x61ta\x18\x02 \x03(\x0b\x32/.Byteplus.Vod.Models.Business.CdnStatusDataItem\"f\n VodListCdnStatusDataDetailResult\x12\x42\n\x04\x44\x61ta\x18\x01 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.DomainStatusDataDetail*\x92\x01\n\x1aVodDomainSourceStationType\x12\'\n#UndefinedVodDomainSourceStationType\x10\x00\x12!\n\x1dVodVodDomainSourceStationType\x10\x01\x12(\n$ThirdPartyVodDomainSourceStationType\x10\x02*\xa9\x01\n!VodDomainSourceStationAddressType\x12.\n*UndefinedVodDomainSourceStationAddressType\x10\x00\x12+\n\'DomainVodDomainSourceStationAddressType\x10\x01\x12\'\n#IPVodDomainSourceStationAddressType\x10\x02\x42\xd6\x01\n\'com.byteplus.service.vod.model.businessB\x06VodCdnP\x01ZGgithub.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/business\xa0\x01\x01\xd8\x01\x01\xc2\x02\x00\xca\x02$Byteplus\\Service\\Vod\\Models\\Business\xe2\x02\'Byteplus\\Service\\Vod\\Models\\GPBMetadatab\x06proto3')
 
 _VODDOMAINSOURCESTATIONTYPE = DESCRIPTOR.enum_types_by_name['VodDomainSourceStationType']
 VodDomainSourceStationType = enum_type_wrapper.EnumTypeWrapper(_VODDOMAINSOURCESTATIONTYPE)
@@ -56,6 +56,14 @@ _VODDOMAINORIGINBUCKETINFO = DESCRIPTOR.message_types_by_name['VodDomainOriginBu
 _VODSUBMITBLOCKTASKSRESULT = DESCRIPTOR.message_types_by_name['VodSubmitBlockTasksResult']
 _VODGETCONTENTBLOCKTASKSRESULT = DESCRIPTOR.message_types_by_name['VodGetContentBlockTasksResult']
 _CONTENTTASK = DESCRIPTOR.message_types_by_name['ContentTask']
+_CDNUSAGEDATAITEM = DESCRIPTOR.message_types_by_name['CdnUsageDataItem']
+_DOMAINUSAGEDATADETAIL = DESCRIPTOR.message_types_by_name['DomainUsageDataDetail']
+_VODLISTCDNUSAGEDATADETAILRESULT = DESCRIPTOR.message_types_by_name['VodListCdnUsageDataDetailResult']
+_CDNSTATUSDATA = DESCRIPTOR.message_types_by_name['CdnStatusData']
+_CDNSTATUSDATAITEM = DESCRIPTOR.message_types_by_name['CdnStatusDataItem']
+_CDNSTATUSDATAITEM_STATUSDETAILENTRY = _CDNSTATUSDATAITEM.nested_types_by_name['StatusDetailEntry']
+_DOMAINSTATUSDATADETAIL = DESCRIPTOR.message_types_by_name['DomainStatusDataDetail']
+_VODLISTCDNSTATUSDATADETAILRESULT = DESCRIPTOR.message_types_by_name['VodListCdnStatusDataDetailResult']
 VodDomainConfigInfo = _reflection.GeneratedProtocolMessageType('VodDomainConfigInfo', (_message.Message,), {
   'DESCRIPTOR' : _VODDOMAINCONFIGINFO,
   '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
@@ -238,64 +246,139 @@ ContentTask = _reflection.GeneratedProtocolMessageType('ContentTask', (_message.
   })
 _sym_db.RegisterMessage(ContentTask)
 
+CdnUsageDataItem = _reflection.GeneratedProtocolMessageType('CdnUsageDataItem', (_message.Message,), {
+  'DESCRIPTOR' : _CDNUSAGEDATAITEM,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CdnUsageDataItem)
+  })
+_sym_db.RegisterMessage(CdnUsageDataItem)
+
+DomainUsageDataDetail = _reflection.GeneratedProtocolMessageType('DomainUsageDataDetail', (_message.Message,), {
+  'DESCRIPTOR' : _DOMAINUSAGEDATADETAIL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.DomainUsageDataDetail)
+  })
+_sym_db.RegisterMessage(DomainUsageDataDetail)
+
+VodListCdnUsageDataDetailResult = _reflection.GeneratedProtocolMessageType('VodListCdnUsageDataDetailResult', (_message.Message,), {
+  'DESCRIPTOR' : _VODLISTCDNUSAGEDATADETAILRESULT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodListCdnUsageDataDetailResult)
+  })
+_sym_db.RegisterMessage(VodListCdnUsageDataDetailResult)
+
+CdnStatusData = _reflection.GeneratedProtocolMessageType('CdnStatusData', (_message.Message,), {
+  'DESCRIPTOR' : _CDNSTATUSDATA,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CdnStatusData)
+  })
+_sym_db.RegisterMessage(CdnStatusData)
+
+CdnStatusDataItem = _reflection.GeneratedProtocolMessageType('CdnStatusDataItem', (_message.Message,), {
+
+  'StatusDetailEntry' : _reflection.GeneratedProtocolMessageType('StatusDetailEntry', (_message.Message,), {
+    'DESCRIPTOR' : _CDNSTATUSDATAITEM_STATUSDETAILENTRY,
+    '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+    # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CdnStatusDataItem.StatusDetailEntry)
+    })
+  ,
+  'DESCRIPTOR' : _CDNSTATUSDATAITEM,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CdnStatusDataItem)
+  })
+_sym_db.RegisterMessage(CdnStatusDataItem)
+_sym_db.RegisterMessage(CdnStatusDataItem.StatusDetailEntry)
+
+DomainStatusDataDetail = _reflection.GeneratedProtocolMessageType('DomainStatusDataDetail', (_message.Message,), {
+  'DESCRIPTOR' : _DOMAINSTATUSDATADETAIL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.DomainStatusDataDetail)
+  })
+_sym_db.RegisterMessage(DomainStatusDataDetail)
+
+VodListCdnStatusDataDetailResult = _reflection.GeneratedProtocolMessageType('VodListCdnStatusDataDetailResult', (_message.Message,), {
+  'DESCRIPTOR' : _VODLISTCDNSTATUSDATADETAILRESULT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodListCdnStatusDataDetailResult)
+  })
+_sym_db.RegisterMessage(VodListCdnStatusDataDetailResult)
+
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\'com.byteplus.service.vod.model.businessB\006VodCdnP\001ZGgithub.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/business\240\001\001\330\001\001\302\002\000\312\002$Byteplus\\Service\\Vod\\Models\\Business\342\002\'Byteplus\\Service\\Vod\\Models\\GPBMetadata'
-  _VODDOMAINSOURCESTATIONTYPE._serialized_start=3685
-  _VODDOMAINSOURCESTATIONTYPE._serialized_end=3831
-  _VODDOMAINSOURCESTATIONADDRESSTYPE._serialized_start=3834
-  _VODDOMAINSOURCESTATIONADDRESSTYPE._serialized_end=4003
+  _CDNSTATUSDATAITEM_STATUSDETAILENTRY._options = None
+  _CDNSTATUSDATAITEM_STATUSDETAILENTRY._serialized_options = b'8\001'
+  _VODDOMAINSOURCESTATIONTYPE._serialized_start=4661
+  _VODDOMAINSOURCESTATIONTYPE._serialized_end=4807
+  _VODDOMAINSOURCESTATIONADDRESSTYPE._serialized_start=4810
+  _VODDOMAINSOURCESTATIONADDRESSTYPE._serialized_end=4979
   _VODDOMAINCONFIGINFO._serialized_start=110
-  _VODDOMAINCONFIGINFO._serialized_end=338
-  _VODDOMAININSTANCEINFOS._serialized_start=341
-  _VODDOMAININSTANCEINFOS._serialized_end=518
-  _VODDOMAININSTANCEINFO._serialized_start=521
-  _VODDOMAININSTANCEINFO._serialized_end=673
-  _VODDOMAINOINFO._serialized_start=676
-  _VODDOMAINOINFO._serialized_end=1003
-  _VODDOMAINCERTIFICATEINFO._serialized_start=1006
-  _VODDOMAINCERTIFICATEINFO._serialized_end=1168
-  _VODCREATECDNTASKRESULT._serialized_start=1170
-  _VODCREATECDNTASKRESULT._serialized_end=1210
-  _VODCONTENTINFO._serialized_start=1212
-  _VODCONTENTINFO._serialized_end=1332
-  _VODCDNTASKRESULT._serialized_start=1335
-  _VODCDNTASKRESULT._serialized_end=1476
-  _VODCDNACCESSLOGELEMENT._serialized_start=1478
-  _VODCDNACCESSLOGELEMENT._serialized_end=1605
-  _VODCDNACCESSLOGINFO._serialized_start=1607
-  _VODCDNACCESSLOGINFO._serialized_end=1715
-  _VODLISTCDNACCESSLOGRESULT._serialized_start=1717
-  _VODLISTCDNACCESSLOGRESULT._serialized_end=1809
-  _VODCDNTOPACCESSURLELEMENT._serialized_start=1811
-  _VODCDNTOPACCESSURLELEMENT._serialized_end=1877
-  _VODLISTCDNTOPACCESSURLRESULT._serialized_start=1879
-  _VODLISTCDNTOPACCESSURLRESULT._serialized_end=1984
-  _VODBANDWIDTHDATA._serialized_start=1986
-  _VODBANDWIDTHDATA._serialized_end=2037
-  _VODDESCRIBEVODDOMAINBANDWIDTHDATARESULT._serialized_start=2040
-  _VODDESCRIBEVODDOMAINBANDWIDTHDATARESULT._serialized_end=2306
-  _VODCDNSTATISTICSDATA._serialized_start=2308
-  _VODCDNSTATISTICSDATA._serialized_end=2434
-  _VODCDNSTATISTICSCOMMONRESULT._serialized_start=2436
-  _VODCDNSTATISTICSCOMMONRESULT._serialized_end=2562
-  _VODCDNIPINFO._serialized_start=2564
-  _VODCDNIPINFO._serialized_end=2636
-  _VODDESCRIBEIPINFORESULT._serialized_start=2638
-  _VODDESCRIBEIPINFORESULT._serialized_end=2722
-  _VODTRAFFICDATA._serialized_start=2724
-  _VODTRAFFICDATA._serialized_end=2771
-  _VODDESCRIBEVODDOMAINTRAFFICDATARESULT._serialized_start=2774
-  _VODDESCRIBEVODDOMAINTRAFFICDATARESULT._serialized_end=3004
-  _VODDOMAINSOURCEINFO._serialized_start=3007
-  _VODDOMAINSOURCEINFO._serialized_end=3301
-  _VODDOMAINORIGINBUCKETINFO._serialized_start=3303
-  _VODDOMAINORIGINBUCKETINFO._serialized_end=3398
-  _VODSUBMITBLOCKTASKSRESULT._serialized_start=3400
-  _VODSUBMITBLOCKTASKSRESULT._serialized_end=3443
-  _VODGETCONTENTBLOCKTASKSRESULT._serialized_start=3446
-  _VODGETCONTENTBLOCKTASKSRESULT._serialized_end=3584
-  _CONTENTTASK._serialized_start=3586
-  _CONTENTTASK._serialized_end=3682
+  _VODDOMAINCONFIGINFO._serialized_end=369
+  _VODDOMAININSTANCEINFOS._serialized_start=372
+  _VODDOMAININSTANCEINFOS._serialized_end=549
+  _VODDOMAININSTANCEINFO._serialized_start=552
+  _VODDOMAININSTANCEINFO._serialized_end=704
+  _VODDOMAINOINFO._serialized_start=707
+  _VODDOMAINOINFO._serialized_end=1053
+  _VODDOMAINCERTIFICATEINFO._serialized_start=1056
+  _VODDOMAINCERTIFICATEINFO._serialized_end=1258
+  _VODCREATECDNTASKRESULT._serialized_start=1260
+  _VODCREATECDNTASKRESULT._serialized_end=1300
+  _VODCONTENTINFO._serialized_start=1302
+  _VODCONTENTINFO._serialized_end=1422
+  _VODCDNTASKRESULT._serialized_start=1425
+  _VODCDNTASKRESULT._serialized_end=1566
+  _VODCDNACCESSLOGELEMENT._serialized_start=1568
+  _VODCDNACCESSLOGELEMENT._serialized_end=1695
+  _VODCDNACCESSLOGINFO._serialized_start=1697
+  _VODCDNACCESSLOGINFO._serialized_end=1805
+  _VODLISTCDNACCESSLOGRESULT._serialized_start=1807
+  _VODLISTCDNACCESSLOGRESULT._serialized_end=1899
+  _VODCDNTOPACCESSURLELEMENT._serialized_start=1901
+  _VODCDNTOPACCESSURLELEMENT._serialized_end=1967
+  _VODLISTCDNTOPACCESSURLRESULT._serialized_start=1969
+  _VODLISTCDNTOPACCESSURLRESULT._serialized_end=2074
+  _VODBANDWIDTHDATA._serialized_start=2076
+  _VODBANDWIDTHDATA._serialized_end=2127
+  _VODDESCRIBEVODDOMAINBANDWIDTHDATARESULT._serialized_start=2130
+  _VODDESCRIBEVODDOMAINBANDWIDTHDATARESULT._serialized_end=2396
+  _VODCDNSTATISTICSDATA._serialized_start=2399
+  _VODCDNSTATISTICSDATA._serialized_end=2577
+  _VODCDNSTATISTICSCOMMONRESULT._serialized_start=2579
+  _VODCDNSTATISTICSCOMMONRESULT._serialized_end=2705
+  _VODCDNIPINFO._serialized_start=2707
+  _VODCDNIPINFO._serialized_end=2779
+  _VODDESCRIBEIPINFORESULT._serialized_start=2781
+  _VODDESCRIBEIPINFORESULT._serialized_end=2865
+  _VODTRAFFICDATA._serialized_start=2867
+  _VODTRAFFICDATA._serialized_end=2914
+  _VODDESCRIBEVODDOMAINTRAFFICDATARESULT._serialized_start=2917
+  _VODDESCRIBEVODDOMAINTRAFFICDATARESULT._serialized_end=3147
+  _VODDOMAINSOURCEINFO._serialized_start=3150
+  _VODDOMAINSOURCEINFO._serialized_end=3444
+  _VODDOMAINORIGINBUCKETINFO._serialized_start=3446
+  _VODDOMAINORIGINBUCKETINFO._serialized_end=3541
+  _VODSUBMITBLOCKTASKSRESULT._serialized_start=3543
+  _VODSUBMITBLOCKTASKSRESULT._serialized_end=3586
+  _VODGETCONTENTBLOCKTASKSRESULT._serialized_start=3589
+  _VODGETCONTENTBLOCKTASKSRESULT._serialized_end=3727
+  _CONTENTTASK._serialized_start=3729
+  _CONTENTTASK._serialized_end=3825
+  _CDNUSAGEDATAITEM._serialized_start=3828
+  _CDNUSAGEDATAITEM._serialized_end=3976
+  _DOMAINUSAGEDATADETAIL._serialized_start=3978
+  _DOMAINUSAGEDATADETAIL._serialized_end=4079
+  _VODLISTCDNUSAGEDATADETAILRESULT._serialized_start=4081
+  _VODLISTCDNUSAGEDATADETAILRESULT._serialized_end=4181
+  _CDNSTATUSDATA._serialized_start=4183
+  _CDNSTATUSDATA._serialized_end=4212
+  _CDNSTATUSDATAITEM._serialized_start=4215
+  _CDNSTATUSDATAITEM._serialized_end=4449
+  _CDNSTATUSDATAITEM_STATUSDETAILENTRY._serialized_start=4353
+  _CDNSTATUSDATAITEM_STATUSDETAILENTRY._serialized_end=4449
+  _DOMAINSTATUSDATADETAIL._serialized_start=4451
+  _DOMAINSTATUSDATADETAIL._serialized_end=4554
+  _VODLISTCDNSTATUSDATADETAILRESULT._serialized_start=4556
+  _VODLISTCDNSTATUSDATADETAILRESULT._serialized_end=4658
 # @@protoc_insertion_point(module_scope)
