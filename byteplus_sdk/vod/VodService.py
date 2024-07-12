@@ -20,7 +20,6 @@ from byteplus_sdk.vod.VodServiceConfig import VodServiceConfig
 from byteplus_sdk.vod.models.request.request_vod_pb2 import *
 from byteplus_sdk.vod.models.response.response_vod_pb2 import *
 
-
 MinChunkSize = 1024 * 1024 * 20
 LargeFileSize = 1024 * 1024 * 1024
 
