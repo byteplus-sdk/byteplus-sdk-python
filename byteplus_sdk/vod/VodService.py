@@ -3,16 +3,16 @@
 # source: VodService
 # DO NOT EDIT!
 from __future__ import print_function
-from byteplus.Policy import *
+from byteplus_sdk.Policy import *
 from google.protobuf.json_format import *
-from byteplus.vod.VodServiceConfig import VodServiceConfig
+from byteplus_sdk.vod.VodServiceConfig import VodServiceConfig
 from retry import retry
 from zlib import crc32
 import os
 import time
 import datetime
-import byteplus.vod
-from byteplus.util.Util import Util
+import byteplus_sdk.vod
+from byteplus_sdk.util.Util import Util
 from byteplus_sdk.vod.models.request.request_vod_pb2 import *
 from byteplus_sdk.vod.models.response.response_vod_pb2 import *
 
