@@ -3,18 +3,23 @@
 # source: VodService
 # DO NOT EDIT!
 from __future__ import print_function
-from byteplus_sdk.Policy import *
-from google.protobuf.json_format import *
-from byteplus_sdk.vod.VodServiceConfig import VodServiceConfig
-from retry import retry
-from zlib import crc32
-import os
-import time
+
 import datetime
+import os
+import sys
+import time
+from zlib import crc32
+
+from google.protobuf.json_format import *
+from retry import retry
+
 import byteplus_sdk.vod
+from byteplus_sdk.Policy import *
 from byteplus_sdk.util.Util import Util
+from byteplus_sdk.vod.VodServiceConfig import VodServiceConfig
 from byteplus_sdk.vod.models.request.request_vod_pb2 import *
 from byteplus_sdk.vod.models.response.response_vod_pb2 import *
+
 
 MinChunkSize = 1024 * 1024 * 20
 LargeFileSize = 1024 * 1024 * 1024
