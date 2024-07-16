@@ -97,6 +97,8 @@ class VodServiceConfig(Service):
             # 计量计费
             "DescribeVodSpaceTranscodeData": ApiInfo("GET", "/", {"Action": "DescribeVodSpaceTranscodeData", "Version": "2023-01-01"}, {}, {}),
             "DescribeVodSnapshotData": ApiInfo("GET", "/", {"Action": "DescribeVodSnapshotData", "Version": "2023-01-01"}, {}, {}),
+            # 商业drm
+            "GetDrmLicense": ApiInfo("POST", "/", {"Action": "GetDrmLicense", "Version": "2023-01-01"}, {}, {}),
         }
         return api_info
 
