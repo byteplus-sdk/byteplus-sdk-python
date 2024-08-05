@@ -13,13 +13,9 @@ if __name__ == '__main__':
     try:
         vid = 'your vid'
         drmType = "your drm type"
-        persistent = 0
-        licenseDuration = 0
         req = VodGetDrmLicenseRequest()
         req.Vid = vid
         req.ThirdPartyDrmType = drmType
-        req.Persistent = persistent
-        req.LicenseDuration = licenseDuration
         expire = 60  # seconds
         resp = vod_service.get_third_party_drm_auth_token(req, expire)
     except Exception:
