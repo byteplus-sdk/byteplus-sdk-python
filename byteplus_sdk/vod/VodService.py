@@ -3,20 +3,17 @@
 # source: VodService
 # DO NOT EDIT!
 from __future__ import print_function
-
-import datetime
+from byteplus_sdk.Policy import *
+from google.protobuf.json_format import *
+from byteplus_sdk.vod.VodServiceConfig import VodServiceConfig
+from retry import retry
+from zlib import crc32
 import os
 import sys
 import time
-from zlib import crc32
-
-from google.protobuf.json_format import *
-from retry import retry
-
+import datetime
 import byteplus_sdk.vod
-from byteplus_sdk.Policy import *
 from byteplus_sdk.util.Util import Util
-from byteplus_sdk.vod.VodServiceConfig import VodServiceConfig
 from byteplus_sdk.vod.models.request.request_vod_pb2 import *
 from byteplus_sdk.vod.models.response.response_vod_pb2 import *
 
@@ -150,6 +147,7 @@ class VodService(VodServiceConfig):
                 return base64.b64encode(data.encode('utf-8')).decode('utf-8')
             else:
                 return base64.b64encode(data.decode('utf-8'))
+
     def get_subtitle_auth_token(self, request, expire):
         try:
             if request.Vid == "":
@@ -221,7 +219,7 @@ class VodService(VodServiceConfig):
         url = 'https://{}/{}'.format(host, oid)
         headers = {'Content-CRC32': check_sum, 'Authorization': auth}
 
-        if storage_class == byteplus.vod.models.business.vod_upload_pb2.Archive:
+        if storage_class == byteplus_sdk.vod.models.business.vod_upload_pb2.Archive:
             headers['X-Upload-Storage-Class'] = 'archive'
 
         upload_status, resp = self.put(url, file_path, headers)
@@ -264,7 +262,7 @@ class VodService(VodServiceConfig):
         if is_large_file:
             headers['X-Storage-Mode'] = 'gateway'
 
-        if storage_class == byteplus.vod.models.business.vod_upload_pb2.Archive:
+        if storage_class == byteplus_sdk.vod.models.business.vod_upload_pb2.Archive:
             headers['X-Upload-Storage-Class'] = 'archive'
 
 
@@ -286,7 +284,7 @@ class VodService(VodServiceConfig):
         if is_large_file:
             headers['X-Storage-Mode'] = 'gateway'
 
-        if storage_class == byteplus.vod.models.business.vod_upload_pb2.Archive:
+        if storage_class == byteplus_sdk.vod.models.business.vod_upload_pb2.Archive:
             headers['X-Upload-Storage-Class'] = 'archive'
 
         upload_status, resp = self.put_data(url, data, headers)
@@ -318,7 +316,7 @@ class VodService(VodServiceConfig):
         if is_large_file:
             headers['X-Storage-Mode'] = 'gateway'
 
-        if storage_class == byteplus.vod.models.business.vod_upload_pb2.Archive:
+        if storage_class == byteplus_sdk.vod.models.business.vod_upload_pb2.Archive:
             headers['X-Upload-Storage-Class'] = 'archive'
 
         upload_status, resp = self.put_data(url, data, headers)
