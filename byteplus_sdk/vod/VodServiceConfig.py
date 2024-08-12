@@ -34,7 +34,7 @@ class VodServiceConfig(Service):
     def get_service_info(region):
         service_info_map = {
             'ap-singapore-1': ServiceInfo("vod.byteplusapi.com", {'Accept': 'application/json'},
-                                      Credentials('', '', 'vod', 'ap-singapore-1'), 60, 60),
+                                      Credentials('', '', 'vod', 'ap-singapore-1'), 60, 60,"https"),
         }
         service_info = service_info_map.get(region, None)
         if not service_info:
