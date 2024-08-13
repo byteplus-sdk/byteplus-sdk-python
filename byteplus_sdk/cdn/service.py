@@ -174,6 +174,60 @@ api_info = {
     "CreateServiceTemplate": ApiInfo("POST", "/", {
         "Action": "CreateServiceTemplate", "Version": SERVICE_VERSION}, {}, {}),
 
+    "DescribeDistrictData": ApiInfo("POST", "/", {
+        "Action": "DescribeDistrictData", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeEdgeData": ApiInfo("POST", "/", {
+        "Action": "DescribeEdgeData", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeDistrictSummary": ApiInfo("POST", "/", {
+        "Action": "DescribeDistrictSummary", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeEdgeSummary": ApiInfo("POST", "/", {
+        "Action": "DescribeEdgeSummary", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeOriginData": ApiInfo("POST", "/", {
+        "Action": "DescribeOriginData", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeOriginSummary": ApiInfo("POST", "/", {
+        "Action": "DescribeOriginSummary", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeUserData": ApiInfo("POST", "/", {
+        "Action": "DescribeUserData", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeDistrictRanking": ApiInfo("POST", "/", {
+        "Action": "DescribeDistrictRanking", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeEdgeRanking": ApiInfo("POST", "/", {
+        "Action": "DescribeEdgeRanking", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeOriginRanking": ApiInfo("POST", "/", {
+        "Action": "DescribeOriginRanking", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeEdgeStatusCodeRanking": ApiInfo("POST", "/", {
+        "Action": "DescribeEdgeStatusCodeRanking", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeOriginStatusCodeRanking": ApiInfo("POST", "/", {
+        "Action": "DescribeOriginStatusCodeRanking", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeStatisticalRanking": ApiInfo("POST", "/", {
+        "Action": "DescribeStatisticalRanking", "Version": SERVICE_VERSION}, {}, {}),
+
+    "BatchUpdateCdnConfig": ApiInfo("POST", "/", {
+        "Action": "BatchUpdateCdnConfig", "Version": SERVICE_VERSION}, {}, {}),
+
+    "AddCertificate": ApiInfo("POST", "/", {
+        "Action": "AddCertificate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DeleteUsageReport": ApiInfo("POST", "/", {
+        "Action": "DeleteUsageReport", "Version": SERVICE_VERSION}, {}, {}),
+
+    "CreateUsageReport": ApiInfo("POST", "/", {
+        "Action": "CreateUsageReport", "Version": SERVICE_VERSION}, {}, {}),
+
+    "ListUsageReports": ApiInfo("POST", "/", {
+        "Action": "ListUsageReports", "Version": SERVICE_VERSION}, {}, {}),
+
 
 }
 
@@ -732,6 +786,186 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "CreateServiceTemplate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_district_data(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeDistrictData"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_edge_data(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeEdgeData"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_district_summary(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeDistrictSummary"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_edge_summary(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeEdgeSummary"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_origin_data(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeOriginData"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_origin_summary(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeOriginSummary"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_user_data(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeUserData"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_district_ranking(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeDistrictRanking"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_edge_ranking(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeEdgeRanking"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_origin_ranking(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeOriginRanking"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_edge_status_code_ranking(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeEdgeStatusCodeRanking"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_origin_status_code_ranking(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeOriginStatusCodeRanking"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_statistical_ranking(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeStatisticalRanking"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def batch_update_cdn_config(self, params=None):
+        if params is None:
+            params = {}
+        action = "BatchUpdateCdnConfig"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def add_certificate(self, params=None):
+        if params is None:
+            params = {}
+        action = "AddCertificate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def delete_usage_report(self, params=None):
+        if params is None:
+            params = {}
+        action = "DeleteUsageReport"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def create_usage_report(self, params=None):
+        if params is None:
+            params = {}
+        action = "CreateUsageReport"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def list_usage_reports(self, params=None):
+        if params is None:
+            params = {}
+        action = "ListUsageReports"
         res = self.json(action, [], params)
         if res == '':
             raise Exception("%s: empty response" % action)
