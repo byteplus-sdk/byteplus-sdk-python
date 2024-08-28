@@ -15,7 +15,7 @@ if __name__ == '__main__':
         drmType = "your drm type"
         req = VodGetDrmLicenseRequest()
         req.Vid = vid
-        req.ThirdPartyDrmType = drmType
+        req.ThirdPartyDrmType = drmType # widevine or fairplay
         expire = 60  # seconds
         resp = vod_service.get_third_party_drm_auth_token(req, expire)
     except Exception:
