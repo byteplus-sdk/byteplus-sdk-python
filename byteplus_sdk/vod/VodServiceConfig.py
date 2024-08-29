@@ -47,6 +47,8 @@ class VodServiceConfig(Service):
         api_info = {
             # 播放
             "GetPlayInfo": ApiInfo("GET", "/", {"Action": "GetPlayInfo", "Version": "2023-01-01"}, {}, {}),
+            "GetPrivateDrmPlayAuth": ApiInfo("GET", "/", {"Action": "GetPrivateDrmPlayAuth", "Version": "2023-01-01"},
+                                             {}, {}),
             # 上传
             "UploadMediaByUrl": ApiInfo("GET", "/", {"Action": "UploadMediaByUrl", "Version": "2023-01-01"}, {}, {}),
             "QueryUploadTaskInfo": ApiInfo("GET", "/", {"Action": "QueryUploadTaskInfo", "Version": "2023-01-01"}, {}, {}),

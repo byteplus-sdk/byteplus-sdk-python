@@ -2,7 +2,7 @@
 from __future__ import print_function
 
 from byteplus_sdk.vod.VodService import VodService
-from byteplus_sdk.vod.models.request.request_vod_pb2 import VodGetDrmLicenseRequest
+from byteplus_sdk.vod.models.request.request_vod_pb2 import VodGetPrivateDrmPlayAuthRequest
 
 if __name__ == '__main__':
 
@@ -12,12 +12,13 @@ if __name__ == '__main__':
     vod_service.set_sk('your sk')
     try:
         vid = 'your vid'
-        drmType = "your drm type"
-        req = VodGetDrmLicenseRequest()
+        req = VodGetPrivateDrmPlayAuthRequest()
         req.Vid = vid
-        req.ThirdPartyDrmType = drmType # widevine or fairplay
+        req.DrmType = 'your drm type'
+        req.PlayAuthIds = 'a,b,c (your PlayAuthIds)'
+        req.UnionInfo = 'your unionInfo'
         expire = 60  # seconds
-        resp = vod_service.get_third_party_drm_auth_token(req, expire)
+        resp = vod_service.get_private_drm_play_auth_token(req, expire)
     except Exception:
         raise
     else:
