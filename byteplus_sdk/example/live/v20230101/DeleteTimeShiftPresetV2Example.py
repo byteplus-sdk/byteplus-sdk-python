@@ -10,5 +10,5 @@ if __name__ == '__main__':
 
     body = {}
 
-    resp = service.describe_ip_info(body)
+    resp = service.delete_time_shift_preset_v2(body)
     print(resp)

@@ -10,5 +10,5 @@ if __name__ == '__main__':
 
     body = {}
 
-    resp = service.list_relay_source_v4(body)
+    resp = service.get_cloud_mix_task_detail(body)
     print(resp)

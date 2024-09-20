@@ -187,15 +187,22 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
-    def delete_time_shift_preset_v3(self, body):
-        res = self.api_post('DeleteTimeShiftPresetV3', [], body)
+    def delete_time_shift_preset_v2(self, body):
+        res = self.api_post('DeleteTimeShiftPresetV2', [], body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
         return res_json
             
-    def update_time_shift_preset_v3(self, body):
-        res = self.api_post('UpdateTimeShiftPresetV3', [], body)
+    def create_time_shift_preset_v2(self, body):
+        res = self.api_post('CreateTimeShiftPresetV2', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def update_time_shift_preset_v2(self, body):
+        res = self.api_post('UpdateTimeShiftPresetV2', [], body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
@@ -203,13 +210,6 @@ class LiveTrait(Service):
             
     def list_time_shift_preset_v2(self, body):
         res = self.api_post('ListTimeShiftPresetV2', [], body)
-        if res == '':
-            raise Exception("empty response")
-        res_json = json.loads(res)
-        return res_json
-            
-    def create_time_shift_preset_v3(self, body):
-        res = self.api_post('CreateTimeShiftPresetV3', [], body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
@@ -327,6 +327,34 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
+    def create_live_video_quality_analysis_task(self, body):
+        res = self.api_post('CreateLiveVideoQualityAnalysisTask', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def delete_live_video_quality_analysis_task(self, body):
+        res = self.api_post('DeleteLiveVideoQualityAnalysisTask', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def get_live_video_quality_analysis_task_detail(self, body):
+        res = self.api_post('GetLiveVideoQualityAnalysisTaskDetail', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def list_live_video_quality_analysis_tasks(self, body):
+        res = self.api_post('ListLiveVideoQualityAnalysisTasks', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
     def stop_pull_to_push_task(self, body):
         res = self.api_post('StopPullToPushTask', [], body)
         if res == '':
@@ -341,8 +369,22 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
+    def create_pull_to_push_group(self, body):
+        res = self.api_post('CreatePullToPushGroup', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
     def delete_pull_to_push_task(self, body):
         res = self.api_post('DeletePullToPushTask', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def delete_pull_to_push_group(self, body):
+        res = self.api_post('DeletePullToPushGroup', [], body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
@@ -362,6 +404,13 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
+    def list_pull_to_push_group(self, body):
+        res = self.api_post('ListPullToPushGroup', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
     def list_pull_to_push_task(self, query):
         res = self.api_get('ListPullToPushTask', query)
         if res == '':
@@ -369,15 +418,15 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
-    def delete_relay_source_rewrite(self, body):
-        res = self.api_post('DeleteRelaySourceRewrite', [], body)
+    def list_pull_to_push_task_v2(self, body):
+        res = self.api_post('ListPullToPushTaskV2', [], body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
         return res_json
             
-    def delete_relay_source_v4(self, body):
-        res = self.api_post('DeleteRelaySourceV4', [], body)
+    def delete_relay_source_rewrite(self, body):
+        res = self.api_post('DeleteRelaySourceRewrite', [], body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
@@ -397,13 +446,6 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
-    def update_relay_source_v4(self, body):
-        res = self.api_post('UpdateRelaySourceV4', [], body)
-        if res == '':
-            raise Exception("empty response")
-        res_json = json.loads(res)
-        return res_json
-            
     def describe_relay_source_rewrite(self, body):
         res = self.api_post('DescribeRelaySourceRewrite', [], body)
         if res == '':
@@ -411,22 +453,8 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
-    def list_relay_source_v4(self, body):
-        res = self.api_post('ListRelaySourceV4', [], body)
-        if res == '':
-            raise Exception("empty response")
-        res_json = json.loads(res)
-        return res_json
-            
     def describe_relay_source_v3(self, body):
         res = self.api_post('DescribeRelaySourceV3', [], body)
-        if res == '':
-            raise Exception("empty response")
-        res_json = json.loads(res)
-        return res_json
-            
-    def create_relay_source_v4(self, body):
-        res = self.api_post('CreateRelaySourceV4', [], body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
@@ -502,13 +530,6 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
-    def describe_ip_info(self, body):
-        res = self.api_post('DescribeIpInfo', [], body)
-        if res == '':
-            raise Exception("empty response")
-        res_json = json.loads(res)
-        return res_json
-            
     def describe_live_region_data(self, body):
         res = self.api_post('DescribeLiveRegionData', [], body)
         if res == '':
@@ -544,8 +565,22 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
+    def describe_live_batch_push_stream_metrics(self, body):
+        res = self.api_post('DescribeLiveBatchPushStreamMetrics', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
     def describe_live_push_stream_info_data(self, body):
         res = self.api_post('DescribeLivePushStreamInfoData', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def describe_live_transcode_info_data(self, body):
+        res = self.api_post('DescribeLiveTranscodeInfoData', [], body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
@@ -754,6 +789,27 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
+    def update_encrypt_hls(self, body):
+        res = self.api_post('UpdateEncryptHLS', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def get_hls_encrypt_data_key(self, query):
+        res = self.api_get('GetHLSEncryptDataKey', query)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def describe_encrypt_hls(self, body):
+        res = self.api_post('DescribeEncryptHLS', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
     def describe_license_drm(self, query, body):
         res = self.api_post('DescribeLicenseDRM', query, body)
         if res == '':
@@ -866,6 +922,13 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
+    def describe_latency_config(self, body):
+        res = self.api_post('DescribeLatencyConfig', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
     def update_latency_config(self, body):
         res = self.api_post('UpdateLatencyConfig', [], body)
         if res == '':
@@ -873,8 +936,36 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
-    def describe_latency_config(self, body):
-        res = self.api_post('DescribeLatencyConfig', [], body)
+    def create_cloud_mix_task(self, body):
+        res = self.api_post('CreateCloudMixTask', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def update_cloud_mix_task(self, body):
+        res = self.api_post('UpdateCloudMixTask', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def get_cloud_mix_task_detail(self, body):
+        res = self.api_post('GetCloudMixTaskDetail', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def list_cloud_mix_task(self, body):
+        res = self.api_post('ListCloudMixTask', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def delete_cloud_mix_task(self, body):
+        res = self.api_post('DeleteCloudMixTask', [], body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
@@ -938,6 +1029,34 @@ class LiveTrait(Service):
             
     def update_format_access_rule(self, body):
         res = self.api_post('UpdateFormatAccessRule', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def delete_subtitle_transcode_preset(self, body):
+        res = self.api_post('DeleteSubtitleTranscodePreset', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def update_subtitle_transcode_preset(self, body):
+        res = self.api_post('UpdateSubtitleTranscodePreset', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def list_vhost_subtitle_transcode_preset(self, body):
+        res = self.api_post('ListVhostSubtitleTranscodePreset', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def create_subtitle_transcode_preset(self, body):
+        res = self.api_post('CreateSubtitleTranscodePreset', [], body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)

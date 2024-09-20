@@ -10,5 +10,5 @@ if __name__ == '__main__':
 
     body = {}
 
-    resp = service.create_relay_source_v4(body)
+    resp = service.get_live_video_quality_analysis_task_detail(body)
     print(resp)
