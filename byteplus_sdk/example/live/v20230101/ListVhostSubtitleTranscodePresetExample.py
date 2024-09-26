@@ -10,5 +10,5 @@ if __name__ == '__main__':
 
     body = {}
 
-    resp = service.delete_time_shift_preset_v3(body)
+    resp = service.list_vhost_subtitle_transcode_preset(body)
     print(resp)

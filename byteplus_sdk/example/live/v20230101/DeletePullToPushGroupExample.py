@@ -10,5 +10,5 @@ if __name__ == '__main__':
 
     body = {}
 
-    resp = service.update_time_shift_preset_v3(body)
+    resp = service.delete_pull_to_push_group(body)
     print(resp)
