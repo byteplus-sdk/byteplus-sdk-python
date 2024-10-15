@@ -138,7 +138,7 @@ class VodService(VodServiceConfig):
             if expire > 0:
                 params['X-Expires'] = str(expire)
             token = self.get_sign_url('GetDrmLicense', params)
-            ret = {'TokenVersion': 'V2', 'GetDrmLicenseToken': token}
+            ret = {'TokenVersion': 'V2', 'GetThirdPartyDrmAuthToken': token}
             data = json.dumps(ret)
         except Exception as Argument:
             raise Argument
