@@ -148,6 +148,18 @@ class VodService(VodServiceConfig):
             else:
                 return base64.b64encode(data.decode('utf-8'))
 
+    def get_fairplay_cert_url(self, cert_id, expire):
+        try:
+            params = dict()
+            params['CertId'] = cert_id
+            if expire > 0:
+                params['X-Expires'] = str(expire)
+            raw_query = self.get_sign_url('GetFairPlayCert', params)
+        except Exception as Argument:
+            raise Argument
+        else:
+            return self.service_info.scheme + "://" + self.service_info.host + self.api_info["GetFairPlayCert"].path + '?' + raw_query
+
     def get_subtitle_auth_token(self, request, expire):
         try:
             if request.Vid == "":
