@@ -101,6 +101,7 @@ class VodServiceConfig(Service):
             "DescribeVodSnapshotData": ApiInfo("GET", "/", {"Action": "DescribeVodSnapshotData", "Version": "2023-01-01"}, {}, {}),
             # 商业drm
             "GetDrmLicense": ApiInfo("POST", "/", {"Action": "GetDrmLicense", "Version": "2023-01-01"}, {}, {}),
+            "GetFairPlayCert": ApiInfo("GET", "/", {"Action": "GetFairPlayCert", "Version": "2023-01-01"}, {}, {}),
         }
         return api_info
 
