@@ -228,6 +228,12 @@ api_info = {
     "ListUsageReports": ApiInfo("POST", "/", {
         "Action": "ListUsageReports", "Version": SERVICE_VERSION}, {}, {}),
 
+    "TagResources": ApiInfo("POST", "/", {
+        "Action": "TagResources", "Version": SERVICE_VERSION}, {}, {}),
+
+    "UntagResources": ApiInfo("POST", "/", {
+        "Action": "UntagResources", "Version": SERVICE_VERSION}, {}, {}),
+
 
 }
 
@@ -966,6 +972,26 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "ListUsageReports"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def tag_resources(self, params=None):
+        if params is None:
+            params = {}
+        action = "TagResources"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def untag_resources(self, params=None):
+        if params is None:
+            params = {}
+        action = "UntagResources"
         res = self.json(action, [], params)
         if res == '':
             raise Exception("%s: empty response" % action)
