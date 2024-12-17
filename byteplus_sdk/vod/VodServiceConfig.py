@@ -99,6 +99,11 @@ class VodServiceConfig(Service):
             # 计量计费
             "DescribeVodSpaceTranscodeData": ApiInfo("GET", "/", {"Action": "DescribeVodSpaceTranscodeData", "Version": "2023-01-01"}, {}, {}),
             "DescribeVodSnapshotData": ApiInfo("GET", "/", {"Action": "DescribeVodSnapshotData", "Version": "2023-01-01"}, {}, {}),
+            "DescribeVodEnhanceImageData": ApiInfo("GET", "/", {"Action": "DescribeVodEnhanceImageData", "Version": "2023-01-01"}, {}, {}),
+            "DescribeVodSpaceSubtitleStatisData": ApiInfo("GET", "/", {"Action": "DescribeVodSpaceSubtitleStatisData", "Version": "2023-01-01"}, {}, {}),
+            "DescribeVodPlayedStatisData": ApiInfo("GET", "/", {"Action": "DescribeVodPlayedStatisData", "Version": "2023-01-01"}, {}, {}),
+            "DescribeVodMostPlayedStatisData": ApiInfo("GET", "/", {"Action": "DescribeVodMostPlayedStatisData", "Version": "2023-01-01"}, {}, {}),
+            "DescribeVodRealtimeMediaData": ApiInfo("GET", "/", {"Action": "DescribeVodRealtimeMediaData", "Version": "2023-01-01"}, {}, {}),
             # 商业drm
             "GetDrmLicense": ApiInfo("POST", "/", {"Action": "GetDrmLicense", "Version": "2023-01-01"}, {}, {}),
             "GetFairPlayCert": ApiInfo("GET", "/", {"Action": "GetFairPlayCert", "Version": "2023-01-01"}, {}, {}),
