@@ -2553,6 +2553,40 @@ class VodService(VodServiceConfig):
             return Parse(res, DescribeVodSpaceTranscodeDataResponse(), True)
 
     #
+    # DescribeVodSpaceSubtitleStatisData.
+    #
+    # @param request DescribeVodSpaceSubtitleStatisDataRequest
+    # @return DescribeVodSpaceSubtitleStatisDataResponse
+    # @raise Exception
+    def describe_vod_space_subtitle_statis_data(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("DescribeVodSpaceSubtitleStatisData", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), DescribeVodSpaceSubtitleStatisDataResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, DescribeVodSpaceSubtitleStatisDataResponse(), True)
+
+    #
     # DescribeVodSnapshotData.
     #
     # @param request DescribeVodSnapshotDataRequest
@@ -2585,4 +2619,140 @@ class VodService(VodServiceConfig):
                 raise Exception(resp.ResponseMetadata.Error.Code)
         else:
             return Parse(res, DescribeVodSnapshotDataResponse(), True)
+
+    #
+    # DescribeVodEnhanceImageData.
+    #
+    # @param request DescribeVodEnhanceImageDataRequest
+    # @return DescribeVodEnhanceImageDataResponse
+    # @raise Exception
+    def describe_vod_enhance_image_data(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("DescribeVodEnhanceImageData", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), DescribeVodEnhanceImageDataResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, DescribeVodEnhanceImageDataResponse(), True)
+
+    #
+    # DescribeVodPlayedStatisData.
+    #
+    # @param request DescribeVodPlayedStatisDataRequest
+    # @return DescribeVodPlayedStatisDataResponse
+    # @raise Exception
+    def describe_vod_played_statis_data(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("DescribeVodPlayedStatisData", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), DescribeVodPlayedStatisDataResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, DescribeVodPlayedStatisDataResponse(), True)
+
+    #
+    # DescribeVodMostPlayedStatisData.
+    #
+    # @param request DescribeVodMostPlayedStatisDataRequest
+    # @return DescribeVodMostPlayedStatisDataResponse
+    # @raise Exception
+    def describe_vod_most_played_statis_data(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("DescribeVodMostPlayedStatisData", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), DescribeVodMostPlayedStatisDataResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, DescribeVodMostPlayedStatisDataResponse(), True)
+
+    #
+    # DescribeVodRealtimeMediaData.
+    #
+    # @param request DescribeVodRealtimeMediaDataRequest
+    # @return DescribeVodRealtimeMediaDataResponse
+    # @raise Exception
+    def describe_vod_realtime_media_data(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("DescribeVodRealtimeMediaData", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), DescribeVodRealtimeMediaDataResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, DescribeVodRealtimeMediaDataResponse(), True)
 
