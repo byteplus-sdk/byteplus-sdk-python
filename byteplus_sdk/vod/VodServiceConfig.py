@@ -50,7 +50,7 @@ class VodServiceConfig(Service):
             "GetPrivateDrmPlayAuth": ApiInfo("GET", "/", {"Action": "GetPrivateDrmPlayAuth", "Version": "2023-01-01"},
                                              {}, {}),
             # 上传
-            "UploadMediaByUrl": ApiInfo("GET", "/", {"Action": "UploadMediaByUrl", "Version": "2023-01-01"}, {}, {}),
+            "UploadMediaByUrl": ApiInfo("POST", "/", {"Action": "UploadMediaByUrl", "Version": "2023-01-01"}, {}, {}),
             "QueryUploadTaskInfo": ApiInfo("GET", "/", {"Action": "QueryUploadTaskInfo", "Version": "2023-01-01"}, {}, {}),
             "ApplyUploadInfo": ApiInfo("GET", "/", {"Action": "ApplyUploadInfo", "Version": "2023-01-01"}, {}, {}),
             "CommitUploadInfo": ApiInfo("GET", "/", {"Action": "CommitUploadInfo", "Version": "2023-01-01"}, {}, {}),

@@ -566,7 +566,7 @@ class VodService(VodServiceConfig):
                         continue
                     else:
                         params[k] = json.dumps(v)
-            res = self.get("UploadMediaByUrl", params)
+            res = self.post("UploadMediaByUrl",{},params)
         except Exception as Argument:
             try:
                 resp = Parse(Argument.__str__(), VodUrlUploadResponse(), True)
@@ -576,6 +576,7 @@ class VodService(VodServiceConfig):
                 raise Exception(resp.ResponseMetadata.Error.Code)
         else:
             return Parse(res, VodUrlUploadResponse(), True)
+
 
     #
     # QueryUploadTaskInfo.
