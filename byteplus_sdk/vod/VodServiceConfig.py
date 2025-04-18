@@ -23,7 +23,7 @@ class VodServiceConfig(Service):
 
     def __init__(self, region='ap-singapore-1'):
         self.service_info = VodServiceConfig.get_service_info(region)
-        self.api_info = VodServiceConfig.get_api_info()
+        self.api_info = VodServiceConfig.get_api_info(region)
         self.domain_cache = {}
         self.fallback_domain_weights = {}
         self.update_interval = 10
