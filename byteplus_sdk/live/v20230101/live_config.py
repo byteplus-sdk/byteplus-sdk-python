@@ -82,6 +82,7 @@ api_info = {
     "ResumeStream": ApiInfo("POST", "/", {"Action": "ResumeStream", "Version": "2023-01-01"}, {}, {}),
     "GeneratePlayURL": ApiInfo("POST", "/", {"Action": "GeneratePlayURL", "Version": "2023-01-01"}, {}, {}),
     "GeneratePushURL": ApiInfo("POST", "/", {"Action": "GeneratePushURL", "Version": "2023-01-01"}, {}, {}),
+    "DescribeLiveTopPlayData": ApiInfo("POST", "/", {"Action": "DescribeLiveTopPlayData", "Version": "2023-01-01"}, {}, {}),
     "DescribeLiveRegionData": ApiInfo("POST", "/", {"Action": "DescribeLiveRegionData", "Version": "2023-01-01"}, {}, {}),
     "DescribeLiveSourceStreamMetrics": ApiInfo("POST", "/", {"Action": "DescribeLiveSourceStreamMetrics", "Version": "2023-01-01"}, {}, {}),
     "DescribeLivePushStreamMetrics": ApiInfo("POST", "/", {"Action": "DescribeLivePushStreamMetrics", "Version": "2023-01-01"}, {}, {}),
@@ -94,6 +95,7 @@ api_info = {
     "DescribeLiveSourceTrafficData": ApiInfo("POST", "/", {"Action": "DescribeLiveSourceTrafficData", "Version": "2023-01-01"}, {}, {}),
     "DescribeLiveMetricBandwidthData": ApiInfo("POST", "/", {"Action": "DescribeLiveMetricBandwidthData", "Version": "2023-01-01"}, {}, {}),
     "DescribeLiveMetricTrafficData": ApiInfo("POST", "/", {"Action": "DescribeLiveMetricTrafficData", "Version": "2023-01-01"}, {}, {}),
+    "DescribeLiveEdgeStatData": ApiInfo("POST", "/", {"Action": "DescribeLiveEdgeStatData", "Version": "2023-01-01"}, {}, {}),
     "DescribeLiveISPData": ApiInfo("POST", "/", {"Action": "DescribeLiveISPData", "Version": "2023-01-01"}, {}, {}),
     "DescribeLiveP95PeakBandwidthData": ApiInfo("POST", "/", {"Action": "DescribeLiveP95PeakBandwidthData", "Version": "2023-01-01"}, {}, {}),
     "DescribeLiveASRDurationData": ApiInfo("POST", "/", {"Action": "DescribeLiveASRDurationData", "Version": "2023-01-01"}, {}, {}),
@@ -128,6 +130,8 @@ api_info = {
     "BindEncryptDRM": ApiInfo("POST", "/", {"Action": "BindEncryptDRM", "Version": "2023-01-01"}, {}, {}),
     "UnBindEncryptDRM": ApiInfo("POST", "/", {"Action": "UnBindEncryptDRM", "Version": "2023-01-01"}, {}, {}),
     "ListBindEncryptDRM": ApiInfo("POST", "/", {"Action": "ListBindEncryptDRM", "Version": "2023-01-01"}, {}, {}),
+    "CreateTranscodePresetBatch": ApiInfo("POST", "/", {"Action": "CreateTranscodePresetBatch", "Version": "2023-01-01"}, {}, {}),
+    "DeleteTranscodePresetBatch": ApiInfo("POST", "/", {"Action": "DeleteTranscodePresetBatch", "Version": "2023-01-01"}, {}, {}),
     "DeleteIPAccessRule": ApiInfo("POST", "/", {"Action": "DeleteIPAccessRule", "Version": "2023-01-01"}, {}, {}),
     "DeleteRegionAccessRule": ApiInfo("POST", "/", {"Action": "DeleteRegionAccessRule", "Version": "2023-01-01"}, {}, {}),
     "UpdateIPAccessRule": ApiInfo("POST", "/", {"Action": "UpdateIPAccessRule", "Version": "2023-01-01"}, {}, {}),
@@ -157,5 +161,11 @@ api_info = {
     "DeleteSubtitleTranscodePreset": ApiInfo("POST", "/", {"Action": "DeleteSubtitleTranscodePreset", "Version": "2023-01-01"}, {}, {}),
     "UpdateSubtitleTranscodePreset": ApiInfo("POST", "/", {"Action": "UpdateSubtitleTranscodePreset", "Version": "2023-01-01"}, {}, {}),
     "ListVhostSubtitleTranscodePreset": ApiInfo("POST", "/", {"Action": "ListVhostSubtitleTranscodePreset", "Version": "2023-01-01"}, {}, {}),
-    "CreateSubtitleTranscodePreset": ApiInfo("POST", "/", {"Action": "CreateSubtitleTranscodePreset", "Version": "2023-01-01"}, {}, {})
+    "CreateSubtitleTranscodePreset": ApiInfo("POST", "/", {"Action": "CreateSubtitleTranscodePreset", "Version": "2023-01-01"}, {}, {}),
+    "CreateLivePadPreset": ApiInfo("POST", "/", {"Action": "CreateLivePadPreset", "Version": "2023-01-01"}, {}, {}),
+    "DeleteLivePadPreset": ApiInfo("POST", "/", {"Action": "DeleteLivePadPreset", "Version": "2023-01-01"}, {}, {}),
+    "StopLivePadStream": ApiInfo("POST", "/", {"Action": "StopLivePadStream", "Version": "2023-01-01"}, {}, {}),
+    "UpdateLivePadPreset": ApiInfo("POST", "/", {"Action": "UpdateLivePadPreset", "Version": "2023-01-01"}, {}, {}),
+    "DescribeLivePadStreamList": ApiInfo("POST", "/", {"Action": "DescribeLivePadStreamList", "Version": "2023-01-01"}, {}, {}),
+    "DescribeLivePadPresetDetail": ApiInfo("POST", "/", {"Action": "DescribeLivePadPresetDetail", "Version": "2023-01-01"}, {}, {})
 }
