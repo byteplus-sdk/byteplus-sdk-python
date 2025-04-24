@@ -228,6 +228,18 @@ api_info = {
     "ListUsageReports": ApiInfo("POST", "/", {
         "Action": "ListUsageReports", "Version": SERVICE_VERSION}, {}, {}),
 
+    "DescribeSharedConfig": ApiInfo("POST", "/", {
+        "Action": "DescribeSharedConfig", "Version": SERVICE_VERSION}, {}, {}),
+
+    "ListSharedConfig": ApiInfo("POST", "/", {
+        "Action": "ListSharedConfig", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DeleteSharedConfig": ApiInfo("POST", "/", {
+        "Action": "DeleteSharedConfig", "Version": SERVICE_VERSION}, {}, {}),
+
+    "UpdateSharedConfig": ApiInfo("POST", "/", {
+        "Action": "UpdateSharedConfig", "Version": SERVICE_VERSION}, {}, {}),
+
     "TagResources": ApiInfo("POST", "/", {
         "Action": "TagResources", "Version": SERVICE_VERSION}, {}, {}),
 
@@ -972,6 +984,46 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "ListUsageReports"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_shared_config(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeSharedConfig"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def list_shared_config(self, params=None):
+        if params is None:
+            params = {}
+        action = "ListSharedConfig"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def delete_shared_config(self, params=None):
+        if params is None:
+            params = {}
+        action = "DeleteSharedConfig"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def update_shared_config(self, params=None):
+        if params is None:
+            params = {}
+        action = "UpdateSharedConfig"
         res = self.json(action, [], params)
         if res == '':
             raise Exception("%s: empty response" % action)
