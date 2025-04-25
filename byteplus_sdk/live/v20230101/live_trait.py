@@ -530,6 +530,13 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
+    def describe_live_top_play_data(self, body):
+        res = self.api_post('DescribeLiveTopPlayData', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
     def describe_live_region_data(self, body):
         res = self.api_post('DescribeLiveRegionData', [], body)
         if res == '':
@@ -609,6 +616,13 @@ class LiveTrait(Service):
             
     def describe_live_metric_traffic_data(self, body):
         res = self.api_post('DescribeLiveMetricTrafficData', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def describe_live_edge_stat_data(self, body):
+        res = self.api_post('DescribeLiveEdgeStatData', [], body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
@@ -852,6 +866,20 @@ class LiveTrait(Service):
         res_json = json.loads(res)
         return res_json
             
+    def create_transcode_preset_batch(self, body):
+        res = self.api_post('CreateTranscodePresetBatch', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def delete_transcode_preset_batch(self, body):
+        res = self.api_post('DeleteTranscodePresetBatch', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
     def delete_ip_access_rule(self, body):
         res = self.api_post('DeleteIPAccessRule', [], body)
         if res == '':
@@ -1057,6 +1085,48 @@ class LiveTrait(Service):
             
     def create_subtitle_transcode_preset(self, body):
         res = self.api_post('CreateSubtitleTranscodePreset', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def create_live_pad_preset(self, body):
+        res = self.api_post('CreateLivePadPreset', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def delete_live_pad_preset(self, body):
+        res = self.api_post('DeleteLivePadPreset', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def stop_live_pad_stream(self, body):
+        res = self.api_post('StopLivePadStream', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def update_live_pad_preset(self, body):
+        res = self.api_post('UpdateLivePadPreset', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def describe_live_pad_stream_list(self, body):
+        res = self.api_post('DescribeLivePadStreamList', [], body)
+        if res == '':
+            raise Exception("empty response")
+        res_json = json.loads(res)
+        return res_json
+            
+    def describe_live_pad_preset_detail(self, body):
+        res = self.api_post('DescribeLivePadPresetDetail', [], body)
         if res == '':
             raise Exception("empty response")
         res_json = json.loads(res)
