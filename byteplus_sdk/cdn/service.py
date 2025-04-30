@@ -174,6 +174,15 @@ api_info = {
     "CreateServiceTemplate": ApiInfo("POST", "/", {
         "Action": "CreateServiceTemplate", "Version": SERVICE_VERSION}, {}, {}),
 
+    "CreateRuleEngineTemplate": ApiInfo("POST", "/", {
+        "Action": "CreateRuleEngineTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "UpdateRuleEngineTemplate": ApiInfo("POST", "/", {
+        "Action": "UpdateRuleEngineTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeRuleEngineTemplate": ApiInfo("POST", "/", {
+        "Action": "DescribeRuleEngineTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
     "DescribeDistrictData": ApiInfo("POST", "/", {
         "Action": "DescribeDistrictData", "Version": SERVICE_VERSION}, {}, {}),
 
@@ -1044,6 +1053,36 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "UntagResources"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def create_rule_engine_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "CreateRuleEngineTemplate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def update_rule_engine_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "UpdateRuleEngineTemplate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_rule_engine_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeRuleEngineTemplate"
         res = self.json(action, [], params)
         if res == '':
             raise Exception("%s: empty response" % action)
