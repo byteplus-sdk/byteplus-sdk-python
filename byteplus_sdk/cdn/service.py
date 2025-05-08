@@ -183,6 +183,9 @@ api_info = {
     "DescribeRuleEngineTemplate": ApiInfo("POST", "/", {
         "Action": "DescribeRuleEngineTemplate", "Version": SERVICE_VERSION}, {}, {}),
 
+    "ReleaseTemplate": ApiInfo("POST", "/", {
+        "Action": "ReleaseTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
     "DescribeDistrictData": ApiInfo("POST", "/", {
         "Action": "DescribeDistrictData", "Version": SERVICE_VERSION}, {}, {}),
 
@@ -1083,6 +1086,16 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeRuleEngineTemplate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def release_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "ReleaseTemplate"
         res = self.json(action, [], params)
         if res == '':
             raise Exception("%s: empty response" % action)
