@@ -79,8 +79,8 @@ class VodServiceConfig(Service):
             "GetWorkflowExecution": ApiInfo("GET", "/", {"Action": "GetWorkflowExecution", "Version": "2023-01-01"}, {}, {}),
             # 空间管理
             "CreateSpace": ApiInfo("GET", "/", {"Action": "CreateSpace", "Version": "2023-01-01"}, {}, {}),
-            "ListSpace": ApiInfo("GET", "/", {"Action": "ListSpace", "Version": "2023-01-01"}, {}, {}),
-            "GetSpaceDetail": ApiInfo("GET", "/", {"Action": "GetSpaceDetail", "Version": "2023-01-01"}, {}, {}),
+            "ListSpace": ApiInfo("GET", "/", {"Action": "ListSpace", "Version": "2023-07-01"}, {}, {}),
+            "GetSpaceDetail": ApiInfo("GET", "/", {"Action": "GetSpaceDetail", "Version": "2023-07-01"}, {}, {}),
             "UpdateSpaceUploadConfig": ApiInfo("GET", "/", {"Action": "UpdateSpaceUploadConfig", "Version": "2023-01-01"}, {}, {}),
             "DescribeVodSpaceStorageData": ApiInfo("GET", "/", {"Action": "DescribeVodSpaceStorageData", "Version": "2023-01-01"},{}, {}),
             # 分发加速
@@ -154,8 +154,8 @@ class VodServiceConfig(Service):
                 # 转码
                 # 空间管理
                 "CreateSpace": ApiInfo("GET", "/", {"Action": "CreateSpace", "Version": "2023-01-01"}, {}, {}),
-                "ListSpace": ApiInfo("GET", "/", {"Action": "ListSpace", "Version": "2023-01-01"}, {}, {}),
-                "GetSpaceDetail": ApiInfo("GET", "/", {"Action": "GetSpaceDetail", "Version": "2023-01-01"}, {}, {}),
+                "ListSpace": ApiInfo("GET", "/", {"Action": "ListSpace", "Version": "2023-07-01"}, {}, {}),
+                "GetSpaceDetail": ApiInfo("GET", "/", {"Action": "GetSpaceDetail", "Version": "2023-07-01"}, {}, {}),
                 "UpdateSpaceUploadConfig": ApiInfo("GET", "/",
                                                    {"Action": "UpdateSpaceUploadConfig", "Version": "2023-01-01"}, {},
                                                    {}),
