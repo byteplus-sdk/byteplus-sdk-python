@@ -13,17 +13,22 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&byteplus/vod/business/vod_common.proto\x12\x1c\x42yteplus.Vod.Models.Business\"\xdc\x03\n\rVodSourceInfo\x12\x0e\n\x06\x46ileId\x18\x01 \x01(\t\x12\x0b\n\x03Md5\x18\x02 \x01(\t\x12\x10\n\x08\x46ileType\x18\x03 \x01(\t\x12\r\n\x05\x43odec\x18\x04 \x01(\t\x12\x0e\n\x06Height\x18\x05 \x01(\x05\x12\r\n\x05Width\x18\x06 \x01(\x05\x12\x0e\n\x06\x46ormat\x18\x07 \x01(\t\x12\x10\n\x08\x44uration\x18\x08 \x01(\x02\x12\x0c\n\x04Size\x18\t \x01(\x01\x12\x10\n\x08StoreUri\x18\n \x01(\t\x12\x12\n\nDefinition\x18\x0b \x01(\t\x12\x0f\n\x07\x42itrate\x18\x0c \x01(\x05\x12\x0b\n\x03\x46ps\x18\r \x01(\x02\x12\x12\n\nCreateTime\x18\x0e \x01(\t\x12\x0f\n\x07Quality\x18\x0f \x01(\t\x12\x14\n\x0c\x44ynamicRange\x18\x10 \x01(\t\x12I\n\x0fVideoStreamMeta\x18\x11 \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.VodVideoStreamMeta\x12I\n\x0f\x41udioStreamMeta\x18\x12 \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.VodAudioStreamMeta\x12\x17\n\x0fTosStorageClass\x18\x13 \x01(\t\x12\x10\n\x08\x46ileName\x18\x14 \x01(\t\"k\n\x12VodAudioStreamMeta\x12\r\n\x05\x43odec\x18\x01 \x01(\t\x12\x10\n\x08\x44uration\x18\x02 \x01(\x02\x12\x12\n\nSampleRate\x18\x03 \x01(\x05\x12\x0f\n\x07\x42itrate\x18\x04 \x01(\x05\x12\x0f\n\x07Quality\x18\x05 \x01(\t\"\x86\x01\n\x12VodVideoStreamMeta\x12\r\n\x05\x43odec\x18\x01 \x01(\t\x12\x0e\n\x06Height\x18\x02 \x01(\x05\x12\r\n\x05Width\x18\x03 \x01(\x05\x12\x10\n\x08\x44uration\x18\x04 \x01(\x02\x12\x12\n\nDefinition\x18\x05 \x01(\t\x12\x0f\n\x07\x42itrate\x18\x06 \x01(\x05\x12\x0b\n\x03\x46ps\x18\x07 \x01(\x02\"\xff\x02\n\x10VodTranscodeInfo\x12\x0e\n\x06\x46ileId\x18\x01 \x01(\t\x12\x0b\n\x03Md5\x18\x02 \x01(\t\x12\x10\n\x08\x46ileType\x18\x03 \x01(\t\x12\x10\n\x08LogoType\x18\x04 \x01(\t\x12\x0f\n\x07\x45ncrypt\x18\x05 \x01(\x08\x12\x0e\n\x06\x46ormat\x18\x06 \x01(\t\x12\x10\n\x08\x44uration\x18\x07 \x01(\x02\x12\x0c\n\x04Size\x18\x08 \x01(\x01\x12\x10\n\x08StoreUri\x18\t \x01(\t\x12I\n\x0fVideoStreamMeta\x18\n \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.VodVideoStreamMeta\x12I\n\x0f\x41udioStreamMeta\x18\x0b \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.VodAudioStreamMeta\x12\x12\n\nCreateTime\x18\x0c \x01(\t\x12\x14\n\x0c\x44ynamicRange\x18\r \x01(\t\x12\x17\n\x0fTosStorageClass\x18\x0e \x01(\t\"S\n\x0fVodAdaptiveInfo\x12\x13\n\x0bMainPlayUrl\x18\x01 \x01(\t\x12\x15\n\rBackupPlayUrl\x18\x02 \x01(\t\x12\x14\n\x0c\x41\x64\x61ptiveType\x18\x03 \x01(\t\"\xb1\x04\n\x0bVodPlayInfo\x12\x0e\n\x06\x46ileId\x18\x01 \x01(\t\x12\x0b\n\x03Md5\x18\x02 \x01(\t\x12\x10\n\x08\x46ileType\x18\x03 \x01(\t\x12\x0e\n\x06\x46ormat\x18\x04 \x01(\t\x12\r\n\x05\x43odec\x18\x05 \x01(\t\x12\x12\n\nDefinition\x18\x06 \x01(\t\x12\x13\n\x0bMainPlayUrl\x18\x07 \x01(\t\x12\x15\n\rBackupPlayUrl\x18\x08 \x01(\t\x12\x0f\n\x07\x42itrate\x18\t \x01(\x05\x12\r\n\x05Width\x18\n \x01(\x05\x12\x0e\n\x06Height\x18\x0b \x01(\x05\x12\x0c\n\x04Size\x18\x0c \x01(\x01\x12\x11\n\tCheckInfo\x18\r \x01(\t\x12\x12\n\nIndexRange\x18\x0e \x01(\t\x12\x11\n\tInitRange\x18\x0f \x01(\t\x12\x10\n\x08PlayAuth\x18\x10 \x01(\t\x12\x12\n\nPlayAuthId\x18\x11 \x01(\t\x12\x10\n\x08LogoType\x18\x12 \x01(\t\x12\x0f\n\x07Quality\x18\x13 \x01(\t\x12\x19\n\x11\x42\x61rrageMaskOffset\x18\x14 \x01(\t\x12\x10\n\x08\x44uration\x18\x15 \x01(\x02\x12\x19\n\x11KeyFrameAlignment\x18\x16 \x01(\t\x12;\n\x06Volume\x18\x17 \x01(\x0b\x32+.Byteplus.Vod.Models.Business.VodVolumeInfo\x12\x0f\n\x07\x44rmType\x18\x18 \x01(\t\x12=\n\x0e\x45ncryptionPssh\x18\x19 \x01(\x0b\x32%.Byteplus.Vod.Models.Business.DrmPssh\"L\n\x07\x44rmPssh\x12\x14\n\x0cWidevinePssh\x18\x01 \x01(\t\x12\x15\n\rPlayReadyPssh\x18\x02 \x01(\t\x12\x14\n\x0c\x46\x61irPlayPssh\x18\x03 \x01(\t\"/\n\rVodVolumeInfo\x12\x10\n\x08Loudness\x18\x01 \x01(\x01\x12\x0c\n\x04Peak\x18\x02 \x01(\x01\"\xa3\x01\n\x0f\x42\x61rrageMaskInfo\x12\x0f\n\x07Version\x18\x01 \x01(\t\x12\x16\n\x0e\x42\x61rrageMaskUrl\x18\x02 \x01(\t\x12\x0e\n\x06\x46ileId\x18\x03 \x01(\t\x12\x10\n\x08\x46ileSize\x18\x04 \x01(\x01\x12\x10\n\x08\x46ileHash\x18\x05 \x01(\t\x12\x11\n\tUpdatedAt\x18\x06 \x01(\t\x12\x0f\n\x07\x42itrate\x18\x07 \x01(\x05\x12\x0f\n\x07HeadLen\x18\x08 \x01(\x01\"\xa0\x01\n\x0cVodThumbInfo\x12\x12\n\nCaptureNum\x18\x01 \x01(\x05\x12\x11\n\tStoreUrls\x18\x02 \x03(\t\x12\x11\n\tCellWidth\x18\x03 \x01(\x05\x12\x12\n\nCellHeight\x18\x04 \x01(\x05\x12\x0f\n\x07ImgXLen\x18\x05 \x01(\x05\x12\x0f\n\x07ImgYLen\x18\x06 \x01(\x05\x12\x10\n\x08Interval\x18\x07 \x01(\x01\x12\x0e\n\x06\x46ormat\x18\x08 \x01(\t\"\x80\x02\n\x0fVodSubtitleInfo\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x0e\n\x06\x46ileId\x18\x02 \x01(\t\x12\x10\n\x08Language\x18\x03 \x01(\t\x12\x12\n\nLanguageId\x18\x04 \x01(\x05\x12\x0e\n\x06\x46ormat\x18\x05 \x01(\t\x12\x12\n\nSubtitleId\x18\x06 \x01(\t\x12\r\n\x05Title\x18\x07 \x01(\t\x12\x0b\n\x03Tag\x18\x08 \x01(\t\x12\x0e\n\x06Status\x18\t \x01(\t\x12\x0e\n\x06Source\x18\n \x01(\t\x12\x10\n\x08StoreUri\x18\x0b \x01(\t\x12\x13\n\x0bSubtitleUrl\x18\x0c \x01(\t\x12\x12\n\nCreateTime\x18\r \x01(\t\x12\x0f\n\x07Version\x18\x0e \x01(\t\"A\n\x13VodCommonConfigInfo\x12\x0e\n\x06Module\x18\x01 \x01(\t\x12\x0b\n\x03Key\x18\x02 \x01(\t\x12\r\n\x05Value\x18\x03 \x01(\t\"\xae\x05\n\x10VodPlayInfoModel\x12\x46\n\x07Version\x18\n \x01(\x0e\x32\x35.Byteplus.Vod.Models.Business.VodPlayInfoModelVersion\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x0e\n\x06Status\x18\x02 \x01(\x05\x12\x11\n\tPosterUrl\x18\x03 \x01(\t\x12\x10\n\x08\x44uration\x18\x04 \x01(\x02\x12\x10\n\x08\x46ileType\x18\x05 \x01(\t\x12\x16\n\x0e\x45nableAdaptive\x18\x06 \x01(\x08\x12\x12\n\nTotalCount\x18\x07 \x01(\x05\x12\x43\n\x0c\x41\x64\x61ptiveInfo\x18\x08 \x01(\x0b\x32-.Byteplus.Vod.Models.Business.VodAdaptiveInfo\x12?\n\x0cPlayInfoList\x18\t \x03(\x0b\x32).Byteplus.Vod.Models.Business.VodPlayInfo\x12\x41\n\rThumbInfoList\x18\x0b \x03(\x0b\x32*.Byteplus.Vod.Models.Business.VodThumbInfo\x12\x16\n\x0e\x42\x61rrageMaskUrl\x18\x0c \x01(\t\x12G\n\x10SubtitleInfoList\x18\r \x03(\x0b\x32-.Byteplus.Vod.Models.Business.VodSubtitleInfo\x12\x46\n\x0f\x42\x61rrageMaskInfo\x18\x0e \x01(\x0b\x32-.Byteplus.Vod.Models.Business.BarrageMaskInfo\x12`\n\x1c\x41\x64\x61ptiveBitrateStreamingInfo\x18\x0f \x01(\x0b\x32:.Byteplus.Vod.Models.Business.AdaptiveBitrateStreamingInfo\"\x83\x01\n\x1c\x41\x64\x61ptiveBitrateStreamingInfo\x12\x13\n\x0bMainPlayUrl\x18\x01 \x01(\t\x12\x15\n\rBackupPlayUrl\x18\x02 \x01(\t\x12\x11\n\tAbrFormat\x18\x03 \x01(\t\x12\x10\n\x08PlayAuth\x18\x04 \x01(\t\x12\x12\n\nPlayAuthId\x18\x05 \x01(\t\",\n\x08VodPoint\x12\x11\n\tTimestamp\x18\x01 \x01(\x01\x12\r\n\x05Value\x18\x02 \x01(\x01\"\x94\x01\n\x14VodAllPlayInfoResult\x12R\n\x17VodAllPlayInfoModelList\x18\x01 \x03(\x0b\x32\x31.Byteplus.Vod.Models.Business.VodAllPlayInfoModel\x12\x12\n\nTotalCount\x18\x02 \x01(\x05\x12\x14\n\x0cNotFoundVids\x18\x03 \x03(\t\"\xb4\x04\n\x13VodAllPlayInfoModel\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x0e\n\x06Status\x18\x02 \x01(\x05\x12\x11\n\tPosterUrl\x18\x03 \x01(\t\x12\x12\n\nTotalCount\x18\x04 \x01(\x05\x12\x16\n\x0e\x45nableAdaptive\x18\x05 \x01(\x08\x12G\n\x14VodTranscodePlayInfo\x18\x06 \x03(\x0b\x32).Byteplus.Vod.Models.Business.VodPlayInfo\x12\x44\n\x11VodSourcePlayInfo\x18\x07 \x01(\x0b\x32).Byteplus.Vod.Models.Business.VodPlayInfo\x12\x46\n\x07Version\x18\x08 \x01(\x0e\x32\x35.Byteplus.Vod.Models.Business.VodPlayInfoModelVersion\x12\x41\n\rThumbInfoList\x18\t \x03(\x0b\x32*.Byteplus.Vod.Models.Business.VodThumbInfo\x12\x16\n\x0e\x42\x61rrageMaskUrl\x18\n \x01(\t\x12G\n\x10SubtitleInfoList\x18\x0b \x03(\x0b\x32-.Byteplus.Vod.Models.Business.VodSubtitleInfo\x12\x46\n\x0f\x42\x61rrageMaskInfo\x18\x0c \x01(\x0b\x32-.Byteplus.Vod.Models.Business.BarrageMaskInfo\".\n\x1cVodGetIntertrustApiKeyResult\x12\x0e\n\x06\x41piKey\x18\x01 \x01(\t\".\n\x1cVodSetFairPlayCertInfoResult\x12\x0e\n\x06\x43\x65rtId\x18\x01 \x01(\t\"\x8b\x01\n\x1cVodGetFairPlayCertInfoResult\x12\x0e\n\x06\x43\x65rtId\x18\x01 \x01(\t\x12\x10\n\x08\x43\x65rtName\x18\x02 \x01(\t\x12\x14\n\x0c\x43\x65rtFileName\x18\x03 \x01(\t\x12\x12\n\nPkFileName\x18\x04 \x01(\t\x12\x12\n\nPkPassword\x18\x05 \x01(\t\x12\x0b\n\x03\x41sk\x18\x06 \x01(\t\"(\n\x18VodGetFairPlayCertResult\x12\x0c\n\x04\x43\x65rt\x18\x01 \x01(\x0c\")\n\x13VodDrmLicenseResult\x12\x12\n\nDrmLicense\x18\x01 \x01(\x0c*\xd6\x01\n\x17VodPlayInfoModelVersion\x12$\n UndefinedVodPlayInfoModelVersion\x10\x00\x12%\n!InternalV1VodPlayInfoModelVersion\x10\x01\x12%\n!InternalV2VodPlayInfoModelVersion\x10\x02\x12%\n!InternalV3VodPlayInfoModelVersion\x10\x03\x12 \n\x1cToBV1VodPlayInfoModelVersion\x10\x04\x42\xd9\x01\n\'com.byteplus.service.vod.model.businessB\tVodCommonP\x01ZGgithub.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/business\xa0\x01\x01\xd8\x01\x01\xc2\x02\x00\xca\x02$Byteplus\\Service\\Vod\\Models\\Business\xe2\x02\'Byteplus\\Service\\Vod\\Models\\GPBMetadatab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&byteplus/vod/business/vod_common.proto\x12\x1c\x42yteplus.Vod.Models.Business\x1a\x1egoogle/protobuf/wrappers.proto\"\xdc\x03\n\rVodSourceInfo\x12\x0e\n\x06\x46ileId\x18\x01 \x01(\t\x12\x0b\n\x03Md5\x18\x02 \x01(\t\x12\x10\n\x08\x46ileType\x18\x03 \x01(\t\x12\r\n\x05\x43odec\x18\x04 \x01(\t\x12\x0e\n\x06Height\x18\x05 \x01(\x05\x12\r\n\x05Width\x18\x06 \x01(\x05\x12\x0e\n\x06\x46ormat\x18\x07 \x01(\t\x12\x10\n\x08\x44uration\x18\x08 \x01(\x02\x12\x0c\n\x04Size\x18\t \x01(\x01\x12\x10\n\x08StoreUri\x18\n \x01(\t\x12\x12\n\nDefinition\x18\x0b \x01(\t\x12\x0f\n\x07\x42itrate\x18\x0c \x01(\x05\x12\x0b\n\x03\x46ps\x18\r \x01(\x02\x12\x12\n\nCreateTime\x18\x0e \x01(\t\x12\x0f\n\x07Quality\x18\x0f \x01(\t\x12\x14\n\x0c\x44ynamicRange\x18\x10 \x01(\t\x12I\n\x0fVideoStreamMeta\x18\x11 \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.VodVideoStreamMeta\x12I\n\x0f\x41udioStreamMeta\x18\x12 \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.VodAudioStreamMeta\x12\x17\n\x0fTosStorageClass\x18\x13 \x01(\t\x12\x10\n\x08\x46ileName\x18\x14 \x01(\t\"k\n\x12VodAudioStreamMeta\x12\r\n\x05\x43odec\x18\x01 \x01(\t\x12\x10\n\x08\x44uration\x18\x02 \x01(\x02\x12\x12\n\nSampleRate\x18\x03 \x01(\x05\x12\x0f\n\x07\x42itrate\x18\x04 \x01(\x05\x12\x0f\n\x07Quality\x18\x05 \x01(\t\"\x86\x01\n\x12VodVideoStreamMeta\x12\r\n\x05\x43odec\x18\x01 \x01(\t\x12\x0e\n\x06Height\x18\x02 \x01(\x05\x12\r\n\x05Width\x18\x03 \x01(\x05\x12\x10\n\x08\x44uration\x18\x04 \x01(\x02\x12\x12\n\nDefinition\x18\x05 \x01(\t\x12\x0f\n\x07\x42itrate\x18\x06 \x01(\x05\x12\x0b\n\x03\x46ps\x18\x07 \x01(\x02\"\xff\x02\n\x10VodTranscodeInfo\x12\x0e\n\x06\x46ileId\x18\x01 \x01(\t\x12\x0b\n\x03Md5\x18\x02 \x01(\t\x12\x10\n\x08\x46ileType\x18\x03 \x01(\t\x12\x10\n\x08LogoType\x18\x04 \x01(\t\x12\x0f\n\x07\x45ncrypt\x18\x05 \x01(\x08\x12\x0e\n\x06\x46ormat\x18\x06 \x01(\t\x12\x10\n\x08\x44uration\x18\x07 \x01(\x02\x12\x0c\n\x04Size\x18\x08 \x01(\x01\x12\x10\n\x08StoreUri\x18\t \x01(\t\x12I\n\x0fVideoStreamMeta\x18\n \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.VodVideoStreamMeta\x12I\n\x0f\x41udioStreamMeta\x18\x0b \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.VodAudioStreamMeta\x12\x12\n\nCreateTime\x18\x0c \x01(\t\x12\x14\n\x0c\x44ynamicRange\x18\r \x01(\t\x12\x17\n\x0fTosStorageClass\x18\x0e \x01(\t\"S\n\x0fVodAdaptiveInfo\x12\x13\n\x0bMainPlayUrl\x18\x01 \x01(\t\x12\x15\n\rBackupPlayUrl\x18\x02 \x01(\t\x12\x14\n\x0c\x41\x64\x61ptiveType\x18\x03 \x01(\t\"\xb1\x04\n\x0bVodPlayInfo\x12\x0e\n\x06\x46ileId\x18\x01 \x01(\t\x12\x0b\n\x03Md5\x18\x02 \x01(\t\x12\x10\n\x08\x46ileType\x18\x03 \x01(\t\x12\x0e\n\x06\x46ormat\x18\x04 \x01(\t\x12\r\n\x05\x43odec\x18\x05 \x01(\t\x12\x12\n\nDefinition\x18\x06 \x01(\t\x12\x13\n\x0bMainPlayUrl\x18\x07 \x01(\t\x12\x15\n\rBackupPlayUrl\x18\x08 \x01(\t\x12\x0f\n\x07\x42itrate\x18\t \x01(\x05\x12\r\n\x05Width\x18\n \x01(\x05\x12\x0e\n\x06Height\x18\x0b \x01(\x05\x12\x0c\n\x04Size\x18\x0c \x01(\x01\x12\x11\n\tCheckInfo\x18\r \x01(\t\x12\x12\n\nIndexRange\x18\x0e \x01(\t\x12\x11\n\tInitRange\x18\x0f \x01(\t\x12\x10\n\x08PlayAuth\x18\x10 \x01(\t\x12\x12\n\nPlayAuthId\x18\x11 \x01(\t\x12\x10\n\x08LogoType\x18\x12 \x01(\t\x12\x0f\n\x07Quality\x18\x13 \x01(\t\x12\x19\n\x11\x42\x61rrageMaskOffset\x18\x14 \x01(\t\x12\x10\n\x08\x44uration\x18\x15 \x01(\x02\x12\x19\n\x11KeyFrameAlignment\x18\x16 \x01(\t\x12;\n\x06Volume\x18\x17 \x01(\x0b\x32+.Byteplus.Vod.Models.Business.VodVolumeInfo\x12\x0f\n\x07\x44rmType\x18\x18 \x01(\t\x12=\n\x0e\x45ncryptionPssh\x18\x19 \x01(\x0b\x32%.Byteplus.Vod.Models.Business.DrmPssh\"L\n\x07\x44rmPssh\x12\x14\n\x0cWidevinePssh\x18\x01 \x01(\t\x12\x15\n\rPlayReadyPssh\x18\x02 \x01(\t\x12\x14\n\x0c\x46\x61irPlayPssh\x18\x03 \x01(\t\"/\n\rVodVolumeInfo\x12\x10\n\x08Loudness\x18\x01 \x01(\x01\x12\x0c\n\x04Peak\x18\x02 \x01(\x01\"\xa3\x01\n\x0f\x42\x61rrageMaskInfo\x12\x0f\n\x07Version\x18\x01 \x01(\t\x12\x16\n\x0e\x42\x61rrageMaskUrl\x18\x02 \x01(\t\x12\x0e\n\x06\x46ileId\x18\x03 \x01(\t\x12\x10\n\x08\x46ileSize\x18\x04 \x01(\x01\x12\x10\n\x08\x46ileHash\x18\x05 \x01(\t\x12\x11\n\tUpdatedAt\x18\x06 \x01(\t\x12\x0f\n\x07\x42itrate\x18\x07 \x01(\x05\x12\x0f\n\x07HeadLen\x18\x08 \x01(\x01\"\xa0\x01\n\x0cVodThumbInfo\x12\x12\n\nCaptureNum\x18\x01 \x01(\x05\x12\x11\n\tStoreUrls\x18\x02 \x03(\t\x12\x11\n\tCellWidth\x18\x03 \x01(\x05\x12\x12\n\nCellHeight\x18\x04 \x01(\x05\x12\x0f\n\x07ImgXLen\x18\x05 \x01(\x05\x12\x0f\n\x07ImgYLen\x18\x06 \x01(\x05\x12\x10\n\x08Interval\x18\x07 \x01(\x01\x12\x0e\n\x06\x46ormat\x18\x08 \x01(\t\"\x80\x02\n\x0fVodSubtitleInfo\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x0e\n\x06\x46ileId\x18\x02 \x01(\t\x12\x10\n\x08Language\x18\x03 \x01(\t\x12\x12\n\nLanguageId\x18\x04 \x01(\x05\x12\x0e\n\x06\x46ormat\x18\x05 \x01(\t\x12\x12\n\nSubtitleId\x18\x06 \x01(\t\x12\r\n\x05Title\x18\x07 \x01(\t\x12\x0b\n\x03Tag\x18\x08 \x01(\t\x12\x0e\n\x06Status\x18\t \x01(\t\x12\x0e\n\x06Source\x18\n \x01(\t\x12\x10\n\x08StoreUri\x18\x0b \x01(\t\x12\x13\n\x0bSubtitleUrl\x18\x0c \x01(\t\x12\x12\n\nCreateTime\x18\r \x01(\t\x12\x0f\n\x07Version\x18\x0e \x01(\t\"A\n\x13VodCommonConfigInfo\x12\x0e\n\x06Module\x18\x01 \x01(\t\x12\x0b\n\x03Key\x18\x02 \x01(\t\x12\r\n\x05Value\x18\x03 \x01(\t\"\xae\x05\n\x10VodPlayInfoModel\x12\x46\n\x07Version\x18\n \x01(\x0e\x32\x35.Byteplus.Vod.Models.Business.VodPlayInfoModelVersion\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x0e\n\x06Status\x18\x02 \x01(\x05\x12\x11\n\tPosterUrl\x18\x03 \x01(\t\x12\x10\n\x08\x44uration\x18\x04 \x01(\x02\x12\x10\n\x08\x46ileType\x18\x05 \x01(\t\x12\x16\n\x0e\x45nableAdaptive\x18\x06 \x01(\x08\x12\x12\n\nTotalCount\x18\x07 \x01(\x05\x12\x43\n\x0c\x41\x64\x61ptiveInfo\x18\x08 \x01(\x0b\x32-.Byteplus.Vod.Models.Business.VodAdaptiveInfo\x12?\n\x0cPlayInfoList\x18\t \x03(\x0b\x32).Byteplus.Vod.Models.Business.VodPlayInfo\x12\x41\n\rThumbInfoList\x18\x0b \x03(\x0b\x32*.Byteplus.Vod.Models.Business.VodThumbInfo\x12\x16\n\x0e\x42\x61rrageMaskUrl\x18\x0c \x01(\t\x12G\n\x10SubtitleInfoList\x18\r \x03(\x0b\x32-.Byteplus.Vod.Models.Business.VodSubtitleInfo\x12\x46\n\x0f\x42\x61rrageMaskInfo\x18\x0e \x01(\x0b\x32-.Byteplus.Vod.Models.Business.BarrageMaskInfo\x12`\n\x1c\x41\x64\x61ptiveBitrateStreamingInfo\x18\x0f \x01(\x0b\x32:.Byteplus.Vod.Models.Business.AdaptiveBitrateStreamingInfo\"\x83\x01\n\x1c\x41\x64\x61ptiveBitrateStreamingInfo\x12\x13\n\x0bMainPlayUrl\x18\x01 \x01(\t\x12\x15\n\rBackupPlayUrl\x18\x02 \x01(\t\x12\x11\n\tAbrFormat\x18\x03 \x01(\t\x12\x10\n\x08PlayAuth\x18\x04 \x01(\t\x12\x12\n\nPlayAuthId\x18\x05 \x01(\t\",\n\x08VodPoint\x12\x11\n\tTimestamp\x18\x01 \x01(\x01\x12\r\n\x05Value\x18\x02 \x01(\x01\"\x94\x01\n\x14VodAllPlayInfoResult\x12R\n\x17VodAllPlayInfoModelList\x18\x01 \x03(\x0b\x32\x31.Byteplus.Vod.Models.Business.VodAllPlayInfoModel\x12\x12\n\nTotalCount\x18\x02 \x01(\x05\x12\x14\n\x0cNotFoundVids\x18\x03 \x03(\t\"\xb4\x04\n\x13VodAllPlayInfoModel\x12\x0b\n\x03Vid\x18\x01 \x01(\t\x12\x0e\n\x06Status\x18\x02 \x01(\x05\x12\x11\n\tPosterUrl\x18\x03 \x01(\t\x12\x12\n\nTotalCount\x18\x04 \x01(\x05\x12\x16\n\x0e\x45nableAdaptive\x18\x05 \x01(\x08\x12G\n\x14VodTranscodePlayInfo\x18\x06 \x03(\x0b\x32).Byteplus.Vod.Models.Business.VodPlayInfo\x12\x44\n\x11VodSourcePlayInfo\x18\x07 \x01(\x0b\x32).Byteplus.Vod.Models.Business.VodPlayInfo\x12\x46\n\x07Version\x18\x08 \x01(\x0e\x32\x35.Byteplus.Vod.Models.Business.VodPlayInfoModelVersion\x12\x41\n\rThumbInfoList\x18\t \x03(\x0b\x32*.Byteplus.Vod.Models.Business.VodThumbInfo\x12\x16\n\x0e\x42\x61rrageMaskUrl\x18\n \x01(\t\x12G\n\x10SubtitleInfoList\x18\x0b \x03(\x0b\x32-.Byteplus.Vod.Models.Business.VodSubtitleInfo\x12\x46\n\x0f\x42\x61rrageMaskInfo\x18\x0c \x01(\x0b\x32-.Byteplus.Vod.Models.Business.BarrageMaskInfo\".\n\x1cVodGetIntertrustApiKeyResult\x12\x0e\n\x06\x41piKey\x18\x01 \x01(\t\".\n\x1cVodSetFairPlayCertInfoResult\x12\x0e\n\x06\x43\x65rtId\x18\x01 \x01(\t\"\x8b\x01\n\x1cVodGetFairPlayCertInfoResult\x12\x0e\n\x06\x43\x65rtId\x18\x01 \x01(\t\x12\x10\n\x08\x43\x65rtName\x18\x02 \x01(\t\x12\x14\n\x0c\x43\x65rtFileName\x18\x03 \x01(\t\x12\x12\n\nPkFileName\x18\x04 \x01(\t\x12\x12\n\nPkPassword\x18\x05 \x01(\t\x12\x0b\n\x03\x41sk\x18\x06 \x01(\t\"(\n\x18VodGetFairPlayCertResult\x12\x0c\n\x04\x43\x65rt\x18\x01 \x01(\x0c\")\n\x13VodDrmLicenseResult\x12\x12\n\nDrmLicense\x18\x01 \x01(\x0c\"\x9b\x01\n\x12MirrorSrcCondition\x12\x10\n\x08HttpCode\x18\x01 \x03(\x03\x12/\n\tKeyPrefix\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tKeySuffix\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12\x11\n\tAllowHost\x18\x04 \x03(\t\"M\n\x10PublicSourceConf\x12\x39\n\x02S3\x18\x01 \x01(\x0b\x32-.Byteplus.Vod.Models.Business.MirrorSrcS3Conf\"\xff\x01\n\x0fMirrorSrcS3Conf\x12.\n\x08\x45ndpoint\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06Region\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12,\n\x06\x42ucket\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tAccessKey\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12/\n\tSecretKey\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValue\"\xf4\x02\n\rMirrorSrcRule\x12(\n\x02Id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValue\x12+\n\x07\x45nabled\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12H\n\nOriginType\x18\x03 \x01(\x0e\x32\x34.Byteplus.Vod.Models.Business.VodMirrorSrcOriginType\x12\x43\n\tCondition\x18\x04 \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.MirrorSrcCondition\x12\x44\n\x0cPublicSource\x18\x05 \x01(\x0b\x32..Byteplus.Vod.Models.Business.PublicSourceConf\x12\x11\n\tCreatedAt\x18\x06 \x01(\x03\x12\x11\n\tUpdatedAt\x18\x07 \x01(\x03\x12\x11\n\tDeletedAt\x18\x08 \x01(\x03\"\'\n\x19VodSetMirrorSrcRuleResult\x12\n\n\x02Id\x18\x01 \x01(\t\"W\n\x1aVodListMirrorSrcRuleResult\x12\x39\n\x04Rule\x18\x01 \x03(\x0b\x32+.Byteplus.Vod.Models.Business.MirrorSrcRule*\xd6\x01\n\x17VodPlayInfoModelVersion\x12$\n UndefinedVodPlayInfoModelVersion\x10\x00\x12%\n!InternalV1VodPlayInfoModelVersion\x10\x01\x12%\n!InternalV2VodPlayInfoModelVersion\x10\x02\x12%\n!InternalV3VodPlayInfoModelVersion\x10\x03\x12 \n\x1cToBV1VodPlayInfoModelVersion\x10\x04*,\n\x16VodMirrorSrcOriginType\x12\n\n\x06NotSet\x10\x00\x12\x06\n\x02S3\x10\x01\x42\xd9\x01\n\'com.byteplus.service.vod.model.businessB\tVodCommonP\x01ZGgithub.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/business\xa0\x01\x01\xd8\x01\x01\xc2\x02\x00\xca\x02$Byteplus\\Service\\Vod\\Models\\Business\xe2\x02\'Byteplus\\Service\\Vod\\Models\\GPBMetadatab\x06proto3')
 
 _VODPLAYINFOMODELVERSION = DESCRIPTOR.enum_types_by_name['VodPlayInfoModelVersion']
 VodPlayInfoModelVersion = enum_type_wrapper.EnumTypeWrapper(_VODPLAYINFOMODELVERSION)
+_VODMIRRORSRCORIGINTYPE = DESCRIPTOR.enum_types_by_name['VodMirrorSrcOriginType']
+VodMirrorSrcOriginType = enum_type_wrapper.EnumTypeWrapper(_VODMIRRORSRCORIGINTYPE)
 UndefinedVodPlayInfoModelVersion = 0
 InternalV1VodPlayInfoModelVersion = 1
 InternalV2VodPlayInfoModelVersion = 2
 InternalV3VodPlayInfoModelVersion = 3
 ToBV1VodPlayInfoModelVersion = 4
+NotSet = 0
+S3 = 1
 
 
 _VODSOURCEINFO = DESCRIPTOR.message_types_by_name['VodSourceInfo']
@@ -48,6 +53,12 @@ _VODSETFAIRPLAYCERTINFORESULT = DESCRIPTOR.message_types_by_name['VodSetFairPlay
 _VODGETFAIRPLAYCERTINFORESULT = DESCRIPTOR.message_types_by_name['VodGetFairPlayCertInfoResult']
 _VODGETFAIRPLAYCERTRESULT = DESCRIPTOR.message_types_by_name['VodGetFairPlayCertResult']
 _VODDRMLICENSERESULT = DESCRIPTOR.message_types_by_name['VodDrmLicenseResult']
+_MIRRORSRCCONDITION = DESCRIPTOR.message_types_by_name['MirrorSrcCondition']
+_PUBLICSOURCECONF = DESCRIPTOR.message_types_by_name['PublicSourceConf']
+_MIRRORSRCS3CONF = DESCRIPTOR.message_types_by_name['MirrorSrcS3Conf']
+_MIRRORSRCRULE = DESCRIPTOR.message_types_by_name['MirrorSrcRule']
+_VODSETMIRRORSRCRULERESULT = DESCRIPTOR.message_types_by_name['VodSetMirrorSrcRuleResult']
+_VODLISTMIRRORSRCRULERESULT = DESCRIPTOR.message_types_by_name['VodListMirrorSrcRuleResult']
 VodSourceInfo = _reflection.GeneratedProtocolMessageType('VodSourceInfo', (_message.Message,), {
   'DESCRIPTOR' : _VODSOURCEINFO,
   '__module__' : 'byteplus.vod.business.vod_common_pb2'
@@ -202,54 +213,110 @@ VodDrmLicenseResult = _reflection.GeneratedProtocolMessageType('VodDrmLicenseRes
   })
 _sym_db.RegisterMessage(VodDrmLicenseResult)
 
+MirrorSrcCondition = _reflection.GeneratedProtocolMessageType('MirrorSrcCondition', (_message.Message,), {
+  'DESCRIPTOR' : _MIRRORSRCCONDITION,
+  '__module__' : 'byteplus.vod.business.vod_common_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.MirrorSrcCondition)
+  })
+_sym_db.RegisterMessage(MirrorSrcCondition)
+
+PublicSourceConf = _reflection.GeneratedProtocolMessageType('PublicSourceConf', (_message.Message,), {
+  'DESCRIPTOR' : _PUBLICSOURCECONF,
+  '__module__' : 'byteplus.vod.business.vod_common_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.PublicSourceConf)
+  })
+_sym_db.RegisterMessage(PublicSourceConf)
+
+MirrorSrcS3Conf = _reflection.GeneratedProtocolMessageType('MirrorSrcS3Conf', (_message.Message,), {
+  'DESCRIPTOR' : _MIRRORSRCS3CONF,
+  '__module__' : 'byteplus.vod.business.vod_common_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.MirrorSrcS3Conf)
+  })
+_sym_db.RegisterMessage(MirrorSrcS3Conf)
+
+MirrorSrcRule = _reflection.GeneratedProtocolMessageType('MirrorSrcRule', (_message.Message,), {
+  'DESCRIPTOR' : _MIRRORSRCRULE,
+  '__module__' : 'byteplus.vod.business.vod_common_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.MirrorSrcRule)
+  })
+_sym_db.RegisterMessage(MirrorSrcRule)
+
+VodSetMirrorSrcRuleResult = _reflection.GeneratedProtocolMessageType('VodSetMirrorSrcRuleResult', (_message.Message,), {
+  'DESCRIPTOR' : _VODSETMIRRORSRCRULERESULT,
+  '__module__' : 'byteplus.vod.business.vod_common_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodSetMirrorSrcRuleResult)
+  })
+_sym_db.RegisterMessage(VodSetMirrorSrcRuleResult)
+
+VodListMirrorSrcRuleResult = _reflection.GeneratedProtocolMessageType('VodListMirrorSrcRuleResult', (_message.Message,), {
+  'DESCRIPTOR' : _VODLISTMIRRORSRCRULERESULT,
+  '__module__' : 'byteplus.vod.business.vod_common_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodListMirrorSrcRuleResult)
+  })
+_sym_db.RegisterMessage(VodListMirrorSrcRuleResult)
+
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\'com.byteplus.service.vod.model.businessB\tVodCommonP\001ZGgithub.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/business\240\001\001\330\001\001\302\002\000\312\002$Byteplus\\Service\\Vod\\Models\\Business\342\002\'Byteplus\\Service\\Vod\\Models\\GPBMetadata'
-  _VODPLAYINFOMODELVERSION._serialized_start=4525
-  _VODPLAYINFOMODELVERSION._serialized_end=4739
-  _VODSOURCEINFO._serialized_start=73
-  _VODSOURCEINFO._serialized_end=549
-  _VODAUDIOSTREAMMETA._serialized_start=551
-  _VODAUDIOSTREAMMETA._serialized_end=658
-  _VODVIDEOSTREAMMETA._serialized_start=661
-  _VODVIDEOSTREAMMETA._serialized_end=795
-  _VODTRANSCODEINFO._serialized_start=798
-  _VODTRANSCODEINFO._serialized_end=1181
-  _VODADAPTIVEINFO._serialized_start=1183
-  _VODADAPTIVEINFO._serialized_end=1266
-  _VODPLAYINFO._serialized_start=1269
-  _VODPLAYINFO._serialized_end=1830
-  _DRMPSSH._serialized_start=1832
-  _DRMPSSH._serialized_end=1908
-  _VODVOLUMEINFO._serialized_start=1910
-  _VODVOLUMEINFO._serialized_end=1957
-  _BARRAGEMASKINFO._serialized_start=1960
-  _BARRAGEMASKINFO._serialized_end=2123
-  _VODTHUMBINFO._serialized_start=2126
-  _VODTHUMBINFO._serialized_end=2286
-  _VODSUBTITLEINFO._serialized_start=2289
-  _VODSUBTITLEINFO._serialized_end=2545
-  _VODCOMMONCONFIGINFO._serialized_start=2547
-  _VODCOMMONCONFIGINFO._serialized_end=2612
-  _VODPLAYINFOMODEL._serialized_start=2615
-  _VODPLAYINFOMODEL._serialized_end=3301
-  _ADAPTIVEBITRATESTREAMINGINFO._serialized_start=3304
-  _ADAPTIVEBITRATESTREAMINGINFO._serialized_end=3435
-  _VODPOINT._serialized_start=3437
-  _VODPOINT._serialized_end=3481
-  _VODALLPLAYINFORESULT._serialized_start=3484
-  _VODALLPLAYINFORESULT._serialized_end=3632
-  _VODALLPLAYINFOMODEL._serialized_start=3635
-  _VODALLPLAYINFOMODEL._serialized_end=4199
-  _VODGETINTERTRUSTAPIKEYRESULT._serialized_start=4201
-  _VODGETINTERTRUSTAPIKEYRESULT._serialized_end=4247
-  _VODSETFAIRPLAYCERTINFORESULT._serialized_start=4249
-  _VODSETFAIRPLAYCERTINFORESULT._serialized_end=4295
-  _VODGETFAIRPLAYCERTINFORESULT._serialized_start=4298
-  _VODGETFAIRPLAYCERTINFORESULT._serialized_end=4437
-  _VODGETFAIRPLAYCERTRESULT._serialized_start=4439
-  _VODGETFAIRPLAYCERTRESULT._serialized_end=4479
-  _VODDRMLICENSERESULT._serialized_start=4481
-  _VODDRMLICENSERESULT._serialized_end=4522
+  _VODPLAYINFOMODELVERSION._serialized_start=5557
+  _VODPLAYINFOMODELVERSION._serialized_end=5771
+  _VODMIRRORSRCORIGINTYPE._serialized_start=5773
+  _VODMIRRORSRCORIGINTYPE._serialized_end=5817
+  _VODSOURCEINFO._serialized_start=105
+  _VODSOURCEINFO._serialized_end=581
+  _VODAUDIOSTREAMMETA._serialized_start=583
+  _VODAUDIOSTREAMMETA._serialized_end=690
+  _VODVIDEOSTREAMMETA._serialized_start=693
+  _VODVIDEOSTREAMMETA._serialized_end=827
+  _VODTRANSCODEINFO._serialized_start=830
+  _VODTRANSCODEINFO._serialized_end=1213
+  _VODADAPTIVEINFO._serialized_start=1215
+  _VODADAPTIVEINFO._serialized_end=1298
+  _VODPLAYINFO._serialized_start=1301
+  _VODPLAYINFO._serialized_end=1862
+  _DRMPSSH._serialized_start=1864
+  _DRMPSSH._serialized_end=1940
+  _VODVOLUMEINFO._serialized_start=1942
+  _VODVOLUMEINFO._serialized_end=1989
+  _BARRAGEMASKINFO._serialized_start=1992
+  _BARRAGEMASKINFO._serialized_end=2155
+  _VODTHUMBINFO._serialized_start=2158
+  _VODTHUMBINFO._serialized_end=2318
+  _VODSUBTITLEINFO._serialized_start=2321
+  _VODSUBTITLEINFO._serialized_end=2577
+  _VODCOMMONCONFIGINFO._serialized_start=2579
+  _VODCOMMONCONFIGINFO._serialized_end=2644
+  _VODPLAYINFOMODEL._serialized_start=2647
+  _VODPLAYINFOMODEL._serialized_end=3333
+  _ADAPTIVEBITRATESTREAMINGINFO._serialized_start=3336
+  _ADAPTIVEBITRATESTREAMINGINFO._serialized_end=3467
+  _VODPOINT._serialized_start=3469
+  _VODPOINT._serialized_end=3513
+  _VODALLPLAYINFORESULT._serialized_start=3516
+  _VODALLPLAYINFORESULT._serialized_end=3664
+  _VODALLPLAYINFOMODEL._serialized_start=3667
+  _VODALLPLAYINFOMODEL._serialized_end=4231
+  _VODGETINTERTRUSTAPIKEYRESULT._serialized_start=4233
+  _VODGETINTERTRUSTAPIKEYRESULT._serialized_end=4279
+  _VODSETFAIRPLAYCERTINFORESULT._serialized_start=4281
+  _VODSETFAIRPLAYCERTINFORESULT._serialized_end=4327
+  _VODGETFAIRPLAYCERTINFORESULT._serialized_start=4330
+  _VODGETFAIRPLAYCERTINFORESULT._serialized_end=4469
+  _VODGETFAIRPLAYCERTRESULT._serialized_start=4471
+  _VODGETFAIRPLAYCERTRESULT._serialized_end=4511
+  _VODDRMLICENSERESULT._serialized_start=4513
+  _VODDRMLICENSERESULT._serialized_end=4554
+  _MIRRORSRCCONDITION._serialized_start=4557
+  _MIRRORSRCCONDITION._serialized_end=4712
+  _PUBLICSOURCECONF._serialized_start=4714
+  _PUBLICSOURCECONF._serialized_end=4791
+  _MIRRORSRCS3CONF._serialized_start=4794
+  _MIRRORSRCS3CONF._serialized_end=5049
+  _MIRRORSRCRULE._serialized_start=5052
+  _MIRRORSRCRULE._serialized_end=5424
+  _VODSETMIRRORSRCRULERESULT._serialized_start=5426
+  _VODSETMIRRORSRCRULERESULT._serialized_end=5465
+  _VODLISTMIRRORSRCRULERESULT._serialized_start=5467
+  _VODLISTMIRRORSRCRULERESULT._serialized_end=5554
 # @@protoc_insertion_point(module_scope)
