@@ -195,6 +195,7 @@ if __name__ == '__main__':
 
     try:
         req15 = VodCreatePlaylistRequest()
+        req15.SpaceName = 'your space'
         req15.Name = "your Playlist Name"
         req15.Format = "your format"
         req15.Codec = "your codec"
@@ -218,6 +219,7 @@ if __name__ == '__main__':
 
     try:
         req16 = VodGetPlaylistsRequest()
+        req16.SpaceName = 'your space'
         req16.Ids = "your Playlist Ids"
         req16.Limit = 0
         req16.Offset = 0
@@ -236,6 +238,7 @@ if __name__ == '__main__':
 
     try:
         req17 = VodUpdatePlaylistRequest()
+        req17.SpaceName = 'your space'
         req17.Id = "your Playlist Id"
         req17.Name.value = "your Playlist Name"
         req17.Format.value = "your format"
@@ -260,6 +263,7 @@ if __name__ == '__main__':
 
     try:
         req18 = VodDeletePlaylistRequest()
+        req18.SpaceName = 'your space'
         req18.Id = "your Playlist Id"
 
         resp18 = vod_service.delete_playlist(req18)
