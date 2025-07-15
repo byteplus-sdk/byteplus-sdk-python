@@ -440,6 +440,26 @@ class VodService(VodServiceConfig):
         else:
             return res
 
+    #
+    # GetVodMediaPlayData.
+    #
+    # @param request GetVodMediaPlayDataRequest
+    # @return GetVodMediaPlayDataResponse
+    # @raise Exception
+    def get_vod_media_play_data(self, request):
+        try:
+            jsonData = MessageToJson(request, False, True)
+            params = json.loads(jsonData)
+            res = self.json("GetVodMediaPlayData",{},params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), GetVodMediaPlayDataResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, GetVodMediaPlayDataResponse(), True)
 
     #
     # GetPlayInfo.

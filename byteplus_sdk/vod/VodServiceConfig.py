@@ -110,6 +110,8 @@ class VodServiceConfig(Service):
             # 商业drm
             "GetDrmLicense": ApiInfo("POST", "/", {"Action": "GetDrmLicense", "Version": "2023-01-01"}, {}, {}),
             "GetFairPlayCert": ApiInfo("GET", "/", {"Action": "GetFairPlayCert", "Version": "2023-01-01"}, {}, {}),
+            # 质量平台
+            "GetVodMediaPlayData": ApiInfo("POST", "/", {"Action": "GetVodMediaPlayData", "Version": "2025-04-01"}, {}, {}),
         }
             return api_info
         if region == 'ap-southeast-1':
@@ -208,6 +210,8 @@ class VodServiceConfig(Service):
                 # 商业drm
                 "GetDrmLicense": ApiInfo("POST", "/", {"Action": "GetDrmLicense", "Version": "2023-01-01"}, {}, {}),
                 "GetFairPlayCert": ApiInfo("GET", "/", {"Action": "GetFairPlayCert", "Version": "2023-01-01"}, {}, {}),
+                # 质量平台
+                "GetVodMediaPlayData": ApiInfo("POST", "/", {"Action": "GetVodMediaPlayData", "Version": "2025-04-01"}, {}, {}),
             }
             return api_info
 
