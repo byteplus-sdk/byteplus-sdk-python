@@ -52,6 +52,11 @@ class VodServiceConfig(Service):
             "GetPlayInfo": ApiInfo("GET", "/", {"Action": "GetPlayInfo", "Version": "2023-01-01"}, {}, {}),
             "GetPrivateDrmPlayAuth": ApiInfo("GET", "/", {"Action": "GetPrivateDrmPlayAuth", "Version": "2023-01-01"},
                                              {}, {}),
+            "CreateHlsDecryptionKey": ApiInfo("GET", "/",
+                                                  {"Action": "CreateHlsDecryptionKey", "Version": "2023-07-01"}, {},
+                                                  {}),
+            "GetHlsDecryptionKey": ApiInfo("GET", "/", {"Action": "GetHlsDecryptionKey", "Version": "2023-01-01"},
+                                               {}, {}),
             # 上传
             "UploadMediaByUrl": ApiInfo("POST", "/", {"Action": "UploadMediaByUrl", "Version": "2023-01-01"}, {}, {}),
             "QueryUploadTaskInfo": ApiInfo("GET", "/", {"Action": "QueryUploadTaskInfo", "Version": "2023-01-01"}, {}, {}),
@@ -121,6 +126,11 @@ class VodServiceConfig(Service):
                 "GetPrivateDrmPlayAuth": ApiInfo("GET", "/",
                                                  {"Action": "GetPrivateDrmPlayAuth", "Version": "2023-01-01"},
                                                  {}, {}),
+                "CreateHlsDecryptionKey": ApiInfo("GET", "/",
+                                                  {"Action": "CreateHlsDecryptionKey", "Version": "2023-07-01"}, {},
+                                                  {}),
+                "GetHlsDecryptionKey": ApiInfo("GET", "/", {"Action": "GetHlsDecryptionKey", "Version": "2023-01-01"},
+                                               {}, {}),
                 # 上传
                 "UploadMediaByUrl": ApiInfo("POST", "/", {"Action": "UploadMediaByUrl", "Version": "2023-01-01"}, {},
                                             {}),
