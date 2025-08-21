@@ -7,7 +7,7 @@ from byteplus_sdk.vod.models.request.request_vod_pb2 import VodGetMediaInfosRequ
     VodGetMediaListRequest, VodCreateVideoClassificationRequest, VodUpdateVideoClassificationRequest, \
     VodDeleteVideoClassificationRequest, VodListVideoClassificationsRequest, VodListSnapshotsRequest, \
     VodUpdateMediaStorageClassRequest, VodExtractMediaMetaTaskRequest, VodCreatePlaylistRequest, VodGetPlaylistsRequest, \
-    VodUpdatePlaylistRequest, VodDeletePlaylistRequest, VodGetFileInfosRequest, VodDeleteMediaTosFileRequest
+    VodUpdatePlaylistRequest, VodDeletePlaylistRequest, VodGetFileInfosRequest, VodDeleteMediaTosFileRequest, VodListFileMetaInfosByFileNamesRequest
 
 if __name__ == '__main__':
     vod_service = VodService()
