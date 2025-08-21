@@ -7,7 +7,7 @@ from byteplus_sdk.vod.models.request.request_vod_pb2 import VodGetMediaInfosRequ
     VodGetMediaListRequest, VodCreateVideoClassificationRequest, VodUpdateVideoClassificationRequest, \
     VodDeleteVideoClassificationRequest, VodListVideoClassificationsRequest, VodListSnapshotsRequest, \
     VodUpdateMediaStorageClassRequest, VodExtractMediaMetaTaskRequest, VodCreatePlaylistRequest, VodGetPlaylistsRequest, \
-    VodUpdatePlaylistRequest, VodDeletePlaylistRequest
+    VodUpdatePlaylistRequest, VodDeletePlaylistRequest, VodGetFileInfosRequest, VodDeleteMediaTosFileRequest
 
 if __name__ == '__main__':
     vod_service = VodService()
@@ -275,5 +275,56 @@ if __name__ == '__main__':
             print("delete playlist success")
         else:
             print(resp18.ResponseMetadata.Error)
+
+    print('*' * 100)
+
+    try:
+        req19 = VodGetFileInfosRequest()
+        req19.SpaceName = 'your space'
+        req19.EncodedFileNames = "your file names"
+
+        resp19 = vod_service.get_file_infos(req19)
+    except Exception:
+        raise
+    else:
+        print(resp19)
+        if resp19.ResponseMetadata.Error.Code == '':
+            print("get file infos success")
+        else:
+            print(resp19.ResponseMetadata.Error)
+
+    print('*' * 100)
+
+    try:
+        req20 = VodListFileMetaInfosByFileNamesRequest()
+        req20.SpaceName = 'your space'
+        req20.FileNameEncodeds = "your file names"
+
+        resp20 = vod_service.list_file_meta_infos_by_file_names(req20)
+    except Exception:
+        raise
+    else:
+        print(resp20)
+        if resp20.ResponseMetadata.Error.Code == '':
+            print("list file meta infos by file name success")
+        else:
+            print(resp20.ResponseMetadata.Error)
+
+    print('*' * 100)
+
+    try:
+        req21 = VodDeleteMediaTosFileRequest()
+        req21.SpaceName = 'your space'
+        req21.FileNames = "your file names"
+
+        resp21 = vod_service.delete_media_tos_file(req21)
+    except Exception:
+        raise
+    else:
+        print(resp21)
+        if resp21.ResponseMetadata.Error.Code == '':
+            print("delete media tos file success")
+        else:
+            print(resp21.ResponseMetadata.Error)
 
     print('*' * 100)
