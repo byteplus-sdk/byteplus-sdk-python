@@ -78,7 +78,7 @@ class VodServiceConfig(Service):
                 "DeletePlaylist": ApiInfo("GET", "/",{"Action": "DeletePlaylist", "Version": "2023-01-01"}, {},{}),
                 "GetFileInfos": ApiInfo("GET", "/", {"Action": "GetFileInfos", "Version": "2023-07-01"}, {}, {}),
                 "DeleteMediaTosFile": ApiInfo("POST", "/", {"Action": "DeleteMediaTosFile", "Version": "2023-07-01"}, {}, {}),
-                "ListFileMetaInfosByFileNames": ApiInfo("GET", "/", {"Action": "ListFileMetaInfosByFileNames", "Version": "2023-07-01"}, {}, {}),
+                "ListFileMetaInfosByFileNames": ApiInfo("POST", "/", {"Action": "ListFileMetaInfosByFileNames", "Version": "2023-07-01"}, {}, {}),
 
                 # 转码
                 "StartWorkflow": ApiInfo("GET", "/", {"Action": "StartWorkflow", "Version": "2023-01-01"}, {}, {}),
