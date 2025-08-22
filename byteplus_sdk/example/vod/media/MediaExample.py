@@ -315,7 +315,7 @@ if __name__ == '__main__':
     try:
         req21 = VodDeleteMediaTosFileRequest()
         req21.SpaceName = 'your space'
-        req21.FileNames = "your file names"
+        req21.FileNames.append("your file names")
 
         resp21 = vod_service.delete_media_tos_file(req21)
     except Exception:
