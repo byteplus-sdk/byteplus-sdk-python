@@ -735,6 +735,41 @@ class VodService(VodServiceConfig):
             return Parse(res, VodCommitUploadInfoResponse(), True)
 
     #
+    # ListFileMetaInfosByFileNames.
+    #
+    # @param request VodListFileMetaInfosByFileNamesRequest
+    # @return VodListFileMetaInfosByFileNamesResponse
+    # @raise Exception
+    def list_file_meta_infos_by_file_names(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.post("ListFileMetaInfosByFileNames",{},params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodListFileMetaInfosByFileNamesResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodListFileMetaInfosByFileNamesResponse(), True)
+
+
+    #
     # UpdateMediaInfo.
     #
     # @param request VodUpdateMediaInfoRequest
@@ -971,6 +1006,75 @@ class VodService(VodServiceConfig):
                 raise Exception(resp.ResponseMetadata.Error.Code)
         else:
             return Parse(res, VodDeleteTranscodesResponse(), True)
+
+    #
+    # GetFileInfos.
+    #
+    # @param request VodGetFileInfosRequest
+    # @return VodGetFileInfosResponse
+    # @raise Exception
+    def get_file_infos(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.get("GetFileInfos", params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodGetFileInfosResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodGetFileInfosResponse(), True)
+
+    #
+    # DeleteMediaTosFile.
+    #
+    # @param request VodDeleteMediaTosFileRequest
+    # @return VodDeleteMediaTosFileResponse
+    # @raise Exception
+    def delete_media_tos_file(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.post("DeleteMediaTosFile",{},params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodDeleteMediaTosFileResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodDeleteMediaTosFileResponse(), True)
+
 
     #
     # GetMediaList.
