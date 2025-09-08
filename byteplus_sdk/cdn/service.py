@@ -7,6 +7,8 @@ from byteplus_sdk.Credentials import Credentials
 from byteplus_sdk.base.Service import Service
 from byteplus_sdk.ServiceInfo import ServiceInfo
 
+GET = "GET"
+POST = "POST"
 SERVICE_VERSION = "2021-03-01"
 
 service_info_map = {
@@ -114,6 +116,9 @@ api_info = {
     "DescribeCdnUpperIp": ApiInfo("POST", "/", {
         "Action": "DescribeCdnUpperIp", "Version": SERVICE_VERSION}, {}, {}),
 
+    "ListResourceTags": ApiInfo("POST", "/", {
+        "Action": "ListResourceTags", "Version": SERVICE_VERSION}, {}, {}),
+
     "AddCdnCertificate": ApiInfo("POST", "/", {
         "Action": "AddCdnCertificate", "Version": SERVICE_VERSION}, {}, {}),
 
@@ -174,17 +179,17 @@ api_info = {
     "CreateServiceTemplate": ApiInfo("POST", "/", {
         "Action": "CreateServiceTemplate", "Version": SERVICE_VERSION}, {}, {}),
 
-    "CreateRuleEngineTemplate": ApiInfo("POST", "/", {
-        "Action": "CreateRuleEngineTemplate", "Version": SERVICE_VERSION}, {}, {}),
+    "CreateTemplateVersion": ApiInfo("POST", "/", {
+        "Action": "CreateTemplateVersion", "Version": SERVICE_VERSION}, {}, {}),
 
-    "UpdateRuleEngineTemplate": ApiInfo("POST", "/", {
-        "Action": "UpdateRuleEngineTemplate", "Version": SERVICE_VERSION}, {}, {}),
+    "DescribeTemplateReleaseVersions": ApiInfo("POST", "/", {
+        "Action": "DescribeTemplateReleaseVersions", "Version": SERVICE_VERSION}, {}, {}),
 
-    "DescribeRuleEngineTemplate": ApiInfo("POST", "/", {
-        "Action": "DescribeRuleEngineTemplate", "Version": SERVICE_VERSION}, {}, {}),
+    "DescribeDomainShared": ApiInfo("POST", "/", {
+        "Action": "DescribeDomainShared", "Version": SERVICE_VERSION}, {}, {}),
 
-    "ReleaseTemplate": ApiInfo("POST", "/", {
-        "Action": "ReleaseTemplate", "Version": SERVICE_VERSION}, {}, {}),
+    "DescribeCdnIP": ApiInfo("POST", "/", {
+        "Action": "DescribeCdnIP", "Version": SERVICE_VERSION}, {}, {}),
 
     "DescribeDistrictData": ApiInfo("POST", "/", {
         "Action": "DescribeDistrictData", "Version": SERVICE_VERSION}, {}, {}),
@@ -252,11 +257,26 @@ api_info = {
     "UpdateSharedConfig": ApiInfo("POST", "/", {
         "Action": "UpdateSharedConfig", "Version": SERVICE_VERSION}, {}, {}),
 
+    "AddSharedConfig": ApiInfo("POST", "/", {
+        "Action": "AddSharedConfig", "Version": SERVICE_VERSION}, {}, {}),
+
     "TagResources": ApiInfo("POST", "/", {
         "Action": "TagResources", "Version": SERVICE_VERSION}, {}, {}),
 
     "UntagResources": ApiInfo("POST", "/", {
         "Action": "UntagResources", "Version": SERVICE_VERSION}, {}, {}),
+
+    "ReleaseTemplate": ApiInfo("POST", "/", {
+        "Action": "ReleaseTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "CreateRuleEngineTemplate": ApiInfo("POST", "/", {
+        "Action": "CreateRuleEngineTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "UpdateRuleEngineTemplate": ApiInfo("POST", "/", {
+        "Action": "UpdateRuleEngineTemplate", "Version": SERVICE_VERSION}, {}, {}),
+
+    "DescribeRuleEngineTemplate": ApiInfo("POST", "/", {
+        "Action": "DescribeRuleEngineTemplate", "Version": SERVICE_VERSION}, {}, {}),
 
 
 }
@@ -287,6 +307,26 @@ class CDNService(Service):
     @staticmethod
     def get_api_info():
         return api_info
+        
+    @staticmethod
+    def use_post():
+        return POST
+
+    @staticmethod
+    def use_get():
+        return GET
+
+    def send_request(self, action, params, method=POST):
+        method = str(method).upper()
+        if method == 'POST':
+            res = self.json(action, [], json.dumps(params))
+        elif method == "GET":
+            self.get_api_info()[action].method = self.use_get()
+            res = self.request(action, params, json.dumps({}))
+            self.get_api_info()[action].method = self.use_post()
+        else:
+            raise Exception("not support method %s" % method)
+        return res
 
     def add_cdn_domain(self, params=None):
         if params is None:
@@ -622,6 +662,16 @@ class CDNService(Service):
         res_json = json.loads(res)
         return res_json
 
+    def list_resource_tags(self, params=None):
+        if params is None:
+            params = {}
+        action = "ListResourceTags"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
     def add_cdn_certificate(self, params=None):
         if params is None:
             params = {}
@@ -816,6 +866,46 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "CreateServiceTemplate"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def create_template_version(self, params=None):
+        if params is None:
+            params = {}
+        action = "CreateTemplateVersion"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_template_release_versions(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeTemplateReleaseVersions"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_domain_shared(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeDomainShared"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def describe_cdn_ip(self, params=None):
+        if params is None:
+            params = {}
+        action = "DescribeCdnIP"
         res = self.json(action, [], params)
         if res == '':
             raise Exception("%s: empty response" % action)
@@ -1042,6 +1132,16 @@ class CDNService(Service):
         res_json = json.loads(res)
         return res_json
 
+    def add_shared_config(self, params=None):
+        if params is None:
+            params = {}
+        action = "AddSharedConfig"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
     def tag_resources(self, params=None):
         if params is None:
             params = {}
@@ -1056,6 +1156,16 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "UntagResources"
+        res = self.json(action, [], params)
+        if res == '':
+            raise Exception("%s: empty response" % action)
+        res_json = json.loads(res)
+        return res_json
+
+    def release_template(self, params=None):
+        if params is None:
+            params = {}
+        action = "ReleaseTemplate"
         res = self.json(action, [], params)
         if res == '':
             raise Exception("%s: empty response" % action)
@@ -1086,16 +1196,6 @@ class CDNService(Service):
         if params is None:
             params = {}
         action = "DescribeRuleEngineTemplate"
-        res = self.json(action, [], params)
-        if res == '':
-            raise Exception("%s: empty response" % action)
-        res_json = json.loads(res)
-        return res_json
-
-    def release_template(self, params=None):
-        if params is None:
-            params = {}
-        action = "ReleaseTemplate"
         res = self.json(action, [], params)
         if res == '':
             raise Exception("%s: empty response" % action)
