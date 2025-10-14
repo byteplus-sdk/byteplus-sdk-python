@@ -26,7 +26,7 @@ class VisualService(Service):
     @staticmethod
     def get_service_info():
         service_info = ServiceInfo("cv.byteplusapi.com", {'Accept': 'application/json'},
-                                   Credentials('', '', 'cv', 'ap-singapore-1'), 30, 30)
+                                   Credentials('', '', 'cv', 'ap-singapore-1'), 30, 30, "https")
         return service_info
 
     @staticmethod

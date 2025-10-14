@@ -2,7 +2,7 @@
 
 
 class ServiceInfo(object):
-    def __init__(self, host, header, credentials, connection_timeout, socket_timeout, scheme='https'):
+    def __init__(self, host, header, credentials, connection_timeout, socket_timeout, scheme='http'):
         self.host = host
         self.header = header
         self.credentials = credentials
