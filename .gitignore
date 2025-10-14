@@ -5,6 +5,10 @@ build/
 dist/
 *.egg-info/
 __pycache__
+.sdk_venv/
+
+# 测试文件
+cv_test_async.py
 
 # OS
 .DS_Store
