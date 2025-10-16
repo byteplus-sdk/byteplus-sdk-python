@@ -25,8 +25,8 @@ class VisualService(Service):
 
     @staticmethod
     def get_service_info():
-        service_info = ServiceInfo("open.byteplusapi.com", {'Accept': 'application/json'},
-                                   Credentials('', '', 'cv', 'ap-singapore-1'), 10, 30)
+        service_info = ServiceInfo("cv.byteplusapi.com", {'Accept': 'application/json'},
+                                   Credentials('', '', 'cv', 'ap-singapore-1'), 30, 30, "https")
         return service_info
 
     @staticmethod
@@ -34,6 +34,11 @@ class VisualService(Service):
         api_info = {
             "ComicPortrait": ApiInfo("POST", "/", {"Action": "ComicPortrait", "Version": "2022-08-24"}, {}, {}),
             "PortraitFusion": ApiInfo("POST", "/", {"Action": "PortraitFusion", "Version": "2022-08-24"}, {}, {}),
+            "CVProcess": ApiInfo("POST", "/", {"Action": "CVProcess", "Version": "2024-06-06"}, {}, {}),
+            "CVSubmitTask": ApiInfo("POST", "/", {"Action": "CVSubmitTask", "Version": "2024-06-06"}, {}, {}),
+            "CVGetResult": ApiInfo("POST", "/", {"Action": "CVGetResult", "Version": "2024-06-06"}, {}, {}),
+            "CVSync2AsyncSubmitTask": ApiInfo("POST", "/",{"Action": "CVSync2AsyncSubmitTask", "Version": "2024-06-06"}, {}, {}),
+            "CVSync2AsyncGetResult": ApiInfo("POST", "/", {"Action": "CVSync2AsyncGetResult", "Version": "2024-06-06"},{}, {}),
         }
         return api_info
 
@@ -63,6 +68,56 @@ class VisualService(Service):
                 return res_json
             except:
                 raise Exception(str(e))
+
+    def common_json_handler(self, api, body):
+        params = dict()
+        try:
+            res = self.json(api, params, body)
+            res_json = json.loads(res)
+
+            return res_json
+        except Exception as e:
+            res = str(e)
+            try:
+                res_json = json.loads(res)
+                return res_json
+            except:
+                raise Exception(str(e))
+
+    def cv_process(self, body):
+        try:
+            res_json = self.common_json_handler("CVProcess", body)
+            return res_json
+        except Exception as e:
+            raise Exception(str(e))
+
+    def cv_submit_task(self, body):
+        try:
+            res_json = self.common_json_handler("CVSubmitTask", body)
+            return res_json
+        except Exception as e:
+            raise Exception(str(e))
+
+    def cv_get_result(self, body):
+        try:
+            res_json = self.common_json_handler("CVGetResult", body)
+            return res_json
+        except Exception as e:
+            raise Exception(str(e))
+
+    def cv_sync2async_submit_task(self, body):
+        try:
+            res_json = self.common_json_handler("CVSync2AsyncSubmitTask", body)
+            return res_json
+        except Exception as e:
+            raise Exception(str(e))
+
+    def cv_sync2async_get_result(self, body):
+        try:
+            res_json = self.common_json_handler("CVSync2AsyncGetResult", body)
+            return res_json
+        except Exception as e:
+            raise Exception(str(e))
 
     def comic_portrait(self, form):
         try:
