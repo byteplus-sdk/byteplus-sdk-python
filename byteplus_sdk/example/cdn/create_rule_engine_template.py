@@ -7,8 +7,9 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../../")
 from byteplus_sdk.example.cdn import ak, sk
 from byteplus_sdk.cdn.service import CDNService
 
-from rule_engine.Rule import Condition, Action, Rule
-from rule_engine.Const import Const
+# pip3 install cdn_rule_engine_sdk
+from cdn_rule_engine_sdk.rule_engine.Const import Const
+from cdn_rule_engine_sdk.rule_engine.Rule import Rule, Condition, Action
 
 def example():
     cdn_service = CDNService()
