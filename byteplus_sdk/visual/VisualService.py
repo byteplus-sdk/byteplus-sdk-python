@@ -39,6 +39,7 @@ class VisualService(Service):
             "CVGetResult": ApiInfo("POST", "/", {"Action": "CVGetResult", "Version": "2024-06-06"}, {}, {}),
             "CVSync2AsyncSubmitTask": ApiInfo("POST", "/",{"Action": "CVSync2AsyncSubmitTask", "Version": "2024-06-06"}, {}, {}),
             "CVSync2AsyncGetResult": ApiInfo("POST", "/", {"Action": "CVSync2AsyncGetResult", "Version": "2024-06-06"},{}, {}),
+            "CVCancelTask": ApiInfo("POST", "/", {"Action": "CVCancelTask", "Version": "2024-06-06"}, {}, {}),
         }
         return api_info
 
@@ -101,6 +102,13 @@ class VisualService(Service):
     def cv_get_result(self, body):
         try:
             res_json = self.common_json_handler("CVGetResult", body)
+            return res_json
+        except Exception as e:
+            raise Exception(str(e))
+    
+    def cv_cancel_task(self, body):
+        try:
+            res_json = self.common_json_handler("CVCancelTask", body)
             return res_json
         except Exception as e:
             raise Exception(str(e))
