@@ -16,18 +16,37 @@ _sym_db = _symbol_database.Default()
 from byteplus_sdk.vod.models.business import vod_common_pb2 as byteplus_dot_vod_dot_business_dot_vod__common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#byteplus/vod/business/vod_cdn.proto\x12\x1c\x42yteplus.Vod.Models.Business\x1a&byteplus/vod/business/vod_common.proto\"\x83\x02\n\x13VodDomainConfigInfo\x12\x11\n\tSpaceName\x18\x01 \x01(\t\x12N\n\x10PlayInstanceInfo\x18\x02 \x01(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodDomainInstanceInfos\x12O\n\x11ImageInstanceInfo\x18\x03 \x01(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodDomainInstanceInfos\x12\x19\n\x11\x44\x65\x66\x61ultPlayDomain\x18\x04 \x01(\t\x12\r\n\x05Total\x18\x05 \x01(\x03\x12\x0e\n\x06Offset\x18\x06 \x01(\x03\"\xb1\x01\n\x16VodDomainInstanceInfos\x12J\n\rByteInstances\x18\x01 \x03(\x0b\x32\x33.Byteplus.Vod.Models.Business.VodDomainInstanceInfo\x12K\n\x0eOtherInstances\x18\x02 \x03(\x0b\x32\x33.Byteplus.Vod.Models.Business.VodDomainInstanceInfo\"\x98\x01\n\x15VodDomainInstanceInfo\x12\x12\n\nInstanceId\x18\x01 \x01(\t\x12=\n\x07\x44omains\x18\x02 \x03(\x0b\x32,.Byteplus.Vod.Models.Business.VodDomainoInfo\x12\x16\n\x0e\x43\x61nSelfEditing\x18\x03 \x01(\x08\x12\x14\n\x0c\x43onfigStatus\x18\x04 \x01(\t\"\xda\x02\n\x0eVodDomainoInfo\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12\r\n\x05\x43name\x18\x02 \x01(\t\x12\x14\n\x0c\x43onfigStatus\x18\x03 \x01(\t\x12\x13\n\x0b\x43nameStatus\x18\x04 \x01(\t\x12\x0e\n\x06Status\x18\x05 \x01(\t\x12K\n\x0b\x43\x65rtificate\x18\x06 \x01(\x0b\x32\x36.Byteplus.Vod.Models.Business.VodDomainCertificateInfo\x12\x12\n\nCreateTime\x18\x07 \x01(\t\x12\x12\n\nUpdateTime\x18\x08 \x01(\t\x12\x0e\n\x06Region\x18\t \x01(\t\x12\x42\n\x07Sources\x18\n \x03(\x0b\x32\x31.Byteplus.Vod.Models.Business.VodDomainSourceInfo\x12\x12\n\nLockStatus\x18\x0b \x01(\t\x12\x11\n\tCdnStatus\x18\x0c \x01(\t\"\xca\x01\n\x18VodDomainCertificateInfo\x12\x15\n\rCertificateId\x18\x01 \x01(\t\x12\x17\n\x0f\x43\x65rtificateName\x18\x02 \x01(\t\x12\x16\n\x0e\x43\x65rtificatePub\x18\x03 \x01(\t\x12\x16\n\x0e\x43\x65rtificatePri\x18\x04 \x01(\t\x12\x13\n\x0bHttpsStatus\x18\x05 \x01(\t\x12\x11\n\tExpiredAt\x18\x06 \x01(\t\x12&\n\x1e\x43\x65rtificateCenterCertificateId\x18\x07 \x01(\t\"(\n\x16VodCreateCdnTaskResult\x12\x0e\n\x06TaskId\x18\x01 \x01(\t\"x\n\x0eVodContentInfo\x12\x0e\n\x06ItemId\x18\x01 \x01(\t\x12\x0b\n\x03Url\x18\x02 \x01(\t\x12\x0e\n\x06Status\x18\x03 \x01(\t\x12\x10\n\x08TaskType\x18\x04 \x01(\t\x12\x17\n\x0f\x43reateTimestamp\x18\x05 \x01(\x05\x12\x0e\n\x06TaskId\x18\x06 \x01(\t\"\x8d\x01\n\x10VodCdnTaskResult\x12\x12\n\nTotalCount\x18\x01 \x01(\x05\x12\x0f\n\x07PageNum\x18\x02 \x01(\x05\x12\x10\n\x08PageSize\x18\x03 \x01(\x05\x12\x42\n\x0c\x43ontentInfos\x18\x04 \x03(\x0b\x32,.Byteplus.Vod.Models.Business.VodContentInfo\"\x7f\n\x16VodCdnAccessLogElement\x12\x13\n\x0b\x44ownloadUrl\x18\x01 \x01(\t\x12\x10\n\x08\x46ileSize\x18\x02 \x01(\x03\x12\x10\n\x08\x46ileName\x18\x03 \x01(\t\x12\x16\n\x0eStartTimestamp\x18\x04 \x01(\x05\x12\x14\n\x0c\x45ndTimestamp\x18\x05 \x01(\x05\"l\n\x13VodCdnAccessLogInfo\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12\x45\n\x07LogList\x18\x02 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodCdnAccessLogElement\"\\\n\x19VodListCdnAccessLogResult\x12?\n\x04Logs\x18\x01 \x03(\x0b\x32\x31.Byteplus.Vod.Models.Business.VodCdnAccessLogInfo\"B\n\x19VodCdnTopAccessUrlElement\x12\x0b\n\x03Url\x18\x01 \x01(\t\x12\n\n\x02Pv\x18\x02 \x01(\x03\x12\x0c\n\x04\x46lux\x18\x03 \x01(\x03\"i\n\x1cVodListCdnTopAccessUrlResult\x12I\n\x08UrlInfos\x18\x01 \x03(\x0b\x32\x37.Byteplus.Vod.Models.Business.VodCdnTopAccessUrlElement\"8\n\x16VodCdnTopAccessElement\x12\x0f\n\x07ItemKey\x18\x01 \x01(\t\x12\r\n\x05Value\x18\x02 \x01(\x01\"d\n\x19VodListCdnTopAccessResult\x12G\n\tItemInfos\x18\x01 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodCdnTopAccessElement\"3\n\x10VodBandwidthData\x12\x0c\n\x04Time\x18\x01 \x01(\t\x12\x11\n\tBandwidth\x18\x02 \x01(\x01\"\x8a\x02\n\'VodDescribeVodDomainBandwidthDataResult\x12\x12\n\nDomainList\x18\x01 \x03(\t\x12\x11\n\tStartTime\x18\x02 \x01(\t\x12\x0f\n\x07\x45ndTime\x18\x03 \x01(\t\x12\x13\n\x0b\x41ggregation\x18\x04 \x01(\x05\x12\x15\n\rBandwidthType\x18\x05 \x01(\t\x12\x15\n\rPeakBandwidth\x18\x06 \x01(\x01\x12\x19\n\x11PeakBandwidthTime\x18\x07 \x01(\t\x12I\n\x11\x42\x61ndwidthDataList\x18\x08 \x03(\x0b\x32..Byteplus.Vod.Models.Business.VodBandwidthData\"\xb2\x01\n\x14VodCdnStatisticsData\x12\x0c\n\x04Name\x18\x01 \x01(\t\x12\x0e\n\x06Metric\x18\x02 \x01(\t\x12\x10\n\x08\x44\x61taType\x18\x03 \x01(\t\x12\x36\n\x06Points\x18\x04 \x03(\x0b\x32&.Byteplus.Vod.Models.Business.VodPoint\x12\x0e\n\x06Region\x18\x05 \x01(\t\x12\x0b\n\x03Isp\x18\x06 \x01(\t\x12\x15\n\rBillingRegion\x18\x07 \x01(\t\"~\n\x1cVodCdnStatisticsCommonResult\x12\x41\n\x05\x44\x61tas\x18\x01 \x03(\x0b\x32\x32.Byteplus.Vod.Models.Business.VodCdnStatisticsData\x12\x1b\n\x13NoPermissionDomains\x18\x02 \x03(\t\"H\n\x0cVodCdnIpInfo\x12\n\n\x02Ip\x18\x01 \x01(\t\x12\r\n\x05\x43\x64nIp\x18\x02 \x01(\x08\x12\x10\n\x08Location\x18\x03 \x01(\t\x12\x0b\n\x03Isp\x18\x04 \x01(\t\"T\n\x17VodDescribeIpInfoResult\x12\x39\n\x05Infos\x18\x01 \x03(\x0b\x32*.Byteplus.Vod.Models.Business.VodCdnIpInfo\"/\n\x0eVodTrafficData\x12\x0c\n\x04Time\x18\x01 \x01(\t\x12\x0f\n\x07Traffic\x18\x02 \x01(\x01\"\xe6\x01\n%VodDescribeVodDomainTrafficDataResult\x12\x12\n\nDomainList\x18\x01 \x03(\t\x12\x11\n\tStartTime\x18\x02 \x01(\t\x12\x0f\n\x07\x45ndTime\x18\x03 \x01(\t\x12\x13\n\x0b\x41ggregation\x18\x04 \x01(\x05\x12\x13\n\x0bTrafficType\x18\x05 \x01(\t\x12\x14\n\x0cTotalTraffic\x18\x06 \x01(\x01\x12\x45\n\x0fTrafficDataList\x18\x07 \x03(\x0b\x32,.Byteplus.Vod.Models.Business.VodTrafficData\"\xa6\x02\n\x13VodDomainSourceInfo\x12S\n\x11SourceStationType\x18\x01 \x01(\x0e\x32\x38.Byteplus.Vod.Models.Business.VodDomainSourceStationType\x12\x61\n\x18SourceStationAddressType\x18\x02 \x01(\x0e\x32?.Byteplus.Vod.Models.Business.VodDomainSourceStationAddressType\x12\x0e\n\x06Origin\x18\x03 \x01(\t\x12G\n\x06\x42ucket\x18\x04 \x01(\x0b\x32\x37.Byteplus.Vod.Models.Business.VodDomainOriginBucketInfo\"_\n\x19VodDomainOriginBucketInfo\x12\x12\n\nBucketName\x18\x01 \x01(\t\x12\x18\n\x10\x42ucketSourceType\x18\x02 \x01(\t\x12\x14\n\x0c\x42ucketRegion\x18\x03 \x01(\t\"+\n\x19VodSubmitBlockTasksResult\x12\x0e\n\x06TaskID\x18\x01 \x01(\t\"\x8a\x01\n\x1dVodGetContentBlockTasksResult\x12\r\n\x05Total\x18\x01 \x01(\x03\x12\x0f\n\x07PageNum\x18\x02 \x01(\x03\x12\x10\n\x08PageSize\x18\x03 \x01(\x03\x12\x37\n\x04\x44\x61ta\x18\x04 \x03(\x0b\x32).Byteplus.Vod.Models.Business.ContentTask\"`\n\x0b\x43ontentTask\x12\x0b\n\x03Url\x18\x01 \x01(\t\x12\x0e\n\x06Status\x18\x02 \x01(\t\x12\x10\n\x08TaskType\x18\x03 \x01(\t\x12\x12\n\nCreateTime\x18\x04 \x01(\x03\x12\x0e\n\x06TaskID\x18\x05 \x01(\t\"\x94\x01\n\x10\x43\x64nUsageDataItem\x12\x0c\n\x04Time\x18\x01 \x01(\x03\x12\x0c\n\x04\x41rea\x18\x02 \x01(\t\x12\x0c\n\x04\x46low\x18\x03 \x01(\x03\x12\x10\n\x08HttpFlow\x18\x04 \x01(\x03\x12\x11\n\tHttpsFlow\x18\x05 \x01(\x03\x12\x0c\n\x04\x43onn\x18\x06 \x01(\x03\x12\x10\n\x08HttpConn\x18\x07 \x01(\x03\x12\x11\n\tHttpsConn\x18\x08 \x01(\x03\"e\n\x15\x44omainUsageDataDetail\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12<\n\x04\x44\x61ta\x18\x02 \x03(\x0b\x32..Byteplus.Vod.Models.Business.CdnUsageDataItem\"d\n\x1fVodListCdnUsageDataDetailResult\x12\x41\n\x04\x44\x61ta\x18\x01 \x03(\x0b\x32\x33.Byteplus.Vod.Models.Business.DomainUsageDataDetail\"\x1d\n\rCdnStatusData\x12\x0c\n\x04\x43onn\x18\x01 \x01(\x03\"\xea\x01\n\x11\x43\x64nStatusDataItem\x12\x0c\n\x04Time\x18\x01 \x01(\x03\x12\x0c\n\x04\x41rea\x18\x02 \x01(\t\x12W\n\x0cStatusDetail\x18\x03 \x03(\x0b\x32\x41.Byteplus.Vod.Models.Business.CdnStatusDataItem.StatusDetailEntry\x1a`\n\x11StatusDetailEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\x05value\x18\x02 \x01(\x0b\x32+.Byteplus.Vod.Models.Business.CdnStatusData:\x02\x38\x01\"g\n\x16\x44omainStatusDataDetail\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12=\n\x04\x44\x61ta\x18\x02 \x03(\x0b\x32/.Byteplus.Vod.Models.Business.CdnStatusDataItem\"f\n VodListCdnStatusDataDetailResult\x12\x42\n\x04\x44\x61ta\x18\x01 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.DomainStatusDataDetail*\x92\x01\n\x1aVodDomainSourceStationType\x12\'\n#UndefinedVodDomainSourceStationType\x10\x00\x12!\n\x1dVodVodDomainSourceStationType\x10\x01\x12(\n$ThirdPartyVodDomainSourceStationType\x10\x02*\xa9\x01\n!VodDomainSourceStationAddressType\x12.\n*UndefinedVodDomainSourceStationAddressType\x10\x00\x12+\n\'DomainVodDomainSourceStationAddressType\x10\x01\x12\'\n#IPVodDomainSourceStationAddressType\x10\x02\x42\xd6\x01\n\'com.byteplus.service.vod.model.businessB\x06VodCdnP\x01ZGgithub.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/business\xa0\x01\x01\xd8\x01\x01\xc2\x02\x00\xca\x02$Byteplus\\Service\\Vod\\Models\\Business\xe2\x02\'Byteplus\\Service\\Vod\\Models\\GPBMetadatab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#byteplus/vod/business/vod_cdn.proto\x12\x1c\x42yteplus.Vod.Models.Business\x1a&byteplus/vod/business/vod_common.proto\"\x83\x02\n\x13VodDomainConfigInfo\x12\x11\n\tSpaceName\x18\x01 \x01(\t\x12N\n\x10PlayInstanceInfo\x18\x02 \x01(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodDomainInstanceInfos\x12O\n\x11ImageInstanceInfo\x18\x03 \x01(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodDomainInstanceInfos\x12\x19\n\x11\x44\x65\x66\x61ultPlayDomain\x18\x04 \x01(\t\x12\r\n\x05Total\x18\x05 \x01(\x03\x12\x0e\n\x06Offset\x18\x06 \x01(\x03\"\xb1\x01\n\x16VodDomainInstanceInfos\x12J\n\rByteInstances\x18\x01 \x03(\x0b\x32\x33.Byteplus.Vod.Models.Business.VodDomainInstanceInfo\x12K\n\x0eOtherInstances\x18\x02 \x03(\x0b\x32\x33.Byteplus.Vod.Models.Business.VodDomainInstanceInfo\"\x98\x01\n\x15VodDomainInstanceInfo\x12\x12\n\nInstanceId\x18\x01 \x01(\t\x12=\n\x07\x44omains\x18\x02 \x03(\x0b\x32,.Byteplus.Vod.Models.Business.VodDomainoInfo\x12\x16\n\x0e\x43\x61nSelfEditing\x18\x03 \x01(\x08\x12\x14\n\x0c\x43onfigStatus\x18\x04 \x01(\t\"\xda\x02\n\x0eVodDomainoInfo\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12\r\n\x05\x43name\x18\x02 \x01(\t\x12\x14\n\x0c\x43onfigStatus\x18\x03 \x01(\t\x12\x13\n\x0b\x43nameStatus\x18\x04 \x01(\t\x12\x0e\n\x06Status\x18\x05 \x01(\t\x12K\n\x0b\x43\x65rtificate\x18\x06 \x01(\x0b\x32\x36.Byteplus.Vod.Models.Business.VodDomainCertificateInfo\x12\x12\n\nCreateTime\x18\x07 \x01(\t\x12\x12\n\nUpdateTime\x18\x08 \x01(\t\x12\x0e\n\x06Region\x18\t \x01(\t\x12\x42\n\x07Sources\x18\n \x03(\x0b\x32\x31.Byteplus.Vod.Models.Business.VodDomainSourceInfo\x12\x12\n\nLockStatus\x18\x0b \x01(\t\x12\x11\n\tCdnStatus\x18\x0c \x01(\t\"\xca\x01\n\x18VodDomainCertificateInfo\x12\x15\n\rCertificateId\x18\x01 \x01(\t\x12\x17\n\x0f\x43\x65rtificateName\x18\x02 \x01(\t\x12\x16\n\x0e\x43\x65rtificatePub\x18\x03 \x01(\t\x12\x16\n\x0e\x43\x65rtificatePri\x18\x04 \x01(\t\x12\x13\n\x0bHttpsStatus\x18\x05 \x01(\t\x12\x11\n\tExpiredAt\x18\x06 \x01(\t\x12&\n\x1e\x43\x65rtificateCenterCertificateId\x18\x07 \x01(\t\"(\n\x16VodCreateCdnTaskResult\x12\x0e\n\x06TaskId\x18\x01 \x01(\t\"x\n\x0eVodContentInfo\x12\x0e\n\x06ItemId\x18\x01 \x01(\t\x12\x0b\n\x03Url\x18\x02 \x01(\t\x12\x0e\n\x06Status\x18\x03 \x01(\t\x12\x10\n\x08TaskType\x18\x04 \x01(\t\x12\x17\n\x0f\x43reateTimestamp\x18\x05 \x01(\x05\x12\x0e\n\x06TaskId\x18\x06 \x01(\t\"\x8d\x01\n\x10VodCdnTaskResult\x12\x12\n\nTotalCount\x18\x01 \x01(\x05\x12\x0f\n\x07PageNum\x18\x02 \x01(\x05\x12\x10\n\x08PageSize\x18\x03 \x01(\x05\x12\x42\n\x0c\x43ontentInfos\x18\x04 \x03(\x0b\x32,.Byteplus.Vod.Models.Business.VodContentInfo\"\x7f\n\x16VodCdnAccessLogElement\x12\x13\n\x0b\x44ownloadUrl\x18\x01 \x01(\t\x12\x10\n\x08\x46ileSize\x18\x02 \x01(\x03\x12\x10\n\x08\x46ileName\x18\x03 \x01(\t\x12\x16\n\x0eStartTimestamp\x18\x04 \x01(\x05\x12\x14\n\x0c\x45ndTimestamp\x18\x05 \x01(\x05\"l\n\x13VodCdnAccessLogInfo\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12\x45\n\x07LogList\x18\x02 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodCdnAccessLogElement\"\\\n\x19VodListCdnAccessLogResult\x12?\n\x04Logs\x18\x01 \x03(\x0b\x32\x31.Byteplus.Vod.Models.Business.VodCdnAccessLogInfo\"B\n\x19VodCdnTopAccessUrlElement\x12\x0b\n\x03Url\x18\x01 \x01(\t\x12\n\n\x02Pv\x18\x02 \x01(\x03\x12\x0c\n\x04\x46lux\x18\x03 \x01(\x03\"i\n\x1cVodListCdnTopAccessUrlResult\x12I\n\x08UrlInfos\x18\x01 \x03(\x0b\x32\x37.Byteplus.Vod.Models.Business.VodCdnTopAccessUrlElement\"8\n\x16VodCdnTopAccessElement\x12\x0f\n\x07ItemKey\x18\x01 \x01(\t\x12\r\n\x05Value\x18\x02 \x01(\x01\"d\n\x19VodListCdnTopAccessResult\x12G\n\tItemInfos\x18\x01 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.VodCdnTopAccessElement\"3\n\x10VodBandwidthData\x12\x0c\n\x04Time\x18\x01 \x01(\t\x12\x11\n\tBandwidth\x18\x02 \x01(\x01\"\x8a\x02\n\'VodDescribeVodDomainBandwidthDataResult\x12\x12\n\nDomainList\x18\x01 \x03(\t\x12\x11\n\tStartTime\x18\x02 \x01(\t\x12\x0f\n\x07\x45ndTime\x18\x03 \x01(\t\x12\x13\n\x0b\x41ggregation\x18\x04 \x01(\x05\x12\x15\n\rBandwidthType\x18\x05 \x01(\t\x12\x15\n\rPeakBandwidth\x18\x06 \x01(\x01\x12\x19\n\x11PeakBandwidthTime\x18\x07 \x01(\t\x12I\n\x11\x42\x61ndwidthDataList\x18\x08 \x03(\x0b\x32..Byteplus.Vod.Models.Business.VodBandwidthData\"\xb2\x01\n\x14VodCdnStatisticsData\x12\x0c\n\x04Name\x18\x01 \x01(\t\x12\x0e\n\x06Metric\x18\x02 \x01(\t\x12\x10\n\x08\x44\x61taType\x18\x03 \x01(\t\x12\x36\n\x06Points\x18\x04 \x03(\x0b\x32&.Byteplus.Vod.Models.Business.VodPoint\x12\x0e\n\x06Region\x18\x05 \x01(\t\x12\x0b\n\x03Isp\x18\x06 \x01(\t\x12\x15\n\rBillingRegion\x18\x07 \x01(\t\"~\n\x1cVodCdnStatisticsCommonResult\x12\x41\n\x05\x44\x61tas\x18\x01 \x03(\x0b\x32\x32.Byteplus.Vod.Models.Business.VodCdnStatisticsData\x12\x1b\n\x13NoPermissionDomains\x18\x02 \x03(\t\"H\n\x0cVodCdnIpInfo\x12\n\n\x02Ip\x18\x01 \x01(\t\x12\r\n\x05\x43\x64nIp\x18\x02 \x01(\x08\x12\x10\n\x08Location\x18\x03 \x01(\t\x12\x0b\n\x03Isp\x18\x04 \x01(\t\"T\n\x17VodDescribeIpInfoResult\x12\x39\n\x05Infos\x18\x01 \x03(\x0b\x32*.Byteplus.Vod.Models.Business.VodCdnIpInfo\"/\n\x0eVodTrafficData\x12\x0c\n\x04Time\x18\x01 \x01(\t\x12\x0f\n\x07Traffic\x18\x02 \x01(\x01\"\xe6\x01\n%VodDescribeVodDomainTrafficDataResult\x12\x12\n\nDomainList\x18\x01 \x03(\t\x12\x11\n\tStartTime\x18\x02 \x01(\t\x12\x0f\n\x07\x45ndTime\x18\x03 \x01(\t\x12\x13\n\x0b\x41ggregation\x18\x04 \x01(\x05\x12\x13\n\x0bTrafficType\x18\x05 \x01(\t\x12\x14\n\x0cTotalTraffic\x18\x06 \x01(\x01\x12\x45\n\x0fTrafficDataList\x18\x07 \x03(\x0b\x32,.Byteplus.Vod.Models.Business.VodTrafficData\"\xa6\x02\n\x13VodDomainSourceInfo\x12S\n\x11SourceStationType\x18\x01 \x01(\x0e\x32\x38.Byteplus.Vod.Models.Business.VodDomainSourceStationType\x12\x61\n\x18SourceStationAddressType\x18\x02 \x01(\x0e\x32?.Byteplus.Vod.Models.Business.VodDomainSourceStationAddressType\x12\x0e\n\x06Origin\x18\x03 \x01(\t\x12G\n\x06\x42ucket\x18\x04 \x01(\x0b\x32\x37.Byteplus.Vod.Models.Business.VodDomainOriginBucketInfo\"_\n\x19VodDomainOriginBucketInfo\x12\x12\n\nBucketName\x18\x01 \x01(\t\x12\x18\n\x10\x42ucketSourceType\x18\x02 \x01(\t\x12\x14\n\x0c\x42ucketRegion\x18\x03 \x01(\t\"+\n\x19VodSubmitBlockTasksResult\x12\x0e\n\x06TaskID\x18\x01 \x01(\t\"\x8a\x01\n\x1dVodGetContentBlockTasksResult\x12\r\n\x05Total\x18\x01 \x01(\x03\x12\x0f\n\x07PageNum\x18\x02 \x01(\x03\x12\x10\n\x08PageSize\x18\x03 \x01(\x03\x12\x37\n\x04\x44\x61ta\x18\x04 \x03(\x0b\x32).Byteplus.Vod.Models.Business.ContentTask\"`\n\x0b\x43ontentTask\x12\x0b\n\x03Url\x18\x01 \x01(\t\x12\x0e\n\x06Status\x18\x02 \x01(\t\x12\x10\n\x08TaskType\x18\x03 \x01(\t\x12\x12\n\nCreateTime\x18\x04 \x01(\x03\x12\x0e\n\x06TaskID\x18\x05 \x01(\t\"\x94\x01\n\x10\x43\x64nUsageDataItem\x12\x0c\n\x04Time\x18\x01 \x01(\x03\x12\x0c\n\x04\x41rea\x18\x02 \x01(\t\x12\x0c\n\x04\x46low\x18\x03 \x01(\x03\x12\x10\n\x08HttpFlow\x18\x04 \x01(\x03\x12\x11\n\tHttpsFlow\x18\x05 \x01(\x03\x12\x0c\n\x04\x43onn\x18\x06 \x01(\x03\x12\x10\n\x08HttpConn\x18\x07 \x01(\x03\x12\x11\n\tHttpsConn\x18\x08 \x01(\x03\"e\n\x15\x44omainUsageDataDetail\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12<\n\x04\x44\x61ta\x18\x02 \x03(\x0b\x32..Byteplus.Vod.Models.Business.CdnUsageDataItem\"d\n\x1fVodListCdnUsageDataDetailResult\x12\x41\n\x04\x44\x61ta\x18\x01 \x03(\x0b\x32\x33.Byteplus.Vod.Models.Business.DomainUsageDataDetail\"\x1d\n\rCdnStatusData\x12\x0c\n\x04\x43onn\x18\x01 \x01(\x03\"\xea\x01\n\x11\x43\x64nStatusDataItem\x12\x0c\n\x04Time\x18\x01 \x01(\x03\x12\x0c\n\x04\x41rea\x18\x02 \x01(\t\x12W\n\x0cStatusDetail\x18\x03 \x03(\x0b\x32\x41.Byteplus.Vod.Models.Business.CdnStatusDataItem.StatusDetailEntry\x1a`\n\x11StatusDetailEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\x05value\x18\x02 \x01(\x0b\x32+.Byteplus.Vod.Models.Business.CdnStatusData:\x02\x38\x01\"g\n\x16\x44omainStatusDataDetail\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12=\n\x04\x44\x61ta\x18\x02 \x03(\x0b\x32/.Byteplus.Vod.Models.Business.CdnStatusDataItem\"f\n VodListCdnStatusDataDetailResult\x12\x42\n\x04\x44\x61ta\x18\x01 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.DomainStatusDataDetail\"Q\n\rCdnOriginRule\x12@\n\x0cOriginAction\x18\x01 \x01(\x0b\x32*.Byteplus.Vod.Models.Business.OriginAction\"M\n\x0cOriginAction\x12=\n\x0bOriginLines\x18\x01 \x03(\x0b\x32(.Byteplus.Vod.Models.Business.OriginLine\"G\n\nOriginLine\x12\x0f\n\x07\x41\x64\x64ress\x18\x01 \x01(\t\x12\x14\n\x0cInstanceType\x18\x04 \x01(\t\x12\x12\n\nOriginHost\x18\x05 \x01(\t\"\x97\x01\n\x10\x44omainConfigInfo\x12\x11\n\tSpaceName\x18\x01 \x01(\t\x12\x34\n\x06\x44omain\x18\x02 \x01(\x0b\x32$.Byteplus.Vod.Models.Business.Domain\x12:\n\tCdnConfig\x18\x04 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.CdnConfig\"\xde\x01\n\x06\x44omain\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12\r\n\x05\x43name\x18\x02 \x01(\t\x12\x14\n\x0c\x43onfigStatus\x18\x03 \x01(\t\x12\x13\n\x0b\x43nameStatus\x18\x04 \x01(\t\x12\x0e\n\x06Status\x18\x05 \x01(\t\x12>\n\x0b\x43\x65rtificate\x18\x06 \x01(\x0b\x32).Byteplus.Vod.Models.Business.Certificate\x12\x12\n\nCreateTime\x18\x07 \x01(\t\x12\x12\n\nUpdateTime\x18\x08 \x01(\t\x12\x12\n\nLockStatus\x18\t \x01(\t\"\x82\x01\n\x0b\x43\x65rtificate\x12\x15\n\rCertificateId\x18\x01 \x01(\t\x12\x17\n\x0f\x43\x65rtificateName\x18\x02 \x01(\t\x12\x16\n\x0e\x43\x65rtificatePub\x18\x03 \x01(\t\x12\x16\n\x0e\x43\x65rtificatePri\x18\x04 \x01(\t\x12\x13\n\x0bHttpsStatus\x18\x05 \x01(\t\"\xed\x0f\n\tCdnConfig\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12\x34\n\x06Origin\x18\x02 \x01(\x0b\x32$.Byteplus.Vod.Models.Business.Origin\x12<\n\nOriginHost\x18\x03 \x01(\x0b\x32(.Byteplus.Vod.Models.Business.OriginHost\x12\x44\n\x0eRefererControl\x18\x04 \x01(\x0b\x32,.Byteplus.Vod.Models.Business.RefererControl\x12:\n\tIpControl\x18\x05 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.IpControl\x12\x42\n\rExpireControl\x18\x06 \x01(\x0b\x32+.Byteplus.Vod.Models.Business.ExpireControl\x12>\n\x08\x41uthInfo\x18\x07 \x01(\x0b\x32,.Byteplus.Vod.Models.Business.DomainAuthInfo\x12\x16\n\x0eOriginProtocol\x18\x08 \x01(\t\x12H\n\x10OriginSniControl\x18\t \x01(\x0b\x32..Byteplus.Vod.Models.Business.OriginSniControl\x12\x16\n\x0e\x46ollowRedirect\x18\n \x01(\x08\x12\x44\n\x0eTimeOutControl\x18\x0b \x01(\x0b\x32,.Byteplus.Vod.Models.Business.TimeOutControl\x12P\n\x14RequestHeaderControl\x18\x0c \x01(\x0b\x32\x32.Byteplus.Vod.Models.Business.RequestHeaderControl\x12H\n\x10OriginArgControl\x18\r \x01(\x0b\x32..Byteplus.Vod.Models.Business.OriginArgControl\x12R\n\x15ResponseHeaderControl\x18\x0e \x01(\x0b\x32\x33.Byteplus.Vod.Models.Business.ResponseHeaderControl\x12@\n\x0c\x43\x61\x63heControl\x18\x0f \x01(\x0b\x32*.Byteplus.Vod.Models.Business.CacheControl\x12\x46\n\x0f\x43\x61\x63heKeyControl\x18\x10 \x01(\x0b\x32-.Byteplus.Vod.Models.Business.CacheKeyControl\x12P\n\x14NegativeCacheControl\x18\x11 \x01(\x0b\x32\x32.Byteplus.Vod.Models.Business.NegativeCacheControl\x12@\n\x0cHTTPSControl\x18\x12 \x01(\x0b\x32*.Byteplus.Vod.Models.Business.HTTPSControl\x12Z\n\x19HttpForcedRedirectControl\x18\x13 \x01(\x0b\x32\x37.Byteplus.Vod.Models.Business.HttpForcedRedirectControl\x12V\n\x17\x43ompressionRulesControl\x18\x14 \x01(\x0b\x32\x35.Byteplus.Vod.Models.Business.CompressionRulesControl\x12H\n\x10VideoDragControl\x18\x15 \x01(\x0b\x32..Byteplus.Vod.Models.Business.VideoDragControl\x12P\n\x14SignedUrlAuthControl\x18\x16 \x01(\x0b\x32\x32.Byteplus.Vod.Models.Business.SignedUrlAuthControl\x12N\n\x13UaAccessRuleControl\x18\x17 \x01(\x0b\x32\x31.Byteplus.Vod.Models.Business.UaAccessRuleControl\x12J\n\x11RemoteAuthControl\x18\x18 \x01(\x0b\x32/.Byteplus.Vod.Models.Business.RemoteAuthControl\x12R\n\x15\x41reaAccessRuleControl\x18\x19 \x01(\x0b\x32\x33.Byteplus.Vod.Models.Business.AreaAccessRuleControl\x12V\n\x17MethodDeniedRuleControl\x18\x1a \x01(\x0b\x32\x35.Byteplus.Vod.Models.Business.MethodDeniedRuleControl\x12Z\n\x19\x44ownloadSpeedLimitControl\x18\x1b \x01(\x0b\x32\x37.Byteplus.Vod.Models.Business.DownloadSpeedLimitControl\x12V\n\x17OriginAccessRuleControl\x18\x1c \x01(\x0b\x32\x35.Byteplus.Vod.Models.Business.OriginAccessRuleControl\x12<\n\nRewriteHLS\x18\x1d \x01(\x0b\x32(.Byteplus.Vod.Models.Business.RewriteHLS\"c\n\x17OriginAccessRuleControl\x12H\n\x10OriginAccessRule\x18\x01 \x01(\x0b\x32..Byteplus.Vod.Models.Business.OriginAccessRule\"i\n\x19\x44ownloadSpeedLimitControl\x12L\n\x12\x44ownloadSpeedLimit\x18\x01 \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.DownloadSpeedLimit\"c\n\x17MethodDeniedRuleControl\x12H\n\x10MethodDeniedRule\x18\x01 \x01(\x0b\x32..Byteplus.Vod.Models.Business.MethodDeniedRule\"]\n\x15\x41reaAccessRuleControl\x12\x44\n\x0e\x41reaAccessRule\x18\x01 \x01(\x0b\x32,.Byteplus.Vod.Models.Business.AreaAccessRule\"Q\n\x11RemoteAuthControl\x12<\n\nRemoteAuth\x18\x01 \x01(\x0b\x32(.Byteplus.Vod.Models.Business.RemoteAuth\"e\n\x13UaAccessRuleControl\x12N\n\x13UserAgentAccessRule\x18\x01 \x01(\x0b\x32\x31.Byteplus.Vod.Models.Business.UserAgentAccessRule\"Z\n\x14SignedUrlAuthControl\x12\x42\n\rSignedUrlAuth\x18\x01 \x01(\x0b\x32+.Byteplus.Vod.Models.Business.SignedUrlAuth\"^\n\x13UserAgentAccessRule\x12\x0e\n\x06Switch\x18\x01 \x01(\x08\x12\x10\n\x08RuleType\x18\x02 \x01(\t\x12\x11\n\tUserAgent\x18\x03 \x03(\t\x12\x12\n\nAllowEmpty\x18\x04 \x01(\x08\"N\n\x10VideoDragControl\x12:\n\tVideoDrag\x18\x01 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.VideoDrag\"Y\n\x17\x43ompressionRulesControl\x12>\n\x0b\x43ompression\x18\x01 \x01(\x0b\x32).Byteplus.Vod.Models.Business.Compression\"B\n\x0cHTTPSControl\x12\x32\n\x05HTTPS\x18\x01 \x01(\x0b\x32#.Byteplus.Vod.Models.Business.HTTPS\"i\n\x19HttpForcedRedirectControl\x12L\n\x12HttpForcedRedirect\x18\x01 \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.HttpForcedRedirect\"Z\n\x14NegativeCacheControl\x12\x42\n\rNegativeCache\x18\x02 \x03(\x0b\x32+.Byteplus.Vod.Models.Business.NegativeCache\"Y\n\x0f\x43\x61\x63heKeyControl\x12\x46\n\x08\x43\x61\x63heKey\x18\x02 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.CacheKeyGenerationRule\"M\n\x0c\x43\x61\x63heControl\x12=\n\x05\x43\x61\x63he\x18\x02 \x03(\x0b\x32..Byteplus.Vod.Models.Business.CacheControlRule\"a\n\x15ResponseHeaderControl\x12H\n\x0eResponseHeader\x18\x01 \x03(\x0b\x32\x30.Byteplus.Vod.Models.Business.ResponseHeaderRule\"O\n\x10OriginArgControl\x12;\n\tOriginArg\x18\x01 \x03(\x0b\x32(.Byteplus.Vod.Models.Business.OriginRule\"^\n\x14RequestHeaderControl\x12\x46\n\rRequestHeader\x18\x01 \x03(\x0b\x32/.Byteplus.Vod.Models.Business.RequestHeaderRule\"X\n\x0eTimeOutControl\x12\x0e\n\x06Status\x18\x01 \x01(\t\x12\x36\n\x07Timeout\x18\x02 \x01(\x0b\x32%.Byteplus.Vod.Models.Business.Timeout\"^\n\x10OriginSniControl\x12\x0e\n\x06Status\x18\x01 \x01(\t\x12:\n\tOriginSni\x18\x02 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.OriginSni\"\xa6\x01\n\x0f\x42riefDomainInfo\x12\x0e\n\x06\x44omain\x18\x01 \x01(\t\x12\x11\n\tSpaceName\x18\x02 \x01(\t\x12\x12\n\nDomainType\x18\x03 \x01(\t\x12J\n\x11SourceStationType\x18\x04 \x01(\x0e\x32/.Byteplus.Vod.Models.Business.SourceStationType\x12\x10\n\x08\x41uthType\x18\x05 \x01(\t\"Q\n\x0f\x42riefDomainList\x12>\n\x07\x44omains\x18\x01 \x03(\x0b\x32-.Byteplus.Vod.Models.Business.BriefDomainInfo\"\x82\x01\n\x0e\x44omainAuthInfo\x12\x0e\n\x06Status\x18\x01 \x01(\t\x12\x10\n\x08\x41uthType\x18\x02 \x01(\t\x12\x10\n\x08SignName\x18\x03 \x01(\t\x12\x12\n\nTimeFormat\x18\x04 \x01(\t\x12\x12\n\nMainSecret\x18\x05 \x01(\t\x12\x14\n\x0c\x42\x61\x63kupSecret\x18\x06 \x01(\t\"\x85\x02\n\x10InstanceAuthInfo\x12\x0e\n\x06Status\x18\x01 \x01(\t\x12\x10\n\x08\x41uthType\x18\x02 \x01(\t\x12\x10\n\x08SignName\x18\x03 \x01(\t\x12\x12\n\nTimeFormat\x18\x04 \x01(\t\x12J\n\x06Secret\x18\x05 \x03(\x0b\x32:.Byteplus.Vod.Models.Business.InstanceAuthInfo.SecretEntry\x1a]\n\x0bSecretEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12=\n\x05value\x18\x02 \x01(\x0b\x32..Byteplus.Vod.Models.Business.DomainAuthSecret:\x02\x38\x01\"<\n\x10\x44omainAuthSecret\x12\x12\n\nMainSecret\x18\x01 \x01(\t\x12\x14\n\x0c\x42\x61\x63kupSecret\x18\x02 \x01(\t\"n\n\x1aListDomainWithoutCDNResult\x12\x19\n\x11\x44\x65\x66\x61ultPlayDomain\x18\x01 \x01(\t\x12\x35\n\x07\x44omains\x18\x02 \x03(\x0b\x32$.Byteplus.Vod.Models.Business.Domain\"?\n\x0c\x44omainRecord\x12\x11\n\tSpaceName\x18\x01 \x01(\t\x12\x0e\n\x06\x44omain\x18\x02 \x01(\t\x12\x0c\n\x04\x41rea\x18\x03 \x01(\t\"R\n\x10\x44omainListResult\x12>\n\nDomainList\x18\x01 \x03(\x0b\x32*.Byteplus.Vod.Models.Business.DomainRecord\"p\n\nOriginHost\x12\x44\n\x0eOriginHostType\x18\x01 \x01(\x0e\x32,.Byteplus.Vod.Models.Business.OriginHostType\x12\x0c\n\x04Host\x18\x02 \x01(\t\x12\x0e\n\x06Status\x18\x03 \x01(\t\"\x8a\x02\n\x06Origin\x12J\n\x11SourceStationType\x18\x01 \x01(\x0e\x32/.Byteplus.Vod.Models.Business.SourceStationType\x12X\n\x18SourceStationAddressType\x18\x02 \x01(\x0e\x32\x36.Byteplus.Vod.Models.Business.SourceStationAddressType\x12\x0f\n\x07Origins\x18\x03 \x03(\t\x12\x0c\n\x04\x41rea\x18\x04 \x01(\t\x12;\n\x06Origin\x18\x05 \x03(\x0b\x32+.Byteplus.Vod.Models.Business.CdnOriginRule\".\n\tOriginSni\x12\x11\n\tSniDomain\x18\x01 \x01(\t\x12\x0e\n\x06Switch\x18\x02 \x01(\x08\"Z\n\x07Timeout\x12?\n\x0cTimeoutRules\x18\x01 \x03(\x0b\x32).Byteplus.Vod.Models.Business.TimeoutRule\x12\x0e\n\x06Switch\x18\x02 \x01(\x08\"Q\n\x0bTimeoutRule\x12\x42\n\rTimeoutAction\x18\x01 \x01(\x0b\x32+.Byteplus.Vod.Models.Business.TimeoutAction\"8\n\rTimeoutAction\x12\x12\n\nTcpTimeout\x18\x01 \x01(\x01\x12\x13\n\x0bHttpTimeout\x18\x02 \x01(\x01\"\x90\x01\n\nOriginRule\x12:\n\tCondition\x18\x01 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.Condition\x12\x46\n\x0fOriginArgAction\x18\x02 \x01(\x0b\x32-.Byteplus.Vod.Models.Business.OriginArgAction\"a\n\x0fOriginArgAction\x12N\n\x13OriginArgComponents\x18\x01 \x03(\x0b\x32\x31.Byteplus.Vod.Models.Business.OriginArgComponents\"H\n\x13OriginArgComponents\x12\x0e\n\x06Object\x18\x01 \x01(\t\x12\x0e\n\x06\x41\x63tion\x18\x02 \x01(\t\x12\x11\n\tSubobject\x18\x03 \x01(\t\"c\n\tCondition\x12\x12\n\nConnective\x18\x01 \x01(\t\x12\x42\n\rConditionRule\x18\x02 \x03(\x0b\x32+.Byteplus.Vod.Models.Business.ConditionRule\"N\n\rConditionRule\x12\x0c\n\x04Type\x18\x01 \x01(\t\x12\x0e\n\x06Object\x18\x02 \x01(\t\x12\x10\n\x08Operator\x18\x03 \x01(\t\x12\r\n\x05Value\x18\x04 \x01(\t\"\x9f\x01\n\x11RequestHeaderRule\x12:\n\tCondition\x18\x01 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.Condition\x12N\n\x13RequestHeaderAction\x18\x02 \x01(\x0b\x32\x31.Byteplus.Vod.Models.Business.RequestHeaderAction\"j\n\x13RequestHeaderAction\x12S\n\x16RequestHeaderInstances\x18\x01 \x03(\x0b\x32\x33.Byteplus.Vod.Models.Business.RequestHeaderInstance\"V\n\x15RequestHeaderInstance\x12\x0e\n\x06\x41\x63tion\x18\x01 \x01(\t\x12\x0b\n\x03Key\x18\x02 \x01(\t\x12\x11\n\tValueType\x18\x03 \x01(\t\x12\r\n\x05Value\x18\x04 \x01(\t\"\xa2\x01\n\x12ResponseHeaderRule\x12:\n\tCondition\x18\x01 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.Condition\x12P\n\x14ResponseHeaderAction\x18\x02 \x01(\x0b\x32\x32.Byteplus.Vod.Models.Business.ResponseHeaderAction\"m\n\x14ResponseHeaderAction\x12U\n\x17ResponseHeaderInstances\x18\x01 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.ResponseHeaderInstance\"t\n\x16ResponseHeaderInstance\x12\x0e\n\x06\x41\x63tion\x18\x01 \x01(\t\x12\x0b\n\x03Key\x18\x02 \x01(\t\x12\x11\n\tValueType\x18\x03 \x01(\t\x12\r\n\x05Value\x18\x04 \x01(\t\x12\x1b\n\x13\x41\x63\x63\x65ssOriginControl\x18\x05 \x01(\x08\"Y\n\x10OriginAccessRule\x12\x0e\n\x06Switch\x18\x01 \x01(\x08\x12\x10\n\x08RuleType\x18\x02 \x01(\t\x12\x0f\n\x07Origins\x18\x03 \x03(\t\x12\x12\n\nAllowEmpty\x18\x04 \x01(\x08\"m\n\x0bVodReferers\x12\x10\n\x08IsModify\x18\x01 \x01(\x08\x12L\n\x12VodReferersControl\x18\x02 \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.VodReferersControl\"]\n\x12VodReferersControl\x12\x13\n\x0bRefererType\x18\x04 \x01(\x05\x12\x10\n\x08Referers\x18\x05 \x03(\t\x12\x10\n\x08\x43\x61nEmpty\x18\x06 \x01(\x08\x12\x0e\n\x06Status\x18\x07 \x01(\t\"p\n\x0cVodIpsAccess\x12\x10\n\x08IsModify\x18\x01 \x01(\x08\x12N\n\x13VodIpsAccessControl\x18\x02 \x01(\x0b\x32\x31.Byteplus.Vod.Models.Business.VodIpsAccessControl\"B\n\x13VodIpsAccessControl\x12\x0e\n\x06IpType\x18\x04 \x01(\x05\x12\x0b\n\x03Ips\x18\x05 \x03(\t\x12\x0e\n\x06Status\x18\x06 \x01(\t\"g\n\tVodExpire\x12\x10\n\x08IsModify\x18\x01 \x01(\x08\x12H\n\x10VodExpireControl\x18\x02 \x01(\x0b\x32..Byteplus.Vod.Models.Business.VodExpireControl\"2\n\x10VodExpireControl\x12\x0e\n\x06\x45xpire\x18\x04 \x01(\x05\x12\x0e\n\x06Status\x18\x05 \x01(\t\"\xa7\x01\n\x17VodDomainProtocolConfig\x12\x38\n\x08VodHTTPS\x18\x01 \x01(\x0b\x32&.Byteplus.Vod.Models.Business.VodHTTPS\x12R\n\x15VodHttpForcedRedirect\x18\x02 \x01(\x0b\x32\x33.Byteplus.Vod.Models.Business.VodHttpForcedRedirect\"w\n\x15VodHttpForcedRedirect\x12\x10\n\x08IsModify\x18\x01 \x01(\x08\x12L\n\x12HttpForcedRedirect\x18\x02 \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.HttpForcedRedirect\"F\n\x12HttpForcedRedirect\x12\x1c\n\x14\x45nableForcedRedirect\x18\x01 \x01(\x08\x12\x12\n\nStatusCode\x18\x02 \x01(\t\"P\n\x08VodHTTPS\x12\x10\n\x08IsModify\x18\x01 \x01(\x08\x12\x32\n\x05HTTPS\x18\x02 \x01(\x0b\x32#.Byteplus.Vod.Models.Business.HTTPS\"\xb2\x01\n\x05HTTPS\x12\x0e\n\x06Switch\x18\x01 \x01(\x08\x12\r\n\x05HTTP2\x18\x02 \x01(\x08\x12\x12\n\nTlsVersion\x18\x03 \x03(\t\x12\x44\n\x0e\x46orcedRedirect\x18\x04 \x01(\x0b\x32,.Byteplus.Vod.Models.Business.ForcedRedirect\x12\x30\n\x04Hsts\x18\x05 \x01(\x0b\x32\".Byteplus.Vod.Models.Business.Hsts\"6\n\x04Hsts\x12\x0b\n\x03Ttl\x18\x01 \x01(\x01\x12\x11\n\tSubdomain\x18\x02 \x01(\t\x12\x0e\n\x06Switch\x18\x03 \x01(\x08\"B\n\x0e\x46orcedRedirect\x12\x1c\n\x14\x45nableForcedRedirect\x18\x01 \x01(\x08\x12\x12\n\nStatusCode\x18\x02 \x01(\t\"$\n\x06VodIsp\x12\x0c\n\x04\x43ode\x18\x01 \x01(\t\x12\x0c\n\x04Name\x18\x02 \x01(\t\"\'\n\tVodRegion\x12\x0c\n\x04\x43ode\x18\x01 \x01(\t\x12\x0c\n\x04Name\x18\x02 \x01(\t\"\x8c\x01\n\x1cVodListCdnRegionAndIspResult\x12\x32\n\x04Isps\x18\x01 \x03(\x0b\x32$.Byteplus.Vod.Models.Business.VodIsp\x12\x38\n\x07Regions\x18\x02 \x03(\x0b\x32\'.Byteplus.Vod.Models.Business.VodRegion\"\x7f\n\nVodTopData\x12\x0f\n\x07ItemKey\x18\x01 \x01(\t\x12\x11\n\tItemKeyCN\x18\x02 \x01(\t\x12\x11\n\tBandwidth\x18\x03 \x01(\x01\x12\x19\n\x11\x42\x61ndwidthPeakTime\x18\x04 \x01(\x03\x12\x0c\n\x04\x46lux\x18\x05 \x01(\x01\x12\x11\n\tFluxRatio\x18\x06 \x01(\x01\"\x89\x01\n\x18VodCdnTopUsageDataResult\x12\x0e\n\x06Metric\x18\x01 \x01(\t\x12@\n\x0eTopDataDetails\x18\x02 \x03(\x0b\x32(.Byteplus.Vod.Models.Business.VodTopData\x12\x1b\n\x13NoPermissionDomains\x18\x03 \x03(\t\"\xda\x01\n\x14VodDomainCacheConfig\x12\x38\n\x08VodCache\x18\x01 \x01(\x0b\x32&.Byteplus.Vod.Models.Business.VodCache\x12>\n\x0bVodCacheKey\x18\x02 \x01(\x0b\x32).Byteplus.Vod.Models.Business.VodCacheKey\x12H\n\x10VodNegativeCache\x18\x03 \x01(\x0b\x32..Byteplus.Vod.Models.Business.VodNegativeCache\"h\n\x10VodNegativeCache\x12\x10\n\x08IsModify\x18\x01 \x01(\x08\x12\x42\n\rNegativeCache\x18\x02 \x03(\x0b\x32+.Byteplus.Vod.Models.Business.NegativeCache\"\x99\x01\n\rNegativeCache\x12:\n\tCondition\x18\x01 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.Condition\x12L\n\x11NegativeCacheRule\x18\x02 \x01(\x0b\x32\x31.Byteplus.Vod.Models.Business.NegativeCacheAction\"Z\n\x13NegativeCacheAction\x12\x12\n\nStatusCode\x18\x01 \x01(\t\x12\x0e\n\x06\x41\x63tion\x18\x02 \x01(\t\x12\x12\n\nIgnoreCase\x18\x03 \x01(\x08\x12\x0b\n\x03Ttl\x18\x04 \x01(\x01\"[\n\x08VodCache\x12\x10\n\x08IsModify\x18\x01 \x01(\x08\x12=\n\x05\x43\x61\x63he\x18\x02 \x03(\x0b\x32..Byteplus.Vod.Models.Business.CacheControlRule\"\x8e\x01\n\x10\x43\x61\x63heControlRule\x12:\n\tCondition\x18\x01 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.Condition\x12>\n\x0b\x43\x61\x63heAction\x18\x02 \x01(\x0b\x32).Byteplus.Vod.Models.Business.CacheAction\"U\n\x0b\x43\x61\x63heAction\x12\x0e\n\x06\x41\x63tion\x18\x01 \x01(\t\x12\x12\n\nIgnoreCase\x18\x02 \x01(\x08\x12\x0b\n\x03Ttl\x18\x03 \x01(\x01\x12\x15\n\rDefaultPolicy\x18\x04 \x01(\t\"g\n\x0bVodCacheKey\x12\x10\n\x08IsModify\x18\x01 \x01(\x08\x12\x46\n\x08\x43\x61\x63heKey\x18\x02 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.CacheKeyGenerationRule\"\x9a\x01\n\x16\x43\x61\x63heKeyGenerationRule\x12:\n\tCondition\x18\x01 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.Condition\x12\x44\n\x0e\x43\x61\x63heKeyAction\x18\x02 \x01(\x0b\x32,.Byteplus.Vod.Models.Business.CacheKeyAction\"^\n\x0e\x43\x61\x63heKeyAction\x12L\n\x12\x43\x61\x63heKeyComponents\x18\x02 \x03(\x0b\x32\x30.Byteplus.Vod.Models.Business.CacheKeyComponents\"[\n\x12\x43\x61\x63heKeyComponents\x12\x0e\n\x06Object\x18\x01 \x01(\t\x12\x0e\n\x06\x41\x63tion\x18\x02 \x01(\t\x12\x11\n\tSubobject\x18\x03 \x01(\t\x12\x12\n\nIgnoreCase\x18\x04 \x01(\x08\"\xbb\x02\n\x17VodDomainAdvancedConfig\x12J\n\x11VodResponseHeader\x18\x01 \x01(\x0b\x32/.Byteplus.Vod.Models.Business.VodResponseHeader\x12N\n\x13VodCompressionRules\x18\x02 \x01(\x0b\x32\x31.Byteplus.Vod.Models.Business.VodCompressionRules\x12@\n\x0cVodVideoDrag\x18\x03 \x01(\x0b\x32*.Byteplus.Vod.Models.Business.VodVideoDrag\x12\x42\n\rVodRewriteHLS\x18\x04 \x01(\x0b\x32+.Byteplus.Vod.Models.Business.VodRewriteHLS\"_\n\rVodRewriteHLS\x12\x10\n\x08IsModify\x18\x01 \x01(\x08\x12<\n\nRewriteHLS\x18\x02 \x01(\x0b\x32(.Byteplus.Vod.Models.Business.RewriteHLS\".\n\nRewriteHLS\x12\x0e\n\x06Switch\x18\x01 \x01(\x08\x12\x10\n\x08SignName\x18\x02 \x01(\t\"\\\n\x0cVodVideoDrag\x12\x10\n\x08IsModify\x18\x01 \x01(\x08\x12:\n\tVideoDrag\x18\x02 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.VideoDrag\"\x1b\n\tVideoDrag\x12\x0e\n\x06Switch\x18\x01 \x01(\x08\"g\n\x13VodCompressionRules\x12\x10\n\x08IsModify\x18\x01 \x01(\x08\x12>\n\x0b\x43ompression\x18\x02 \x01(\x0b\x32).Byteplus.Vod.Models.Business.Compression\"f\n\x0b\x43ompression\x12\x0e\n\x06Switch\x18\x01 \x01(\x08\x12G\n\x10\x43ompressionRules\x18\x02 \x03(\x0b\x32-.Byteplus.Vod.Models.Business.CompressionRule\"\x99\x01\n\x0f\x43ompressionRule\x12:\n\tCondition\x18\x01 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.Condition\x12J\n\x11\x43ompressionAction\x18\x02 \x01(\x0b\x32/.Byteplus.Vod.Models.Business.CompressionAction\"b\n\x11\x43ompressionAction\x12\x17\n\x0f\x43ompressionType\x18\x01 \x03(\t\x12\x19\n\x11\x43ompressionFormat\x18\x02 \x01(\t\x12\x19\n\x11\x43ompressionTarget\x18\x03 \x01(\t\"o\n\x11VodResponseHeader\x12\x10\n\x08IsModify\x18\x01 \x01(\x08\x12H\n\x0eResponseHeader\x18\x02 \x03(\x0b\x32\x30.Byteplus.Vod.Models.Business.ResponseHeaderRule\"{\n\x12\x44ownloadSpeedLimit\x12\x0e\n\x06Switch\x18\x01 \x01(\x08\x12U\n\x17\x44ownloadSpeedLimitRules\x18\x02 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.DownloadSpeedLimitRule\"\xae\x01\n\x16\x44ownloadSpeedLimitRule\x12:\n\tCondition\x18\x01 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.Condition\x12X\n\x18\x44ownloadSpeedLimitAction\x18\x02 \x01(\x0b\x32\x36.Byteplus.Vod.Models.Business.DownloadSpeedLimitAction\"\x95\x01\n\x18\x44ownloadSpeedLimitAction\x12\x16\n\x0eSpeedLimitRate\x18\x01 \x01(\x01\x12\x1b\n\x13SpeedLimitRateAfter\x18\x02 \x01(\x01\x12\x44\n\x0eSpeedLimitTime\x18\x03 \x01(\x0b\x32,.Byteplus.Vod.Models.Business.SpeedLimitTime\"E\n\x0eSpeedLimitTime\x12\x0f\n\x07\x44\x61yWeek\x18\x01 \x01(\t\x12\x11\n\tBeginTime\x18\x02 \x01(\t\x12\x0f\n\x07\x45ndTime\x18\x03 \x01(\t\"3\n\x10MethodDeniedRule\x12\x0e\n\x06Switch\x18\x01 \x01(\x08\x12\x0f\n\x07Methods\x18\x02 \x01(\t\"@\n\x0e\x41reaAccessRule\x12\x0e\n\x06Switch\x18\x01 \x01(\x08\x12\x10\n\x08RuleType\x18\x02 \x01(\t\x12\x0c\n\x04\x41rea\x18\x03 \x03(\t\"c\n\nRemoteAuth\x12\x0e\n\x06Switch\x18\x01 \x01(\x08\x12\x45\n\x0fRemoteAuthRules\x18\x02 \x03(\x0b\x32,.Byteplus.Vod.Models.Business.RemoteAuthRule\"\x9e\x01\n\x0eRemoteAuthRule\x12:\n\tCondition\x18\x01 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.Condition\x12P\n\x14RemoteAuthRuleAction\x18\x02 \x01(\x0b\x32\x32.Byteplus.Vod.Models.Business.RemoteAuthRuleAction\"\xdf\x02\n\x14RemoteAuthRuleAction\x12\x44\n\x0e\x41uthModeConfig\x18\x01 \x01(\x0b\x32,.Byteplus.Vod.Models.Business.AuthModeConfig\x12L\n\x12\x41uthResponseConfig\x18\x02 \x01(\x0b\x32\x30.Byteplus.Vod.Models.Business.AuthResponseConfig\x12H\n\x10QueryStringRules\x18\x03 \x01(\x0b\x32..Byteplus.Vod.Models.Business.QueryStringRules\x12O\n\x12RequestHeaderRules\x18\x04 \x01(\x0b\x32\x33.Byteplus.Vod.Models.Business.AuthRequestHeaderRule\x12\x18\n\x10RequestBodyRules\x18\x05 \x01(\t\"\xb7\x01\n\x10QueryStringRules\x12R\n\x15QueryStringComponents\x18\x01 \x01(\x0b\x32\x33.Byteplus.Vod.Models.Business.QueryStringComponents\x12O\n\x14QueryStringInstances\x18\x02 \x03(\x0b\x32\x31.Byteplus.Vod.Models.Business.QueryStringInstance\"6\n\x15QueryStringComponents\x12\x0e\n\x06\x41\x63tion\x18\x01 \x01(\t\x12\r\n\x05Value\x18\x02 \x01(\t\"T\n\x13QueryStringInstance\x12\x0e\n\x06\x41\x63tion\x18\x01 \x01(\t\x12\x0b\n\x03Key\x18\x02 \x01(\t\x12\r\n\x05Value\x18\x03 \x01(\t\x12\x11\n\tValueType\x18\x04 \x01(\t\"\xd8\x01\n\x15\x41uthRequestHeaderRule\x12U\n\x17RequestHeaderComponents\x18\x01 \x01(\x0b\x32\x34.Byteplus.Vod.Models.Business.RequestHeaderComponent\x12S\n\x16RequestHeaderInstances\x18\x02 \x03(\x0b\x32\x33.Byteplus.Vod.Models.Business.RequestHeaderInstance\x12\x13\n\x0bRequestHost\x18\x03 \x01(\t\"7\n\x16RequestHeaderComponent\x12\x0e\n\x06\x41\x63tion\x18\x01 \x01(\t\x12\r\n\x05Value\x18\x02 \x01(\t\"\xaa\x02\n\x12\x41uthResponseConfig\x12\x42\n\x0b\x43\x61\x63heAction\x18\x01 \x01(\x0b\x32-.Byteplus.Vod.Models.Business.AuthCacheAction\x12H\n\x10StatusCodeAction\x18\x02 \x01(\x0b\x32..Byteplus.Vod.Models.Business.StatusCodeAction\x12\x44\n\x0eResponseAction\x18\x03 \x01(\x0b\x32,.Byteplus.Vod.Models.Business.ResponseAction\x12@\n\rTimeOutAction\x18\x04 \x01(\x0b\x32).Byteplus.Vod.Models.Business.AuthTimeOut\"T\n\x0f\x41uthCacheAction\x12\x0e\n\x06\x41\x63tion\x18\x01 \x01(\t\x12\x10\n\x08\x43\x61\x63heKey\x18\x02 \x03(\t\x12\x12\n\nIgnoreCase\x18\x03 \x01(\x08\x12\x0b\n\x03Ttl\x18\x04 \x01(\x01\"+\n\x0b\x41uthTimeOut\x12\x0e\n\x06\x41\x63tion\x18\x01 \x01(\t\x12\x0c\n\x04Time\x18\x02 \x01(\x01\"$\n\x0eResponseAction\x12\x12\n\nStatusCode\x18\x01 \x01(\t\"P\n\x10StatusCodeAction\x12\x10\n\x08\x46\x61ilCode\x18\x01 \x01(\t\x12\x13\n\x0bSuccessCode\x18\x02 \x01(\t\x12\x15\n\rDefaultAction\x18\x03 \x01(\t\"\x80\x01\n\x0e\x41uthModeConfig\x12\x18\n\x10MasterRemoteAddr\x18\x01 \x01(\t\x12\x18\n\x10\x42\x61\x63kupRemoteAddr\x18\x02 \x01(\t\x12\x10\n\x08PathType\x18\x03 \x01(\t\x12\x11\n\tPathValue\x18\x04 \x01(\t\x12\x15\n\rRequestMethod\x18\x05 \x01(\t\"n\n\x16VodSignedUrlAuthStruct\x12\x10\n\x08IsModify\x18\x01 \x01(\x08\x12\x42\n\rSignedUrlAuth\x18\x02 \x01(\x0b\x32+.Byteplus.Vod.Models.Business.SignedUrlAuth\"l\n\rSignedUrlAuth\x12\x0e\n\x06Switch\x18\x01 \x01(\x08\x12K\n\x12SignedUrlAuthRules\x18\x02 \x03(\x0b\x32/.Byteplus.Vod.Models.Business.SignedUrlAuthRule\"\x9f\x01\n\x11SignedUrlAuthRule\x12:\n\tCondition\x18\x01 \x01(\x0b\x32\'.Byteplus.Vod.Models.Business.Condition\x12N\n\x13SignedUrlAuthAction\x18\x02 \x01(\x0b\x32\x31.Byteplus.Vod.Models.Business.SignedUrlAuthAction\"\xa2\x03\n\x13SignedUrlAuthAction\x12\x13\n\x0bURLAuthType\x18\x01 \x01(\t\x12\x17\n\x0fMasterSecretKey\x18\x02 \x01(\t\x12\x17\n\x0f\x42\x61\x63kupSecretKey\x18\x03 \x01(\t\x12\x10\n\x08SignName\x18\x04 \x01(\t\x12\x10\n\x08TimeName\x18\x05 \x01(\t\x12\x10\n\x08\x44uration\x18\x06 \x01(\x01\x12\x12\n\nTimeFormat\x18\x07 \x01(\t\x12\x13\n\x0bRewriteM3u8\x18\x08 \x01(\x08\x12N\n\x13\x43ustomVariableRules\x18\t \x01(\x0b\x32\x31.Byteplus.Vod.Models.Business.CustomVariableRules\x12\x15\n\rSignatureRule\x18\n \x03(\t\x12\x46\n\x0fRewriteM3u8Rule\x18\x0b \x01(\x0b\x32-.Byteplus.Vod.Models.Business.RewriteM3u8Rule\x12\x18\n\x10RewritedM3u8Tags\x18\x0c \x03(\t\x12\x1c\n\x14\x45nableM3u8TagRewrite\x18\r \x01(\x08\"=\n\x0fRewriteM3u8Rule\x12\x13\n\x0b\x44\x65leteParam\x18\x01 \x01(\x08\x12\x15\n\rKeepM3u8Param\x18\x02 \x01(\x08\"l\n\x13\x43ustomVariableRules\x12U\n\x17\x43ustomVariableInstances\x18\x01 \x03(\x0b\x32\x34.Byteplus.Vod.Models.Business.CustomVariableInstance\"G\n\x16\x43ustomVariableInstance\x12\x10\n\x08Operator\x18\x01 \x01(\t\x12\x0c\n\x04Type\x18\x02 \x01(\t\x12\r\n\x05Value\x18\x03 \x01(\t\"\x83\x01\n\x0eRefererControl\x12=\n\x0bRefererType\x18\x01 \x01(\x0e\x32(.Byteplus.Vod.Models.Business.BWListType\x12\x10\n\x08Referers\x18\x02 \x03(\t\x12\x10\n\x08\x43\x61nEmpty\x18\x03 \x01(\x08\x12\x0e\n\x06Status\x18\x04 \x01(\t\"b\n\tIpControl\x12\x38\n\x06IpType\x18\x01 \x01(\x0e\x32(.Byteplus.Vod.Models.Business.BWListType\x12\x0b\n\x03Ips\x18\x02 \x03(\t\x12\x0e\n\x06Status\x18\x03 \x01(\t\"/\n\rExpireControl\x12\x0e\n\x06\x45xpire\x18\x01 \x01(\x05\x12\x0e\n\x06Status\x18\x02 \x01(\t*\x92\x01\n\x1aVodDomainSourceStationType\x12\'\n#UndefinedVodDomainSourceStationType\x10\x00\x12!\n\x1dVodVodDomainSourceStationType\x10\x01\x12(\n$ThirdPartyVodDomainSourceStationType\x10\x02*\xa9\x01\n!VodDomainSourceStationAddressType\x12.\n*UndefinedVodDomainSourceStationAddressType\x10\x00\x12+\n\'DomainVodDomainSourceStationAddressType\x10\x01\x12\'\n#IPVodDomainSourceStationAddressType\x10\x02*n\n\x11SourceStationType\x12\x1e\n\x1aUndefinedSourceStationType\x10\x00\x12\x18\n\x14VodSourceStationType\x10\x01\x12\x1f\n\x1bThirdPartySourceStationType\x10\x02*\x85\x01\n\x18SourceStationAddressType\x12%\n!UndefinedSourceStationAddressType\x10\x00\x12\"\n\x1e\x44omainSourceStationAddressType\x10\x01\x12\x1e\n\x1aIPSourceStationAddressType\x10\x02*Z\n\x0eOriginHostType\x12\x19\n\x15\x41\x63\x63\x65leratedDomainType\x10\x00\x12\x14\n\x10OriginDomainType\x10\x01\x12\x17\n\x13\x43ustomizeDomainType\x10\x02*\"\n\nBWListType\x12\t\n\x05\x42Type\x10\x00\x12\t\n\x05WType\x10\x01\x42\xd6\x01\n\'com.byteplus.service.vod.model.businessB\x06VodCdnP\x01ZGgithub.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/business\xa0\x01\x01\xd8\x01\x01\xc2\x02\x00\xca\x02$Byteplus\\Service\\Vod\\Models\\Business\xe2\x02\'Byteplus\\Service\\Vod\\Models\\GPBMetadatab\x06proto3')
 
 _VODDOMAINSOURCESTATIONTYPE = DESCRIPTOR.enum_types_by_name['VodDomainSourceStationType']
 VodDomainSourceStationType = enum_type_wrapper.EnumTypeWrapper(_VODDOMAINSOURCESTATIONTYPE)
 _VODDOMAINSOURCESTATIONADDRESSTYPE = DESCRIPTOR.enum_types_by_name['VodDomainSourceStationAddressType']
 VodDomainSourceStationAddressType = enum_type_wrapper.EnumTypeWrapper(_VODDOMAINSOURCESTATIONADDRESSTYPE)
+_SOURCESTATIONTYPE = DESCRIPTOR.enum_types_by_name['SourceStationType']
+SourceStationType = enum_type_wrapper.EnumTypeWrapper(_SOURCESTATIONTYPE)
+_SOURCESTATIONADDRESSTYPE = DESCRIPTOR.enum_types_by_name['SourceStationAddressType']
+SourceStationAddressType = enum_type_wrapper.EnumTypeWrapper(_SOURCESTATIONADDRESSTYPE)
+_ORIGINHOSTTYPE = DESCRIPTOR.enum_types_by_name['OriginHostType']
+OriginHostType = enum_type_wrapper.EnumTypeWrapper(_ORIGINHOSTTYPE)
+_BWLISTTYPE = DESCRIPTOR.enum_types_by_name['BWListType']
+BWListType = enum_type_wrapper.EnumTypeWrapper(_BWLISTTYPE)
 UndefinedVodDomainSourceStationType = 0
 VodVodDomainSourceStationType = 1
 ThirdPartyVodDomainSourceStationType = 2
 UndefinedVodDomainSourceStationAddressType = 0
 DomainVodDomainSourceStationAddressType = 1
 IPVodDomainSourceStationAddressType = 2
+UndefinedSourceStationType = 0
+VodSourceStationType = 1
+ThirdPartySourceStationType = 2
+UndefinedSourceStationAddressType = 0
+DomainSourceStationAddressType = 1
+IPSourceStationAddressType = 2
+AcceleratedDomainType = 0
+OriginDomainType = 1
+CustomizeDomainType = 2
+BType = 0
+WType = 1
 
 
 _VODDOMAINCONFIGINFO = DESCRIPTOR.message_types_by_name['VodDomainConfigInfo']
@@ -66,6 +85,129 @@ _CDNSTATUSDATAITEM = DESCRIPTOR.message_types_by_name['CdnStatusDataItem']
 _CDNSTATUSDATAITEM_STATUSDETAILENTRY = _CDNSTATUSDATAITEM.nested_types_by_name['StatusDetailEntry']
 _DOMAINSTATUSDATADETAIL = DESCRIPTOR.message_types_by_name['DomainStatusDataDetail']
 _VODLISTCDNSTATUSDATADETAILRESULT = DESCRIPTOR.message_types_by_name['VodListCdnStatusDataDetailResult']
+_CDNORIGINRULE = DESCRIPTOR.message_types_by_name['CdnOriginRule']
+_ORIGINACTION = DESCRIPTOR.message_types_by_name['OriginAction']
+_ORIGINLINE = DESCRIPTOR.message_types_by_name['OriginLine']
+_DOMAINCONFIGINFO = DESCRIPTOR.message_types_by_name['DomainConfigInfo']
+_DOMAIN = DESCRIPTOR.message_types_by_name['Domain']
+_CERTIFICATE = DESCRIPTOR.message_types_by_name['Certificate']
+_CDNCONFIG = DESCRIPTOR.message_types_by_name['CdnConfig']
+_ORIGINACCESSRULECONTROL = DESCRIPTOR.message_types_by_name['OriginAccessRuleControl']
+_DOWNLOADSPEEDLIMITCONTROL = DESCRIPTOR.message_types_by_name['DownloadSpeedLimitControl']
+_METHODDENIEDRULECONTROL = DESCRIPTOR.message_types_by_name['MethodDeniedRuleControl']
+_AREAACCESSRULECONTROL = DESCRIPTOR.message_types_by_name['AreaAccessRuleControl']
+_REMOTEAUTHCONTROL = DESCRIPTOR.message_types_by_name['RemoteAuthControl']
+_UAACCESSRULECONTROL = DESCRIPTOR.message_types_by_name['UaAccessRuleControl']
+_SIGNEDURLAUTHCONTROL = DESCRIPTOR.message_types_by_name['SignedUrlAuthControl']
+_USERAGENTACCESSRULE = DESCRIPTOR.message_types_by_name['UserAgentAccessRule']
+_VIDEODRAGCONTROL = DESCRIPTOR.message_types_by_name['VideoDragControl']
+_COMPRESSIONRULESCONTROL = DESCRIPTOR.message_types_by_name['CompressionRulesControl']
+_HTTPSCONTROL = DESCRIPTOR.message_types_by_name['HTTPSControl']
+_HTTPFORCEDREDIRECTCONTROL = DESCRIPTOR.message_types_by_name['HttpForcedRedirectControl']
+_NEGATIVECACHECONTROL = DESCRIPTOR.message_types_by_name['NegativeCacheControl']
+_CACHEKEYCONTROL = DESCRIPTOR.message_types_by_name['CacheKeyControl']
+_CACHECONTROL = DESCRIPTOR.message_types_by_name['CacheControl']
+_RESPONSEHEADERCONTROL = DESCRIPTOR.message_types_by_name['ResponseHeaderControl']
+_ORIGINARGCONTROL = DESCRIPTOR.message_types_by_name['OriginArgControl']
+_REQUESTHEADERCONTROL = DESCRIPTOR.message_types_by_name['RequestHeaderControl']
+_TIMEOUTCONTROL = DESCRIPTOR.message_types_by_name['TimeOutControl']
+_ORIGINSNICONTROL = DESCRIPTOR.message_types_by_name['OriginSniControl']
+_BRIEFDOMAININFO = DESCRIPTOR.message_types_by_name['BriefDomainInfo']
+_BRIEFDOMAINLIST = DESCRIPTOR.message_types_by_name['BriefDomainList']
+_DOMAINAUTHINFO = DESCRIPTOR.message_types_by_name['DomainAuthInfo']
+_INSTANCEAUTHINFO = DESCRIPTOR.message_types_by_name['InstanceAuthInfo']
+_INSTANCEAUTHINFO_SECRETENTRY = _INSTANCEAUTHINFO.nested_types_by_name['SecretEntry']
+_DOMAINAUTHSECRET = DESCRIPTOR.message_types_by_name['DomainAuthSecret']
+_LISTDOMAINWITHOUTCDNRESULT = DESCRIPTOR.message_types_by_name['ListDomainWithoutCDNResult']
+_DOMAINRECORD = DESCRIPTOR.message_types_by_name['DomainRecord']
+_DOMAINLISTRESULT = DESCRIPTOR.message_types_by_name['DomainListResult']
+_ORIGINHOST = DESCRIPTOR.message_types_by_name['OriginHost']
+_ORIGIN = DESCRIPTOR.message_types_by_name['Origin']
+_ORIGINSNI = DESCRIPTOR.message_types_by_name['OriginSni']
+_TIMEOUT = DESCRIPTOR.message_types_by_name['Timeout']
+_TIMEOUTRULE = DESCRIPTOR.message_types_by_name['TimeoutRule']
+_TIMEOUTACTION = DESCRIPTOR.message_types_by_name['TimeoutAction']
+_ORIGINRULE = DESCRIPTOR.message_types_by_name['OriginRule']
+_ORIGINARGACTION = DESCRIPTOR.message_types_by_name['OriginArgAction']
+_ORIGINARGCOMPONENTS = DESCRIPTOR.message_types_by_name['OriginArgComponents']
+_CONDITION = DESCRIPTOR.message_types_by_name['Condition']
+_CONDITIONRULE = DESCRIPTOR.message_types_by_name['ConditionRule']
+_REQUESTHEADERRULE = DESCRIPTOR.message_types_by_name['RequestHeaderRule']
+_REQUESTHEADERACTION = DESCRIPTOR.message_types_by_name['RequestHeaderAction']
+_REQUESTHEADERINSTANCE = DESCRIPTOR.message_types_by_name['RequestHeaderInstance']
+_RESPONSEHEADERRULE = DESCRIPTOR.message_types_by_name['ResponseHeaderRule']
+_RESPONSEHEADERACTION = DESCRIPTOR.message_types_by_name['ResponseHeaderAction']
+_RESPONSEHEADERINSTANCE = DESCRIPTOR.message_types_by_name['ResponseHeaderInstance']
+_ORIGINACCESSRULE = DESCRIPTOR.message_types_by_name['OriginAccessRule']
+_VODREFERERS = DESCRIPTOR.message_types_by_name['VodReferers']
+_VODREFERERSCONTROL = DESCRIPTOR.message_types_by_name['VodReferersControl']
+_VODIPSACCESS = DESCRIPTOR.message_types_by_name['VodIpsAccess']
+_VODIPSACCESSCONTROL = DESCRIPTOR.message_types_by_name['VodIpsAccessControl']
+_VODEXPIRE = DESCRIPTOR.message_types_by_name['VodExpire']
+_VODEXPIRECONTROL = DESCRIPTOR.message_types_by_name['VodExpireControl']
+_VODDOMAINPROTOCOLCONFIG = DESCRIPTOR.message_types_by_name['VodDomainProtocolConfig']
+_VODHTTPFORCEDREDIRECT = DESCRIPTOR.message_types_by_name['VodHttpForcedRedirect']
+_HTTPFORCEDREDIRECT = DESCRIPTOR.message_types_by_name['HttpForcedRedirect']
+_VODHTTPS = DESCRIPTOR.message_types_by_name['VodHTTPS']
+_HTTPS = DESCRIPTOR.message_types_by_name['HTTPS']
+_HSTS = DESCRIPTOR.message_types_by_name['Hsts']
+_FORCEDREDIRECT = DESCRIPTOR.message_types_by_name['ForcedRedirect']
+_VODISP = DESCRIPTOR.message_types_by_name['VodIsp']
+_VODREGION = DESCRIPTOR.message_types_by_name['VodRegion']
+_VODLISTCDNREGIONANDISPRESULT = DESCRIPTOR.message_types_by_name['VodListCdnRegionAndIspResult']
+_VODTOPDATA = DESCRIPTOR.message_types_by_name['VodTopData']
+_VODCDNTOPUSAGEDATARESULT = DESCRIPTOR.message_types_by_name['VodCdnTopUsageDataResult']
+_VODDOMAINCACHECONFIG = DESCRIPTOR.message_types_by_name['VodDomainCacheConfig']
+_VODNEGATIVECACHE = DESCRIPTOR.message_types_by_name['VodNegativeCache']
+_NEGATIVECACHE = DESCRIPTOR.message_types_by_name['NegativeCache']
+_NEGATIVECACHEACTION = DESCRIPTOR.message_types_by_name['NegativeCacheAction']
+_VODCACHE = DESCRIPTOR.message_types_by_name['VodCache']
+_CACHECONTROLRULE = DESCRIPTOR.message_types_by_name['CacheControlRule']
+_CACHEACTION = DESCRIPTOR.message_types_by_name['CacheAction']
+_VODCACHEKEY = DESCRIPTOR.message_types_by_name['VodCacheKey']
+_CACHEKEYGENERATIONRULE = DESCRIPTOR.message_types_by_name['CacheKeyGenerationRule']
+_CACHEKEYACTION = DESCRIPTOR.message_types_by_name['CacheKeyAction']
+_CACHEKEYCOMPONENTS = DESCRIPTOR.message_types_by_name['CacheKeyComponents']
+_VODDOMAINADVANCEDCONFIG = DESCRIPTOR.message_types_by_name['VodDomainAdvancedConfig']
+_VODREWRITEHLS = DESCRIPTOR.message_types_by_name['VodRewriteHLS']
+_REWRITEHLS = DESCRIPTOR.message_types_by_name['RewriteHLS']
+_VODVIDEODRAG = DESCRIPTOR.message_types_by_name['VodVideoDrag']
+_VIDEODRAG = DESCRIPTOR.message_types_by_name['VideoDrag']
+_VODCOMPRESSIONRULES = DESCRIPTOR.message_types_by_name['VodCompressionRules']
+_COMPRESSION = DESCRIPTOR.message_types_by_name['Compression']
+_COMPRESSIONRULE = DESCRIPTOR.message_types_by_name['CompressionRule']
+_COMPRESSIONACTION = DESCRIPTOR.message_types_by_name['CompressionAction']
+_VODRESPONSEHEADER = DESCRIPTOR.message_types_by_name['VodResponseHeader']
+_DOWNLOADSPEEDLIMIT = DESCRIPTOR.message_types_by_name['DownloadSpeedLimit']
+_DOWNLOADSPEEDLIMITRULE = DESCRIPTOR.message_types_by_name['DownloadSpeedLimitRule']
+_DOWNLOADSPEEDLIMITACTION = DESCRIPTOR.message_types_by_name['DownloadSpeedLimitAction']
+_SPEEDLIMITTIME = DESCRIPTOR.message_types_by_name['SpeedLimitTime']
+_METHODDENIEDRULE = DESCRIPTOR.message_types_by_name['MethodDeniedRule']
+_AREAACCESSRULE = DESCRIPTOR.message_types_by_name['AreaAccessRule']
+_REMOTEAUTH = DESCRIPTOR.message_types_by_name['RemoteAuth']
+_REMOTEAUTHRULE = DESCRIPTOR.message_types_by_name['RemoteAuthRule']
+_REMOTEAUTHRULEACTION = DESCRIPTOR.message_types_by_name['RemoteAuthRuleAction']
+_QUERYSTRINGRULES = DESCRIPTOR.message_types_by_name['QueryStringRules']
+_QUERYSTRINGCOMPONENTS = DESCRIPTOR.message_types_by_name['QueryStringComponents']
+_QUERYSTRINGINSTANCE = DESCRIPTOR.message_types_by_name['QueryStringInstance']
+_AUTHREQUESTHEADERRULE = DESCRIPTOR.message_types_by_name['AuthRequestHeaderRule']
+_REQUESTHEADERCOMPONENT = DESCRIPTOR.message_types_by_name['RequestHeaderComponent']
+_AUTHRESPONSECONFIG = DESCRIPTOR.message_types_by_name['AuthResponseConfig']
+_AUTHCACHEACTION = DESCRIPTOR.message_types_by_name['AuthCacheAction']
+_AUTHTIMEOUT = DESCRIPTOR.message_types_by_name['AuthTimeOut']
+_RESPONSEACTION = DESCRIPTOR.message_types_by_name['ResponseAction']
+_STATUSCODEACTION = DESCRIPTOR.message_types_by_name['StatusCodeAction']
+_AUTHMODECONFIG = DESCRIPTOR.message_types_by_name['AuthModeConfig']
+_VODSIGNEDURLAUTHSTRUCT = DESCRIPTOR.message_types_by_name['VodSignedUrlAuthStruct']
+_SIGNEDURLAUTH = DESCRIPTOR.message_types_by_name['SignedUrlAuth']
+_SIGNEDURLAUTHRULE = DESCRIPTOR.message_types_by_name['SignedUrlAuthRule']
+_SIGNEDURLAUTHACTION = DESCRIPTOR.message_types_by_name['SignedUrlAuthAction']
+_REWRITEM3U8RULE = DESCRIPTOR.message_types_by_name['RewriteM3u8Rule']
+_CUSTOMVARIABLERULES = DESCRIPTOR.message_types_by_name['CustomVariableRules']
+_CUSTOMVARIABLEINSTANCE = DESCRIPTOR.message_types_by_name['CustomVariableInstance']
+_REFERERCONTROL = DESCRIPTOR.message_types_by_name['RefererControl']
+_IPCONTROL = DESCRIPTOR.message_types_by_name['IpControl']
+_EXPIRECONTROL = DESCRIPTOR.message_types_by_name['ExpireControl']
 VodDomainConfigInfo = _reflection.GeneratedProtocolMessageType('VodDomainConfigInfo', (_message.Message,), {
   'DESCRIPTOR' : _VODDOMAINCONFIGINFO,
   '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
@@ -319,16 +461,888 @@ VodListCdnStatusDataDetailResult = _reflection.GeneratedProtocolMessageType('Vod
   })
 _sym_db.RegisterMessage(VodListCdnStatusDataDetailResult)
 
+CdnOriginRule = _reflection.GeneratedProtocolMessageType('CdnOriginRule', (_message.Message,), {
+  'DESCRIPTOR' : _CDNORIGINRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CdnOriginRule)
+  })
+_sym_db.RegisterMessage(CdnOriginRule)
+
+OriginAction = _reflection.GeneratedProtocolMessageType('OriginAction', (_message.Message,), {
+  'DESCRIPTOR' : _ORIGINACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.OriginAction)
+  })
+_sym_db.RegisterMessage(OriginAction)
+
+OriginLine = _reflection.GeneratedProtocolMessageType('OriginLine', (_message.Message,), {
+  'DESCRIPTOR' : _ORIGINLINE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.OriginLine)
+  })
+_sym_db.RegisterMessage(OriginLine)
+
+DomainConfigInfo = _reflection.GeneratedProtocolMessageType('DomainConfigInfo', (_message.Message,), {
+  'DESCRIPTOR' : _DOMAINCONFIGINFO,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.DomainConfigInfo)
+  })
+_sym_db.RegisterMessage(DomainConfigInfo)
+
+Domain = _reflection.GeneratedProtocolMessageType('Domain', (_message.Message,), {
+  'DESCRIPTOR' : _DOMAIN,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.Domain)
+  })
+_sym_db.RegisterMessage(Domain)
+
+Certificate = _reflection.GeneratedProtocolMessageType('Certificate', (_message.Message,), {
+  'DESCRIPTOR' : _CERTIFICATE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.Certificate)
+  })
+_sym_db.RegisterMessage(Certificate)
+
+CdnConfig = _reflection.GeneratedProtocolMessageType('CdnConfig', (_message.Message,), {
+  'DESCRIPTOR' : _CDNCONFIG,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CdnConfig)
+  })
+_sym_db.RegisterMessage(CdnConfig)
+
+OriginAccessRuleControl = _reflection.GeneratedProtocolMessageType('OriginAccessRuleControl', (_message.Message,), {
+  'DESCRIPTOR' : _ORIGINACCESSRULECONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.OriginAccessRuleControl)
+  })
+_sym_db.RegisterMessage(OriginAccessRuleControl)
+
+DownloadSpeedLimitControl = _reflection.GeneratedProtocolMessageType('DownloadSpeedLimitControl', (_message.Message,), {
+  'DESCRIPTOR' : _DOWNLOADSPEEDLIMITCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.DownloadSpeedLimitControl)
+  })
+_sym_db.RegisterMessage(DownloadSpeedLimitControl)
+
+MethodDeniedRuleControl = _reflection.GeneratedProtocolMessageType('MethodDeniedRuleControl', (_message.Message,), {
+  'DESCRIPTOR' : _METHODDENIEDRULECONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.MethodDeniedRuleControl)
+  })
+_sym_db.RegisterMessage(MethodDeniedRuleControl)
+
+AreaAccessRuleControl = _reflection.GeneratedProtocolMessageType('AreaAccessRuleControl', (_message.Message,), {
+  'DESCRIPTOR' : _AREAACCESSRULECONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.AreaAccessRuleControl)
+  })
+_sym_db.RegisterMessage(AreaAccessRuleControl)
+
+RemoteAuthControl = _reflection.GeneratedProtocolMessageType('RemoteAuthControl', (_message.Message,), {
+  'DESCRIPTOR' : _REMOTEAUTHCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.RemoteAuthControl)
+  })
+_sym_db.RegisterMessage(RemoteAuthControl)
+
+UaAccessRuleControl = _reflection.GeneratedProtocolMessageType('UaAccessRuleControl', (_message.Message,), {
+  'DESCRIPTOR' : _UAACCESSRULECONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.UaAccessRuleControl)
+  })
+_sym_db.RegisterMessage(UaAccessRuleControl)
+
+SignedUrlAuthControl = _reflection.GeneratedProtocolMessageType('SignedUrlAuthControl', (_message.Message,), {
+  'DESCRIPTOR' : _SIGNEDURLAUTHCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.SignedUrlAuthControl)
+  })
+_sym_db.RegisterMessage(SignedUrlAuthControl)
+
+UserAgentAccessRule = _reflection.GeneratedProtocolMessageType('UserAgentAccessRule', (_message.Message,), {
+  'DESCRIPTOR' : _USERAGENTACCESSRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.UserAgentAccessRule)
+  })
+_sym_db.RegisterMessage(UserAgentAccessRule)
+
+VideoDragControl = _reflection.GeneratedProtocolMessageType('VideoDragControl', (_message.Message,), {
+  'DESCRIPTOR' : _VIDEODRAGCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VideoDragControl)
+  })
+_sym_db.RegisterMessage(VideoDragControl)
+
+CompressionRulesControl = _reflection.GeneratedProtocolMessageType('CompressionRulesControl', (_message.Message,), {
+  'DESCRIPTOR' : _COMPRESSIONRULESCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CompressionRulesControl)
+  })
+_sym_db.RegisterMessage(CompressionRulesControl)
+
+HTTPSControl = _reflection.GeneratedProtocolMessageType('HTTPSControl', (_message.Message,), {
+  'DESCRIPTOR' : _HTTPSCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.HTTPSControl)
+  })
+_sym_db.RegisterMessage(HTTPSControl)
+
+HttpForcedRedirectControl = _reflection.GeneratedProtocolMessageType('HttpForcedRedirectControl', (_message.Message,), {
+  'DESCRIPTOR' : _HTTPFORCEDREDIRECTCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.HttpForcedRedirectControl)
+  })
+_sym_db.RegisterMessage(HttpForcedRedirectControl)
+
+NegativeCacheControl = _reflection.GeneratedProtocolMessageType('NegativeCacheControl', (_message.Message,), {
+  'DESCRIPTOR' : _NEGATIVECACHECONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.NegativeCacheControl)
+  })
+_sym_db.RegisterMessage(NegativeCacheControl)
+
+CacheKeyControl = _reflection.GeneratedProtocolMessageType('CacheKeyControl', (_message.Message,), {
+  'DESCRIPTOR' : _CACHEKEYCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CacheKeyControl)
+  })
+_sym_db.RegisterMessage(CacheKeyControl)
+
+CacheControl = _reflection.GeneratedProtocolMessageType('CacheControl', (_message.Message,), {
+  'DESCRIPTOR' : _CACHECONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CacheControl)
+  })
+_sym_db.RegisterMessage(CacheControl)
+
+ResponseHeaderControl = _reflection.GeneratedProtocolMessageType('ResponseHeaderControl', (_message.Message,), {
+  'DESCRIPTOR' : _RESPONSEHEADERCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.ResponseHeaderControl)
+  })
+_sym_db.RegisterMessage(ResponseHeaderControl)
+
+OriginArgControl = _reflection.GeneratedProtocolMessageType('OriginArgControl', (_message.Message,), {
+  'DESCRIPTOR' : _ORIGINARGCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.OriginArgControl)
+  })
+_sym_db.RegisterMessage(OriginArgControl)
+
+RequestHeaderControl = _reflection.GeneratedProtocolMessageType('RequestHeaderControl', (_message.Message,), {
+  'DESCRIPTOR' : _REQUESTHEADERCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.RequestHeaderControl)
+  })
+_sym_db.RegisterMessage(RequestHeaderControl)
+
+TimeOutControl = _reflection.GeneratedProtocolMessageType('TimeOutControl', (_message.Message,), {
+  'DESCRIPTOR' : _TIMEOUTCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.TimeOutControl)
+  })
+_sym_db.RegisterMessage(TimeOutControl)
+
+OriginSniControl = _reflection.GeneratedProtocolMessageType('OriginSniControl', (_message.Message,), {
+  'DESCRIPTOR' : _ORIGINSNICONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.OriginSniControl)
+  })
+_sym_db.RegisterMessage(OriginSniControl)
+
+BriefDomainInfo = _reflection.GeneratedProtocolMessageType('BriefDomainInfo', (_message.Message,), {
+  'DESCRIPTOR' : _BRIEFDOMAININFO,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.BriefDomainInfo)
+  })
+_sym_db.RegisterMessage(BriefDomainInfo)
+
+BriefDomainList = _reflection.GeneratedProtocolMessageType('BriefDomainList', (_message.Message,), {
+  'DESCRIPTOR' : _BRIEFDOMAINLIST,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.BriefDomainList)
+  })
+_sym_db.RegisterMessage(BriefDomainList)
+
+DomainAuthInfo = _reflection.GeneratedProtocolMessageType('DomainAuthInfo', (_message.Message,), {
+  'DESCRIPTOR' : _DOMAINAUTHINFO,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.DomainAuthInfo)
+  })
+_sym_db.RegisterMessage(DomainAuthInfo)
+
+InstanceAuthInfo = _reflection.GeneratedProtocolMessageType('InstanceAuthInfo', (_message.Message,), {
+
+  'SecretEntry' : _reflection.GeneratedProtocolMessageType('SecretEntry', (_message.Message,), {
+    'DESCRIPTOR' : _INSTANCEAUTHINFO_SECRETENTRY,
+    '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+    # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.InstanceAuthInfo.SecretEntry)
+    })
+  ,
+  'DESCRIPTOR' : _INSTANCEAUTHINFO,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.InstanceAuthInfo)
+  })
+_sym_db.RegisterMessage(InstanceAuthInfo)
+_sym_db.RegisterMessage(InstanceAuthInfo.SecretEntry)
+
+DomainAuthSecret = _reflection.GeneratedProtocolMessageType('DomainAuthSecret', (_message.Message,), {
+  'DESCRIPTOR' : _DOMAINAUTHSECRET,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.DomainAuthSecret)
+  })
+_sym_db.RegisterMessage(DomainAuthSecret)
+
+ListDomainWithoutCDNResult = _reflection.GeneratedProtocolMessageType('ListDomainWithoutCDNResult', (_message.Message,), {
+  'DESCRIPTOR' : _LISTDOMAINWITHOUTCDNRESULT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.ListDomainWithoutCDNResult)
+  })
+_sym_db.RegisterMessage(ListDomainWithoutCDNResult)
+
+DomainRecord = _reflection.GeneratedProtocolMessageType('DomainRecord', (_message.Message,), {
+  'DESCRIPTOR' : _DOMAINRECORD,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.DomainRecord)
+  })
+_sym_db.RegisterMessage(DomainRecord)
+
+DomainListResult = _reflection.GeneratedProtocolMessageType('DomainListResult', (_message.Message,), {
+  'DESCRIPTOR' : _DOMAINLISTRESULT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.DomainListResult)
+  })
+_sym_db.RegisterMessage(DomainListResult)
+
+OriginHost = _reflection.GeneratedProtocolMessageType('OriginHost', (_message.Message,), {
+  'DESCRIPTOR' : _ORIGINHOST,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.OriginHost)
+  })
+_sym_db.RegisterMessage(OriginHost)
+
+Origin = _reflection.GeneratedProtocolMessageType('Origin', (_message.Message,), {
+  'DESCRIPTOR' : _ORIGIN,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.Origin)
+  })
+_sym_db.RegisterMessage(Origin)
+
+OriginSni = _reflection.GeneratedProtocolMessageType('OriginSni', (_message.Message,), {
+  'DESCRIPTOR' : _ORIGINSNI,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.OriginSni)
+  })
+_sym_db.RegisterMessage(OriginSni)
+
+Timeout = _reflection.GeneratedProtocolMessageType('Timeout', (_message.Message,), {
+  'DESCRIPTOR' : _TIMEOUT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.Timeout)
+  })
+_sym_db.RegisterMessage(Timeout)
+
+TimeoutRule = _reflection.GeneratedProtocolMessageType('TimeoutRule', (_message.Message,), {
+  'DESCRIPTOR' : _TIMEOUTRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.TimeoutRule)
+  })
+_sym_db.RegisterMessage(TimeoutRule)
+
+TimeoutAction = _reflection.GeneratedProtocolMessageType('TimeoutAction', (_message.Message,), {
+  'DESCRIPTOR' : _TIMEOUTACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.TimeoutAction)
+  })
+_sym_db.RegisterMessage(TimeoutAction)
+
+OriginRule = _reflection.GeneratedProtocolMessageType('OriginRule', (_message.Message,), {
+  'DESCRIPTOR' : _ORIGINRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.OriginRule)
+  })
+_sym_db.RegisterMessage(OriginRule)
+
+OriginArgAction = _reflection.GeneratedProtocolMessageType('OriginArgAction', (_message.Message,), {
+  'DESCRIPTOR' : _ORIGINARGACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.OriginArgAction)
+  })
+_sym_db.RegisterMessage(OriginArgAction)
+
+OriginArgComponents = _reflection.GeneratedProtocolMessageType('OriginArgComponents', (_message.Message,), {
+  'DESCRIPTOR' : _ORIGINARGCOMPONENTS,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.OriginArgComponents)
+  })
+_sym_db.RegisterMessage(OriginArgComponents)
+
+Condition = _reflection.GeneratedProtocolMessageType('Condition', (_message.Message,), {
+  'DESCRIPTOR' : _CONDITION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.Condition)
+  })
+_sym_db.RegisterMessage(Condition)
+
+ConditionRule = _reflection.GeneratedProtocolMessageType('ConditionRule', (_message.Message,), {
+  'DESCRIPTOR' : _CONDITIONRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.ConditionRule)
+  })
+_sym_db.RegisterMessage(ConditionRule)
+
+RequestHeaderRule = _reflection.GeneratedProtocolMessageType('RequestHeaderRule', (_message.Message,), {
+  'DESCRIPTOR' : _REQUESTHEADERRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.RequestHeaderRule)
+  })
+_sym_db.RegisterMessage(RequestHeaderRule)
+
+RequestHeaderAction = _reflection.GeneratedProtocolMessageType('RequestHeaderAction', (_message.Message,), {
+  'DESCRIPTOR' : _REQUESTHEADERACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.RequestHeaderAction)
+  })
+_sym_db.RegisterMessage(RequestHeaderAction)
+
+RequestHeaderInstance = _reflection.GeneratedProtocolMessageType('RequestHeaderInstance', (_message.Message,), {
+  'DESCRIPTOR' : _REQUESTHEADERINSTANCE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.RequestHeaderInstance)
+  })
+_sym_db.RegisterMessage(RequestHeaderInstance)
+
+ResponseHeaderRule = _reflection.GeneratedProtocolMessageType('ResponseHeaderRule', (_message.Message,), {
+  'DESCRIPTOR' : _RESPONSEHEADERRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.ResponseHeaderRule)
+  })
+_sym_db.RegisterMessage(ResponseHeaderRule)
+
+ResponseHeaderAction = _reflection.GeneratedProtocolMessageType('ResponseHeaderAction', (_message.Message,), {
+  'DESCRIPTOR' : _RESPONSEHEADERACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.ResponseHeaderAction)
+  })
+_sym_db.RegisterMessage(ResponseHeaderAction)
+
+ResponseHeaderInstance = _reflection.GeneratedProtocolMessageType('ResponseHeaderInstance', (_message.Message,), {
+  'DESCRIPTOR' : _RESPONSEHEADERINSTANCE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.ResponseHeaderInstance)
+  })
+_sym_db.RegisterMessage(ResponseHeaderInstance)
+
+OriginAccessRule = _reflection.GeneratedProtocolMessageType('OriginAccessRule', (_message.Message,), {
+  'DESCRIPTOR' : _ORIGINACCESSRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.OriginAccessRule)
+  })
+_sym_db.RegisterMessage(OriginAccessRule)
+
+VodReferers = _reflection.GeneratedProtocolMessageType('VodReferers', (_message.Message,), {
+  'DESCRIPTOR' : _VODREFERERS,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodReferers)
+  })
+_sym_db.RegisterMessage(VodReferers)
+
+VodReferersControl = _reflection.GeneratedProtocolMessageType('VodReferersControl', (_message.Message,), {
+  'DESCRIPTOR' : _VODREFERERSCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodReferersControl)
+  })
+_sym_db.RegisterMessage(VodReferersControl)
+
+VodIpsAccess = _reflection.GeneratedProtocolMessageType('VodIpsAccess', (_message.Message,), {
+  'DESCRIPTOR' : _VODIPSACCESS,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodIpsAccess)
+  })
+_sym_db.RegisterMessage(VodIpsAccess)
+
+VodIpsAccessControl = _reflection.GeneratedProtocolMessageType('VodIpsAccessControl', (_message.Message,), {
+  'DESCRIPTOR' : _VODIPSACCESSCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodIpsAccessControl)
+  })
+_sym_db.RegisterMessage(VodIpsAccessControl)
+
+VodExpire = _reflection.GeneratedProtocolMessageType('VodExpire', (_message.Message,), {
+  'DESCRIPTOR' : _VODEXPIRE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodExpire)
+  })
+_sym_db.RegisterMessage(VodExpire)
+
+VodExpireControl = _reflection.GeneratedProtocolMessageType('VodExpireControl', (_message.Message,), {
+  'DESCRIPTOR' : _VODEXPIRECONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodExpireControl)
+  })
+_sym_db.RegisterMessage(VodExpireControl)
+
+VodDomainProtocolConfig = _reflection.GeneratedProtocolMessageType('VodDomainProtocolConfig', (_message.Message,), {
+  'DESCRIPTOR' : _VODDOMAINPROTOCOLCONFIG,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodDomainProtocolConfig)
+  })
+_sym_db.RegisterMessage(VodDomainProtocolConfig)
+
+VodHttpForcedRedirect = _reflection.GeneratedProtocolMessageType('VodHttpForcedRedirect', (_message.Message,), {
+  'DESCRIPTOR' : _VODHTTPFORCEDREDIRECT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodHttpForcedRedirect)
+  })
+_sym_db.RegisterMessage(VodHttpForcedRedirect)
+
+HttpForcedRedirect = _reflection.GeneratedProtocolMessageType('HttpForcedRedirect', (_message.Message,), {
+  'DESCRIPTOR' : _HTTPFORCEDREDIRECT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.HttpForcedRedirect)
+  })
+_sym_db.RegisterMessage(HttpForcedRedirect)
+
+VodHTTPS = _reflection.GeneratedProtocolMessageType('VodHTTPS', (_message.Message,), {
+  'DESCRIPTOR' : _VODHTTPS,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodHTTPS)
+  })
+_sym_db.RegisterMessage(VodHTTPS)
+
+HTTPS = _reflection.GeneratedProtocolMessageType('HTTPS', (_message.Message,), {
+  'DESCRIPTOR' : _HTTPS,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.HTTPS)
+  })
+_sym_db.RegisterMessage(HTTPS)
+
+Hsts = _reflection.GeneratedProtocolMessageType('Hsts', (_message.Message,), {
+  'DESCRIPTOR' : _HSTS,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.Hsts)
+  })
+_sym_db.RegisterMessage(Hsts)
+
+ForcedRedirect = _reflection.GeneratedProtocolMessageType('ForcedRedirect', (_message.Message,), {
+  'DESCRIPTOR' : _FORCEDREDIRECT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.ForcedRedirect)
+  })
+_sym_db.RegisterMessage(ForcedRedirect)
+
+VodIsp = _reflection.GeneratedProtocolMessageType('VodIsp', (_message.Message,), {
+  'DESCRIPTOR' : _VODISP,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodIsp)
+  })
+_sym_db.RegisterMessage(VodIsp)
+
+VodRegion = _reflection.GeneratedProtocolMessageType('VodRegion', (_message.Message,), {
+  'DESCRIPTOR' : _VODREGION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodRegion)
+  })
+_sym_db.RegisterMessage(VodRegion)
+
+VodListCdnRegionAndIspResult = _reflection.GeneratedProtocolMessageType('VodListCdnRegionAndIspResult', (_message.Message,), {
+  'DESCRIPTOR' : _VODLISTCDNREGIONANDISPRESULT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodListCdnRegionAndIspResult)
+  })
+_sym_db.RegisterMessage(VodListCdnRegionAndIspResult)
+
+VodTopData = _reflection.GeneratedProtocolMessageType('VodTopData', (_message.Message,), {
+  'DESCRIPTOR' : _VODTOPDATA,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodTopData)
+  })
+_sym_db.RegisterMessage(VodTopData)
+
+VodCdnTopUsageDataResult = _reflection.GeneratedProtocolMessageType('VodCdnTopUsageDataResult', (_message.Message,), {
+  'DESCRIPTOR' : _VODCDNTOPUSAGEDATARESULT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodCdnTopUsageDataResult)
+  })
+_sym_db.RegisterMessage(VodCdnTopUsageDataResult)
+
+VodDomainCacheConfig = _reflection.GeneratedProtocolMessageType('VodDomainCacheConfig', (_message.Message,), {
+  'DESCRIPTOR' : _VODDOMAINCACHECONFIG,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodDomainCacheConfig)
+  })
+_sym_db.RegisterMessage(VodDomainCacheConfig)
+
+VodNegativeCache = _reflection.GeneratedProtocolMessageType('VodNegativeCache', (_message.Message,), {
+  'DESCRIPTOR' : _VODNEGATIVECACHE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodNegativeCache)
+  })
+_sym_db.RegisterMessage(VodNegativeCache)
+
+NegativeCache = _reflection.GeneratedProtocolMessageType('NegativeCache', (_message.Message,), {
+  'DESCRIPTOR' : _NEGATIVECACHE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.NegativeCache)
+  })
+_sym_db.RegisterMessage(NegativeCache)
+
+NegativeCacheAction = _reflection.GeneratedProtocolMessageType('NegativeCacheAction', (_message.Message,), {
+  'DESCRIPTOR' : _NEGATIVECACHEACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.NegativeCacheAction)
+  })
+_sym_db.RegisterMessage(NegativeCacheAction)
+
+VodCache = _reflection.GeneratedProtocolMessageType('VodCache', (_message.Message,), {
+  'DESCRIPTOR' : _VODCACHE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodCache)
+  })
+_sym_db.RegisterMessage(VodCache)
+
+CacheControlRule = _reflection.GeneratedProtocolMessageType('CacheControlRule', (_message.Message,), {
+  'DESCRIPTOR' : _CACHECONTROLRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CacheControlRule)
+  })
+_sym_db.RegisterMessage(CacheControlRule)
+
+CacheAction = _reflection.GeneratedProtocolMessageType('CacheAction', (_message.Message,), {
+  'DESCRIPTOR' : _CACHEACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CacheAction)
+  })
+_sym_db.RegisterMessage(CacheAction)
+
+VodCacheKey = _reflection.GeneratedProtocolMessageType('VodCacheKey', (_message.Message,), {
+  'DESCRIPTOR' : _VODCACHEKEY,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodCacheKey)
+  })
+_sym_db.RegisterMessage(VodCacheKey)
+
+CacheKeyGenerationRule = _reflection.GeneratedProtocolMessageType('CacheKeyGenerationRule', (_message.Message,), {
+  'DESCRIPTOR' : _CACHEKEYGENERATIONRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CacheKeyGenerationRule)
+  })
+_sym_db.RegisterMessage(CacheKeyGenerationRule)
+
+CacheKeyAction = _reflection.GeneratedProtocolMessageType('CacheKeyAction', (_message.Message,), {
+  'DESCRIPTOR' : _CACHEKEYACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CacheKeyAction)
+  })
+_sym_db.RegisterMessage(CacheKeyAction)
+
+CacheKeyComponents = _reflection.GeneratedProtocolMessageType('CacheKeyComponents', (_message.Message,), {
+  'DESCRIPTOR' : _CACHEKEYCOMPONENTS,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CacheKeyComponents)
+  })
+_sym_db.RegisterMessage(CacheKeyComponents)
+
+VodDomainAdvancedConfig = _reflection.GeneratedProtocolMessageType('VodDomainAdvancedConfig', (_message.Message,), {
+  'DESCRIPTOR' : _VODDOMAINADVANCEDCONFIG,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodDomainAdvancedConfig)
+  })
+_sym_db.RegisterMessage(VodDomainAdvancedConfig)
+
+VodRewriteHLS = _reflection.GeneratedProtocolMessageType('VodRewriteHLS', (_message.Message,), {
+  'DESCRIPTOR' : _VODREWRITEHLS,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodRewriteHLS)
+  })
+_sym_db.RegisterMessage(VodRewriteHLS)
+
+RewriteHLS = _reflection.GeneratedProtocolMessageType('RewriteHLS', (_message.Message,), {
+  'DESCRIPTOR' : _REWRITEHLS,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.RewriteHLS)
+  })
+_sym_db.RegisterMessage(RewriteHLS)
+
+VodVideoDrag = _reflection.GeneratedProtocolMessageType('VodVideoDrag', (_message.Message,), {
+  'DESCRIPTOR' : _VODVIDEODRAG,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodVideoDrag)
+  })
+_sym_db.RegisterMessage(VodVideoDrag)
+
+VideoDrag = _reflection.GeneratedProtocolMessageType('VideoDrag', (_message.Message,), {
+  'DESCRIPTOR' : _VIDEODRAG,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VideoDrag)
+  })
+_sym_db.RegisterMessage(VideoDrag)
+
+VodCompressionRules = _reflection.GeneratedProtocolMessageType('VodCompressionRules', (_message.Message,), {
+  'DESCRIPTOR' : _VODCOMPRESSIONRULES,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodCompressionRules)
+  })
+_sym_db.RegisterMessage(VodCompressionRules)
+
+Compression = _reflection.GeneratedProtocolMessageType('Compression', (_message.Message,), {
+  'DESCRIPTOR' : _COMPRESSION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.Compression)
+  })
+_sym_db.RegisterMessage(Compression)
+
+CompressionRule = _reflection.GeneratedProtocolMessageType('CompressionRule', (_message.Message,), {
+  'DESCRIPTOR' : _COMPRESSIONRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CompressionRule)
+  })
+_sym_db.RegisterMessage(CompressionRule)
+
+CompressionAction = _reflection.GeneratedProtocolMessageType('CompressionAction', (_message.Message,), {
+  'DESCRIPTOR' : _COMPRESSIONACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CompressionAction)
+  })
+_sym_db.RegisterMessage(CompressionAction)
+
+VodResponseHeader = _reflection.GeneratedProtocolMessageType('VodResponseHeader', (_message.Message,), {
+  'DESCRIPTOR' : _VODRESPONSEHEADER,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodResponseHeader)
+  })
+_sym_db.RegisterMessage(VodResponseHeader)
+
+DownloadSpeedLimit = _reflection.GeneratedProtocolMessageType('DownloadSpeedLimit', (_message.Message,), {
+  'DESCRIPTOR' : _DOWNLOADSPEEDLIMIT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.DownloadSpeedLimit)
+  })
+_sym_db.RegisterMessage(DownloadSpeedLimit)
+
+DownloadSpeedLimitRule = _reflection.GeneratedProtocolMessageType('DownloadSpeedLimitRule', (_message.Message,), {
+  'DESCRIPTOR' : _DOWNLOADSPEEDLIMITRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.DownloadSpeedLimitRule)
+  })
+_sym_db.RegisterMessage(DownloadSpeedLimitRule)
+
+DownloadSpeedLimitAction = _reflection.GeneratedProtocolMessageType('DownloadSpeedLimitAction', (_message.Message,), {
+  'DESCRIPTOR' : _DOWNLOADSPEEDLIMITACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.DownloadSpeedLimitAction)
+  })
+_sym_db.RegisterMessage(DownloadSpeedLimitAction)
+
+SpeedLimitTime = _reflection.GeneratedProtocolMessageType('SpeedLimitTime', (_message.Message,), {
+  'DESCRIPTOR' : _SPEEDLIMITTIME,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.SpeedLimitTime)
+  })
+_sym_db.RegisterMessage(SpeedLimitTime)
+
+MethodDeniedRule = _reflection.GeneratedProtocolMessageType('MethodDeniedRule', (_message.Message,), {
+  'DESCRIPTOR' : _METHODDENIEDRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.MethodDeniedRule)
+  })
+_sym_db.RegisterMessage(MethodDeniedRule)
+
+AreaAccessRule = _reflection.GeneratedProtocolMessageType('AreaAccessRule', (_message.Message,), {
+  'DESCRIPTOR' : _AREAACCESSRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.AreaAccessRule)
+  })
+_sym_db.RegisterMessage(AreaAccessRule)
+
+RemoteAuth = _reflection.GeneratedProtocolMessageType('RemoteAuth', (_message.Message,), {
+  'DESCRIPTOR' : _REMOTEAUTH,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.RemoteAuth)
+  })
+_sym_db.RegisterMessage(RemoteAuth)
+
+RemoteAuthRule = _reflection.GeneratedProtocolMessageType('RemoteAuthRule', (_message.Message,), {
+  'DESCRIPTOR' : _REMOTEAUTHRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.RemoteAuthRule)
+  })
+_sym_db.RegisterMessage(RemoteAuthRule)
+
+RemoteAuthRuleAction = _reflection.GeneratedProtocolMessageType('RemoteAuthRuleAction', (_message.Message,), {
+  'DESCRIPTOR' : _REMOTEAUTHRULEACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.RemoteAuthRuleAction)
+  })
+_sym_db.RegisterMessage(RemoteAuthRuleAction)
+
+QueryStringRules = _reflection.GeneratedProtocolMessageType('QueryStringRules', (_message.Message,), {
+  'DESCRIPTOR' : _QUERYSTRINGRULES,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.QueryStringRules)
+  })
+_sym_db.RegisterMessage(QueryStringRules)
+
+QueryStringComponents = _reflection.GeneratedProtocolMessageType('QueryStringComponents', (_message.Message,), {
+  'DESCRIPTOR' : _QUERYSTRINGCOMPONENTS,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.QueryStringComponents)
+  })
+_sym_db.RegisterMessage(QueryStringComponents)
+
+QueryStringInstance = _reflection.GeneratedProtocolMessageType('QueryStringInstance', (_message.Message,), {
+  'DESCRIPTOR' : _QUERYSTRINGINSTANCE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.QueryStringInstance)
+  })
+_sym_db.RegisterMessage(QueryStringInstance)
+
+AuthRequestHeaderRule = _reflection.GeneratedProtocolMessageType('AuthRequestHeaderRule', (_message.Message,), {
+  'DESCRIPTOR' : _AUTHREQUESTHEADERRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.AuthRequestHeaderRule)
+  })
+_sym_db.RegisterMessage(AuthRequestHeaderRule)
+
+RequestHeaderComponent = _reflection.GeneratedProtocolMessageType('RequestHeaderComponent', (_message.Message,), {
+  'DESCRIPTOR' : _REQUESTHEADERCOMPONENT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.RequestHeaderComponent)
+  })
+_sym_db.RegisterMessage(RequestHeaderComponent)
+
+AuthResponseConfig = _reflection.GeneratedProtocolMessageType('AuthResponseConfig', (_message.Message,), {
+  'DESCRIPTOR' : _AUTHRESPONSECONFIG,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.AuthResponseConfig)
+  })
+_sym_db.RegisterMessage(AuthResponseConfig)
+
+AuthCacheAction = _reflection.GeneratedProtocolMessageType('AuthCacheAction', (_message.Message,), {
+  'DESCRIPTOR' : _AUTHCACHEACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.AuthCacheAction)
+  })
+_sym_db.RegisterMessage(AuthCacheAction)
+
+AuthTimeOut = _reflection.GeneratedProtocolMessageType('AuthTimeOut', (_message.Message,), {
+  'DESCRIPTOR' : _AUTHTIMEOUT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.AuthTimeOut)
+  })
+_sym_db.RegisterMessage(AuthTimeOut)
+
+ResponseAction = _reflection.GeneratedProtocolMessageType('ResponseAction', (_message.Message,), {
+  'DESCRIPTOR' : _RESPONSEACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.ResponseAction)
+  })
+_sym_db.RegisterMessage(ResponseAction)
+
+StatusCodeAction = _reflection.GeneratedProtocolMessageType('StatusCodeAction', (_message.Message,), {
+  'DESCRIPTOR' : _STATUSCODEACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.StatusCodeAction)
+  })
+_sym_db.RegisterMessage(StatusCodeAction)
+
+AuthModeConfig = _reflection.GeneratedProtocolMessageType('AuthModeConfig', (_message.Message,), {
+  'DESCRIPTOR' : _AUTHMODECONFIG,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.AuthModeConfig)
+  })
+_sym_db.RegisterMessage(AuthModeConfig)
+
+VodSignedUrlAuthStruct = _reflection.GeneratedProtocolMessageType('VodSignedUrlAuthStruct', (_message.Message,), {
+  'DESCRIPTOR' : _VODSIGNEDURLAUTHSTRUCT,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.VodSignedUrlAuthStruct)
+  })
+_sym_db.RegisterMessage(VodSignedUrlAuthStruct)
+
+SignedUrlAuth = _reflection.GeneratedProtocolMessageType('SignedUrlAuth', (_message.Message,), {
+  'DESCRIPTOR' : _SIGNEDURLAUTH,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.SignedUrlAuth)
+  })
+_sym_db.RegisterMessage(SignedUrlAuth)
+
+SignedUrlAuthRule = _reflection.GeneratedProtocolMessageType('SignedUrlAuthRule', (_message.Message,), {
+  'DESCRIPTOR' : _SIGNEDURLAUTHRULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.SignedUrlAuthRule)
+  })
+_sym_db.RegisterMessage(SignedUrlAuthRule)
+
+SignedUrlAuthAction = _reflection.GeneratedProtocolMessageType('SignedUrlAuthAction', (_message.Message,), {
+  'DESCRIPTOR' : _SIGNEDURLAUTHACTION,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.SignedUrlAuthAction)
+  })
+_sym_db.RegisterMessage(SignedUrlAuthAction)
+
+RewriteM3u8Rule = _reflection.GeneratedProtocolMessageType('RewriteM3u8Rule', (_message.Message,), {
+  'DESCRIPTOR' : _REWRITEM3U8RULE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.RewriteM3u8Rule)
+  })
+_sym_db.RegisterMessage(RewriteM3u8Rule)
+
+CustomVariableRules = _reflection.GeneratedProtocolMessageType('CustomVariableRules', (_message.Message,), {
+  'DESCRIPTOR' : _CUSTOMVARIABLERULES,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CustomVariableRules)
+  })
+_sym_db.RegisterMessage(CustomVariableRules)
+
+CustomVariableInstance = _reflection.GeneratedProtocolMessageType('CustomVariableInstance', (_message.Message,), {
+  'DESCRIPTOR' : _CUSTOMVARIABLEINSTANCE,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.CustomVariableInstance)
+  })
+_sym_db.RegisterMessage(CustomVariableInstance)
+
+RefererControl = _reflection.GeneratedProtocolMessageType('RefererControl', (_message.Message,), {
+  'DESCRIPTOR' : _REFERERCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.RefererControl)
+  })
+_sym_db.RegisterMessage(RefererControl)
+
+IpControl = _reflection.GeneratedProtocolMessageType('IpControl', (_message.Message,), {
+  'DESCRIPTOR' : _IPCONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.IpControl)
+  })
+_sym_db.RegisterMessage(IpControl)
+
+ExpireControl = _reflection.GeneratedProtocolMessageType('ExpireControl', (_message.Message,), {
+  'DESCRIPTOR' : _EXPIRECONTROL,
+  '__module__' : 'byteplus.vod.business.vod_cdn_pb2'
+  # @@protoc_insertion_point(class_scope:Byteplus.Vod.Models.Business.ExpireControl)
+  })
+_sym_db.RegisterMessage(ExpireControl)
+
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\'com.byteplus.service.vod.model.businessB\006VodCdnP\001ZGgithub.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/business\240\001\001\330\001\001\302\002\000\312\002$Byteplus\\Service\\Vod\\Models\\Business\342\002\'Byteplus\\Service\\Vod\\Models\\GPBMetadata'
   _CDNSTATUSDATAITEM_STATUSDETAILENTRY._options = None
   _CDNSTATUSDATAITEM_STATUSDETAILENTRY._serialized_options = b'8\001'
-  _VODDOMAINSOURCESTATIONTYPE._serialized_start=4821
-  _VODDOMAINSOURCESTATIONTYPE._serialized_end=4967
-  _VODDOMAINSOURCESTATIONADDRESSTYPE._serialized_start=4970
-  _VODDOMAINSOURCESTATIONADDRESSTYPE._serialized_end=5139
+  _INSTANCEAUTHINFO_SECRETENTRY._options = None
+  _INSTANCEAUTHINFO_SECRETENTRY._serialized_options = b'8\001'
+  _VODDOMAINSOURCESTATIONTYPE._serialized_start=20610
+  _VODDOMAINSOURCESTATIONTYPE._serialized_end=20756
+  _VODDOMAINSOURCESTATIONADDRESSTYPE._serialized_start=20759
+  _VODDOMAINSOURCESTATIONADDRESSTYPE._serialized_end=20928
+  _SOURCESTATIONTYPE._serialized_start=20930
+  _SOURCESTATIONTYPE._serialized_end=21040
+  _SOURCESTATIONADDRESSTYPE._serialized_start=21043
+  _SOURCESTATIONADDRESSTYPE._serialized_end=21176
+  _ORIGINHOSTTYPE._serialized_start=21178
+  _ORIGINHOSTTYPE._serialized_end=21268
+  _BWLISTTYPE._serialized_start=21270
+  _BWLISTTYPE._serialized_end=21304
   _VODDOMAINCONFIGINFO._serialized_start=110
   _VODDOMAINCONFIGINFO._serialized_end=369
   _VODDOMAININSTANCEINFOS._serialized_start=372
@@ -401,4 +1415,250 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DOMAINSTATUSDATADETAIL._serialized_end=4714
   _VODLISTCDNSTATUSDATADETAILRESULT._serialized_start=4716
   _VODLISTCDNSTATUSDATADETAILRESULT._serialized_end=4818
+  _CDNORIGINRULE._serialized_start=4820
+  _CDNORIGINRULE._serialized_end=4901
+  _ORIGINACTION._serialized_start=4903
+  _ORIGINACTION._serialized_end=4980
+  _ORIGINLINE._serialized_start=4982
+  _ORIGINLINE._serialized_end=5053
+  _DOMAINCONFIGINFO._serialized_start=5056
+  _DOMAINCONFIGINFO._serialized_end=5207
+  _DOMAIN._serialized_start=5210
+  _DOMAIN._serialized_end=5432
+  _CERTIFICATE._serialized_start=5435
+  _CERTIFICATE._serialized_end=5565
+  _CDNCONFIG._serialized_start=5568
+  _CDNCONFIG._serialized_end=7597
+  _ORIGINACCESSRULECONTROL._serialized_start=7599
+  _ORIGINACCESSRULECONTROL._serialized_end=7698
+  _DOWNLOADSPEEDLIMITCONTROL._serialized_start=7700
+  _DOWNLOADSPEEDLIMITCONTROL._serialized_end=7805
+  _METHODDENIEDRULECONTROL._serialized_start=7807
+  _METHODDENIEDRULECONTROL._serialized_end=7906
+  _AREAACCESSRULECONTROL._serialized_start=7908
+  _AREAACCESSRULECONTROL._serialized_end=8001
+  _REMOTEAUTHCONTROL._serialized_start=8003
+  _REMOTEAUTHCONTROL._serialized_end=8084
+  _UAACCESSRULECONTROL._serialized_start=8086
+  _UAACCESSRULECONTROL._serialized_end=8187
+  _SIGNEDURLAUTHCONTROL._serialized_start=8189
+  _SIGNEDURLAUTHCONTROL._serialized_end=8279
+  _USERAGENTACCESSRULE._serialized_start=8281
+  _USERAGENTACCESSRULE._serialized_end=8375
+  _VIDEODRAGCONTROL._serialized_start=8377
+  _VIDEODRAGCONTROL._serialized_end=8455
+  _COMPRESSIONRULESCONTROL._serialized_start=8457
+  _COMPRESSIONRULESCONTROL._serialized_end=8546
+  _HTTPSCONTROL._serialized_start=8548
+  _HTTPSCONTROL._serialized_end=8614
+  _HTTPFORCEDREDIRECTCONTROL._serialized_start=8616
+  _HTTPFORCEDREDIRECTCONTROL._serialized_end=8721
+  _NEGATIVECACHECONTROL._serialized_start=8723
+  _NEGATIVECACHECONTROL._serialized_end=8813
+  _CACHEKEYCONTROL._serialized_start=8815
+  _CACHEKEYCONTROL._serialized_end=8904
+  _CACHECONTROL._serialized_start=8906
+  _CACHECONTROL._serialized_end=8983
+  _RESPONSEHEADERCONTROL._serialized_start=8985
+  _RESPONSEHEADERCONTROL._serialized_end=9082
+  _ORIGINARGCONTROL._serialized_start=9084
+  _ORIGINARGCONTROL._serialized_end=9163
+  _REQUESTHEADERCONTROL._serialized_start=9165
+  _REQUESTHEADERCONTROL._serialized_end=9259
+  _TIMEOUTCONTROL._serialized_start=9261
+  _TIMEOUTCONTROL._serialized_end=9349
+  _ORIGINSNICONTROL._serialized_start=9351
+  _ORIGINSNICONTROL._serialized_end=9445
+  _BRIEFDOMAININFO._serialized_start=9448
+  _BRIEFDOMAININFO._serialized_end=9614
+  _BRIEFDOMAINLIST._serialized_start=9616
+  _BRIEFDOMAINLIST._serialized_end=9697
+  _DOMAINAUTHINFO._serialized_start=9700
+  _DOMAINAUTHINFO._serialized_end=9830
+  _INSTANCEAUTHINFO._serialized_start=9833
+  _INSTANCEAUTHINFO._serialized_end=10094
+  _INSTANCEAUTHINFO_SECRETENTRY._serialized_start=10001
+  _INSTANCEAUTHINFO_SECRETENTRY._serialized_end=10094
+  _DOMAINAUTHSECRET._serialized_start=10096
+  _DOMAINAUTHSECRET._serialized_end=10156
+  _LISTDOMAINWITHOUTCDNRESULT._serialized_start=10158
+  _LISTDOMAINWITHOUTCDNRESULT._serialized_end=10268
+  _DOMAINRECORD._serialized_start=10270
+  _DOMAINRECORD._serialized_end=10333
+  _DOMAINLISTRESULT._serialized_start=10335
+  _DOMAINLISTRESULT._serialized_end=10417
+  _ORIGINHOST._serialized_start=10419
+  _ORIGINHOST._serialized_end=10531
+  _ORIGIN._serialized_start=10534
+  _ORIGIN._serialized_end=10800
+  _ORIGINSNI._serialized_start=10802
+  _ORIGINSNI._serialized_end=10848
+  _TIMEOUT._serialized_start=10850
+  _TIMEOUT._serialized_end=10940
+  _TIMEOUTRULE._serialized_start=10942
+  _TIMEOUTRULE._serialized_end=11023
+  _TIMEOUTACTION._serialized_start=11025
+  _TIMEOUTACTION._serialized_end=11081
+  _ORIGINRULE._serialized_start=11084
+  _ORIGINRULE._serialized_end=11228
+  _ORIGINARGACTION._serialized_start=11230
+  _ORIGINARGACTION._serialized_end=11327
+  _ORIGINARGCOMPONENTS._serialized_start=11329
+  _ORIGINARGCOMPONENTS._serialized_end=11401
+  _CONDITION._serialized_start=11403
+  _CONDITION._serialized_end=11502
+  _CONDITIONRULE._serialized_start=11504
+  _CONDITIONRULE._serialized_end=11582
+  _REQUESTHEADERRULE._serialized_start=11585
+  _REQUESTHEADERRULE._serialized_end=11744
+  _REQUESTHEADERACTION._serialized_start=11746
+  _REQUESTHEADERACTION._serialized_end=11852
+  _REQUESTHEADERINSTANCE._serialized_start=11854
+  _REQUESTHEADERINSTANCE._serialized_end=11940
+  _RESPONSEHEADERRULE._serialized_start=11943
+  _RESPONSEHEADERRULE._serialized_end=12105
+  _RESPONSEHEADERACTION._serialized_start=12107
+  _RESPONSEHEADERACTION._serialized_end=12216
+  _RESPONSEHEADERINSTANCE._serialized_start=12218
+  _RESPONSEHEADERINSTANCE._serialized_end=12334
+  _ORIGINACCESSRULE._serialized_start=12336
+  _ORIGINACCESSRULE._serialized_end=12425
+  _VODREFERERS._serialized_start=12427
+  _VODREFERERS._serialized_end=12536
+  _VODREFERERSCONTROL._serialized_start=12538
+  _VODREFERERSCONTROL._serialized_end=12631
+  _VODIPSACCESS._serialized_start=12633
+  _VODIPSACCESS._serialized_end=12745
+  _VODIPSACCESSCONTROL._serialized_start=12747
+  _VODIPSACCESSCONTROL._serialized_end=12813
+  _VODEXPIRE._serialized_start=12815
+  _VODEXPIRE._serialized_end=12918
+  _VODEXPIRECONTROL._serialized_start=12920
+  _VODEXPIRECONTROL._serialized_end=12970
+  _VODDOMAINPROTOCOLCONFIG._serialized_start=12973
+  _VODDOMAINPROTOCOLCONFIG._serialized_end=13140
+  _VODHTTPFORCEDREDIRECT._serialized_start=13142
+  _VODHTTPFORCEDREDIRECT._serialized_end=13261
+  _HTTPFORCEDREDIRECT._serialized_start=13263
+  _HTTPFORCEDREDIRECT._serialized_end=13333
+  _VODHTTPS._serialized_start=13335
+  _VODHTTPS._serialized_end=13415
+  _HTTPS._serialized_start=13418
+  _HTTPS._serialized_end=13596
+  _HSTS._serialized_start=13598
+  _HSTS._serialized_end=13652
+  _FORCEDREDIRECT._serialized_start=13654
+  _FORCEDREDIRECT._serialized_end=13720
+  _VODISP._serialized_start=13722
+  _VODISP._serialized_end=13758
+  _VODREGION._serialized_start=13760
+  _VODREGION._serialized_end=13799
+  _VODLISTCDNREGIONANDISPRESULT._serialized_start=13802
+  _VODLISTCDNREGIONANDISPRESULT._serialized_end=13942
+  _VODTOPDATA._serialized_start=13944
+  _VODTOPDATA._serialized_end=14071
+  _VODCDNTOPUSAGEDATARESULT._serialized_start=14074
+  _VODCDNTOPUSAGEDATARESULT._serialized_end=14211
+  _VODDOMAINCACHECONFIG._serialized_start=14214
+  _VODDOMAINCACHECONFIG._serialized_end=14432
+  _VODNEGATIVECACHE._serialized_start=14434
+  _VODNEGATIVECACHE._serialized_end=14538
+  _NEGATIVECACHE._serialized_start=14541
+  _NEGATIVECACHE._serialized_end=14694
+  _NEGATIVECACHEACTION._serialized_start=14696
+  _NEGATIVECACHEACTION._serialized_end=14786
+  _VODCACHE._serialized_start=14788
+  _VODCACHE._serialized_end=14879
+  _CACHECONTROLRULE._serialized_start=14882
+  _CACHECONTROLRULE._serialized_end=15024
+  _CACHEACTION._serialized_start=15026
+  _CACHEACTION._serialized_end=15111
+  _VODCACHEKEY._serialized_start=15113
+  _VODCACHEKEY._serialized_end=15216
+  _CACHEKEYGENERATIONRULE._serialized_start=15219
+  _CACHEKEYGENERATIONRULE._serialized_end=15373
+  _CACHEKEYACTION._serialized_start=15375
+  _CACHEKEYACTION._serialized_end=15469
+  _CACHEKEYCOMPONENTS._serialized_start=15471
+  _CACHEKEYCOMPONENTS._serialized_end=15562
+  _VODDOMAINADVANCEDCONFIG._serialized_start=15565
+  _VODDOMAINADVANCEDCONFIG._serialized_end=15880
+  _VODREWRITEHLS._serialized_start=15882
+  _VODREWRITEHLS._serialized_end=15977
+  _REWRITEHLS._serialized_start=15979
+  _REWRITEHLS._serialized_end=16025
+  _VODVIDEODRAG._serialized_start=16027
+  _VODVIDEODRAG._serialized_end=16119
+  _VIDEODRAG._serialized_start=16121
+  _VIDEODRAG._serialized_end=16148
+  _VODCOMPRESSIONRULES._serialized_start=16150
+  _VODCOMPRESSIONRULES._serialized_end=16253
+  _COMPRESSION._serialized_start=16255
+  _COMPRESSION._serialized_end=16357
+  _COMPRESSIONRULE._serialized_start=16360
+  _COMPRESSIONRULE._serialized_end=16513
+  _COMPRESSIONACTION._serialized_start=16515
+  _COMPRESSIONACTION._serialized_end=16613
+  _VODRESPONSEHEADER._serialized_start=16615
+  _VODRESPONSEHEADER._serialized_end=16726
+  _DOWNLOADSPEEDLIMIT._serialized_start=16728
+  _DOWNLOADSPEEDLIMIT._serialized_end=16851
+  _DOWNLOADSPEEDLIMITRULE._serialized_start=16854
+  _DOWNLOADSPEEDLIMITRULE._serialized_end=17028
+  _DOWNLOADSPEEDLIMITACTION._serialized_start=17031
+  _DOWNLOADSPEEDLIMITACTION._serialized_end=17180
+  _SPEEDLIMITTIME._serialized_start=17182
+  _SPEEDLIMITTIME._serialized_end=17251
+  _METHODDENIEDRULE._serialized_start=17253
+  _METHODDENIEDRULE._serialized_end=17304
+  _AREAACCESSRULE._serialized_start=17306
+  _AREAACCESSRULE._serialized_end=17370
+  _REMOTEAUTH._serialized_start=17372
+  _REMOTEAUTH._serialized_end=17471
+  _REMOTEAUTHRULE._serialized_start=17474
+  _REMOTEAUTHRULE._serialized_end=17632
+  _REMOTEAUTHRULEACTION._serialized_start=17635
+  _REMOTEAUTHRULEACTION._serialized_end=17986
+  _QUERYSTRINGRULES._serialized_start=17989
+  _QUERYSTRINGRULES._serialized_end=18172
+  _QUERYSTRINGCOMPONENTS._serialized_start=18174
+  _QUERYSTRINGCOMPONENTS._serialized_end=18228
+  _QUERYSTRINGINSTANCE._serialized_start=18230
+  _QUERYSTRINGINSTANCE._serialized_end=18314
+  _AUTHREQUESTHEADERRULE._serialized_start=18317
+  _AUTHREQUESTHEADERRULE._serialized_end=18533
+  _REQUESTHEADERCOMPONENT._serialized_start=18535
+  _REQUESTHEADERCOMPONENT._serialized_end=18590
+  _AUTHRESPONSECONFIG._serialized_start=18593
+  _AUTHRESPONSECONFIG._serialized_end=18891
+  _AUTHCACHEACTION._serialized_start=18893
+  _AUTHCACHEACTION._serialized_end=18977
+  _AUTHTIMEOUT._serialized_start=18979
+  _AUTHTIMEOUT._serialized_end=19022
+  _RESPONSEACTION._serialized_start=19024
+  _RESPONSEACTION._serialized_end=19060
+  _STATUSCODEACTION._serialized_start=19062
+  _STATUSCODEACTION._serialized_end=19142
+  _AUTHMODECONFIG._serialized_start=19145
+  _AUTHMODECONFIG._serialized_end=19273
+  _VODSIGNEDURLAUTHSTRUCT._serialized_start=19275
+  _VODSIGNEDURLAUTHSTRUCT._serialized_end=19385
+  _SIGNEDURLAUTH._serialized_start=19387
+  _SIGNEDURLAUTH._serialized_end=19495
+  _SIGNEDURLAUTHRULE._serialized_start=19498
+  _SIGNEDURLAUTHRULE._serialized_end=19657
+  _SIGNEDURLAUTHACTION._serialized_start=19660
+  _SIGNEDURLAUTHACTION._serialized_end=20078
+  _REWRITEM3U8RULE._serialized_start=20080
+  _REWRITEM3U8RULE._serialized_end=20141
+  _CUSTOMVARIABLERULES._serialized_start=20143
+  _CUSTOMVARIABLERULES._serialized_end=20251
+  _CUSTOMVARIABLEINSTANCE._serialized_start=20253
+  _CUSTOMVARIABLEINSTANCE._serialized_end=20324
+  _REFERERCONTROL._serialized_start=20327
+  _REFERERCONTROL._serialized_end=20458
+  _IPCONTROL._serialized_start=20460
+  _IPCONTROL._serialized_end=20558
+  _EXPIRECONTROL._serialized_start=20560
+  _EXPIRECONTROL._serialized_end=20607
 # @@protoc_insertion_point(module_scope)
