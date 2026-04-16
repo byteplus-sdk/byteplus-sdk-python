@@ -97,6 +97,8 @@ class VodServiceConfig(Service):
                 "ListCdnTasks": ApiInfo("GET", "/", {"Action": "ListCDNTasks", "Version": "2023-01-01"}, {}, {}),
                 "ListCdnAccessLog": ApiInfo("GET", "/", {"Action": "ListCdnAccessLog", "Version": "2023-01-01"}, {}, {}),
                 "ListCdnTopAccessUrl": ApiInfo("GET", "/", {"Action": "ListCdnTopAccessUrl", "Version": "2023-01-01"}, {}, {}),
+                "ListCdnTopAccess": ApiInfo("GET", "/", {"Action": "ListCdnTopAccess", "Version": "2023-07-01"},
+                                               {}, {}),
                 "DescribeVodDomainBandwidthData": ApiInfo("GET", "/", {"Action": "DescribeVodDomainBandwidthData", "Version": "2023-01-01"}, {}, {}),
                 "DescribeVodDomainTrafficData": ApiInfo("GET", "/", {"Action": "DescribeVodDomainTrafficData", "Version": "2023-01-01"}, {}, {}),
                 "ListCdnUsageData": ApiInfo("GET", "/", {"Action": "ListCdnUsageData", "Version": "2023-01-01"}, {}, {}),
