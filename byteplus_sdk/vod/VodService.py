@@ -281,6 +281,40 @@ class VodService(VodServiceConfig):
                         print(f"Upload segment {segment_file_name} failed after {max_retries + 1} attempts. Error: {e}")
                         raise last_exception
 
+    #
+    # ParseUploadManifest.
+    #
+    # @param request VodParseUploadManifestRequest
+    # @return VodParseUploadManifestResponse
+    # @raise Exception
+    def parse_upload_manifest(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.post("ParseUploadManifest",{},params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodParseUploadManifestResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodParseUploadManifestResponse(), True)
+
     def upload_tob(self, space_name, file_path, file_type, file_name, file_extension, storage_class):
         if not os.path.isfile(file_path):
             raise Exception("no such file on file path")
@@ -822,39 +856,7 @@ class VodService(VodServiceConfig):
         else:
             return Parse(res, VodCommitUploadInfoResponse(), True)
 
-    #
-    # ParseUploadManifest.
-    #
-    # @param request VodParseUploadManifestRequest
-    # @return VodParseUploadManifestResponse
-    # @raise Exception
-    def parse_upload_manifest(self, request):
-        try:
-            if sys.version_info[0] == 3:
-                jsonData = MessageToJson(request, False, True)
-                params = json.loads(jsonData)
-                for k, v in params.items():
-                    if isinstance(v, (int, float, bool, str)) is True:
-                        continue
-                    else:
-                        params[k] = json.dumps(v)
-            else:
-                params = MessageToDict(request, False, True)
-                for k, v in params.items():
-                    if isinstance(v, (int, float, bool, str, unicode)) is True:
-                        continue
-                    else:
-                        params[k] = json.dumps(v)
-            res = self.post("ParseUploadManifest",{},params)
-        except Exception as Argument:
-            try:
-                resp = Parse(Argument.__str__(), VodParseUploadManifestResponse(), True)
-            except Exception:
-                raise Argument
-            else:
-                raise Exception(resp.ResponseMetadata.Error.Code)
-        else:
-            return Parse(res, VodParseUploadManifestResponse(), True)
+
 
     #
     # ListFileMetaInfosByFileNames.
