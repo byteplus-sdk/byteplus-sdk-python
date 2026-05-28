@@ -13,6 +13,7 @@ import sys
 import time
 import datetime
 import byteplus_sdk.vod
+from byteplus_sdk.const.Const import FILE_TYPE_OBJECT
 from byteplus_sdk.util.Util import Util
 from byteplus_sdk.vod.models.request.request_vod_pb2 import *
 from byteplus_sdk.vod.models.response.response_vod_pb2 import *
@@ -180,6 +181,13 @@ class VodService(VodServiceConfig):
                 return base64.b64encode(data.decode('utf-8'))
 
     def upload_media(self, request):
+        file_path = request.FilePath
+
+        if request.SupportParseManifest and file_path.lower().endswith('.m3u8'):
+            # Parse m3u8 manifest and upload segments
+            segments = self.parse_m3u8_manifest(request.SpaceName, file_path)
+            self.upload_m3u8_segments(request, segments)
+
         oid, session_key, avg_speed = self.upload_tob(request.SpaceName, request.FilePath, "", request.FileName,
                                                       request.FileExtension, request.StorageClass)
         req = VodCommitUploadInfoRequest()
@@ -192,6 +200,120 @@ class VodService(VodServiceConfig):
             print(resp.ResponseMetadata.RequestId)
             raise Exception(resp.ResponseMetadata.Error)
         return resp
+
+    def parse_m3u8_manifest(self, space_name, manifest_path):
+        # Recursively parse manifest and collect all segments
+        segments = []
+        seen_files = set()
+
+        def parse(current_path, relative_path_prefix):
+            with open(current_path, 'r', encoding='utf-8') as f:
+                manifest_content = f.read()
+
+            parse_req = VodParseUploadManifestRequest()
+            parse_req.SpaceName = space_name
+            parse_req.ManifestContent = manifest_content
+            parse_resp = self.parse_upload_manifest(parse_req)
+            if parse_resp.ResponseMetadata.Error.Code != '':
+                print(parse_resp.ResponseMetadata.RequestId)
+                raise Exception(parse_resp.ResponseMetadata.Error)
+
+            manifest_dir = os.path.dirname(current_path)
+            if parse_resp.Result and parse_resp.Result.Data:
+                for segment in parse_resp.Result.Data.MediaSegments:
+                    segment_path = os.path.join(manifest_dir, segment)
+
+                    if segment_path in seen_files:
+                        continue
+                    seen_files.add(segment_path)
+
+                    segment_file_name = segment
+                    if relative_path_prefix:
+                        segment_file_name = os.path.join(relative_path_prefix, segment_file_name)
+
+                    if segment_path.lower().endswith('.m3u8'):
+                        sub_relative_path_prefix = os.path.dirname(segment_file_name)
+                        if sub_relative_path_prefix == '.':
+                            sub_relative_path_prefix = ''
+                        parse(segment_path, sub_relative_path_prefix)
+
+                    segments.append({
+                        'file_path': segment_path,
+                        'file_name': segment_file_name
+                    })
+
+        parse(manifest_path, '')
+        return segments
+
+    def upload_m3u8_segments(self, request, segments):
+        # Get path prefix
+        path_prefix = ''
+        if request.FileName:
+            path_prefix = os.path.dirname(request.FileName)
+            if path_prefix != '':
+                path_prefix += '/'
+        max_retries = 2
+        retry_delay = 1
+        # Upload each segment with retry
+        for segment in segments:
+            segment_file_path = segment['file_path']
+            segment_file_name = path_prefix + segment['file_name']
+            file_ext = os.path.splitext(segment_file_name)[1]
+
+            last_exception = None
+            for attempt in range(max_retries + 1):
+                try:
+                    _, _, _ = self.upload_tob(
+                        request.SpaceName,
+                        segment_file_path,
+                        FILE_TYPE_OBJECT,
+                        segment_file_name,
+                        file_ext,
+                        request.StorageClass,
+                    )
+                    break
+                except Exception as e:
+                    last_exception = e
+                    if attempt < max_retries:
+                        print(f"Upload segment {segment_file_name} failed (attempt {attempt + 1}/{max_retries + 1}), retrying... Error: {e}")
+                        time.sleep(retry_delay)
+                    else:
+                        print(f"Upload segment {segment_file_name} failed after {max_retries + 1} attempts. Error: {e}")
+                        raise last_exception
+
+    #
+    # ParseUploadManifest.
+    #
+    # @param request VodParseUploadManifestRequest
+    # @return VodParseUploadManifestResponse
+    # @raise Exception
+    def parse_upload_manifest(self, request):
+        try:
+            if sys.version_info[0] == 3:
+                jsonData = MessageToJson(request, False, True)
+                params = json.loads(jsonData)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            else:
+                params = MessageToDict(request, False, True)
+                for k, v in params.items():
+                    if isinstance(v, (int, float, bool, str, unicode)) is True:
+                        continue
+                    else:
+                        params[k] = json.dumps(v)
+            res = self.post("ParseUploadManifest",{},params)
+        except Exception as Argument:
+            try:
+                resp = Parse(Argument.__str__(), VodParseUploadManifestResponse(), True)
+            except Exception:
+                raise Argument
+            else:
+                raise Exception(resp.ResponseMetadata.Error.Code)
+        else:
+            return Parse(res, VodParseUploadManifestResponse(), True)
 
     def upload_tob(self, space_name, file_path, file_type, file_name, file_extension, storage_class):
         if not os.path.isfile(file_path):
@@ -733,6 +855,8 @@ class VodService(VodServiceConfig):
                 raise Exception(resp.ResponseMetadata.Error.Code)
         else:
             return Parse(res, VodCommitUploadInfoResponse(), True)
+
+
 
     #
     # ListFileMetaInfosByFileNames.
