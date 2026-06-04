@@ -92,6 +92,7 @@ class VodServiceConfig(Service):
                 "UpdateSpaceUploadConfig": ApiInfo("GET", "/", {"Action": "UpdateSpaceUploadConfig", "Version": "2023-01-01"}, {}, {}),
                 "DescribeVodSpaceStorageData": ApiInfo("GET", "/", {"Action": "DescribeVodSpaceStorageData", "Version": "2023-01-01"},{}, {}),
                 # 分发加速
+                "CreateDomain": ApiInfo("GET", "/", {"Action": "CreateDomain", "Version": "2023-01-01"}, {}, {}),
                 "ListDomain": ApiInfo("GET", "/", {"Action": "ListDomain", "Version": "2023-01-01"}, {}, {}),
                 "CreateCdnRefreshTask": ApiInfo("GET", "/", {"Action": "CreateCdnRefreshTask", "Version": "2023-01-01"}, {}, {}),
                 "CreateCdnPreloadTask": ApiInfo("GET", "/", {"Action": "CreateCdnPreloadTask", "Version": "2023-01-01"}, {}, {}),
