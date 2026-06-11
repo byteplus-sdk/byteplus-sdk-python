@@ -55,3 +55,7 @@ Create new token or click to view key detail.
   ```
   iam_service = IamService('ap-singapore-1')
   ```
+
+## Security and privacy
+This project takes security seriously.
+For vulnerability reporting and supported versions, see [SECURITY.md](SECURITY.md)
